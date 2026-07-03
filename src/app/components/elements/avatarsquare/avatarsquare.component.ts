@@ -1,0 +1,26 @@
+import { Component, OnInit } from '@angular/core';
+import * as codeData from '../../../shared/prismData/avatars';
+@Component({
+  selector: 'app-avatarsquare',
+  templateUrl: './avatarsquare.component.html',
+  styleUrls: ['./avatarsquare.component.scss']
+})
+export class AvatarsquareComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+  public isCollapsed = true;
+  public isCollapsed2 = true;
+  public isCollapsed3 = true;
+  public isCollapsed4 = true;
+  html1: string = codeData.avatarsHTML1;
+  ts1: string = codeData.avatarsTS1;
+  html2: string = codeData.avatarsHTML2;
+  ts2: string = codeData.avatarsTS2;
+  html3: string = codeData.avatarsHTML2;
+  ts3: string = codeData.avatarsTS2;
+  html4: string = codeData.avatarsHTML4;
+  ts4: string = codeData.avatarsTS4;
+}

@@ -1,0 +1,347 @@
+<app-page-header title="Pages"  active_item="Profile"></app-page-header>
+<!-- ROW-1 OPEN -->
+<div class="row" id="user-profile">
+  <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="wideget-user">
+            <div class="row">
+              <div class="col-lg-6 col-md-12">
+                <div class="wideget-user-desc d-flex">
+                  <div class="wideget-user-img">
+              <a routerLink="/pages/editprofile">    <img class="circular-image" [src]="pathToProfileImage || userProfilePictureUrl " alt="img"></a>
+                  </div>
+                  <div class="user-wrap">
+                    <h4>{{firstName}} {{lastName}}</h4>
+                    <h6 class="text-muted mb-3 font-weight-normal">Member Since: November 2022</h6>
+                    <a routerLink="/pages/editprofile" href="javascript:void(0)" class="btn btn-primary me-1 mb-1"><i class="fa fa-rss"></i> Follow</a>
+
+                    <a routerLink="/pages/mailinbox" href="javascript:void(0)" class="btn btn-secondary me-1 mb-1"><i class="fa fa-envelope"></i> E-mail</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+          <div class="border-top">
+              <div class="wideget-user-tab">
+                  <div class="tab-menu-heading">
+                      <div class="tabs-menu1">
+                          <ul ngbNav #nav="ngbNav" [activeId]="1">
+                              <li [ngbNavItem]="1">
+                                <a ngbNavLink>Profile</a>
+                                <ng-template ngbNavContent>
+                                  <div class="card">
+                                    <div class="card-body">
+                                  <div class="tab-pane active show" id="tab-51">
+                                    <div id="profile-log-switch">
+                                      <div class="media-heading">
+                                        <h5 class="text-uppercase">Personal Information</h5>
+                                      </div>
+                                      <div class="table-responsive ">
+                                        <table class="table row table-borderless bg-transparent">
+                                          <tbody class="col-lg-12 col-xl-6 p-0">
+                                            <tr>
+                                              <td><strong>Full Name :</strong>{{firstName}} {{lastName}}</td>
+                                            </tr>
+                                            <tr>
+                                              <td><strong>Location :</strong> Lac 2 , Tunisia </td>
+                                            </tr>
+                                            <tr>
+                                              <td><strong>Languages :</strong> English, German, Spanish.</td>
+                                            </tr>
+                                          </tbody>
+                                          <tbody class="col-lg-12 col-xl-6 p-0">
+                                            <tr>
+                                              <td><strong>Website :</strong> makerlink.com</td>
+                                            </tr>
+                                            <tr>
+                                              <td><strong>Email :</strong> {{email}}</td>
+                                            </tr>
+                                            <tr>
+                                              <td><strong>Phone :</strong> {{phoneNumber}}  </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                      <div class="media-heading mt-3">
+                                        <h5 class="text-uppercase">Business Contact Information</h5>
+                                      </div>
+                                      <div class="table-responsive ">
+                                        <table class="table row table-borderless bg-transparent">
+                                          <tbody class="col-lg-12 col-xl-6 p-0">
+                                            <tr>
+                                              <td><strong>Business Telephone:</strong> +245 256 2458 5586</td>
+                                            </tr>
+                                            <tr>
+                                              <td><strong>Business Mobile :</strong> +63 548 874 9658</td>
+                                            </tr>
+                                          </tbody>
+                                          <tbody class="col-lg-12 col-xl-6 p-0">
+                                            <tr>
+                                              <td><strong>Business Fax :</strong> +63 548 874 9658</td>
+                                            </tr>
+                                            <tr>
+                                              <td><strong>Managers Name :</strong> Daniell Marget</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                      <div class="media-heading mt-3">
+                                        <h5 class="text-uppercase">Business Location Information</h5>
+                                      </div>
+                                      <div class="table-responsive ">
+                                        <table class="table row table-borderless bg-transparent">
+                                          <tbody class="col-lg-12 col-xl-6 p-0">
+                                            <tr>
+                                              <td><strong>Streen Name:</strong> 45 welete Streen</td>
+                                            </tr>
+                                            <tr>
+                                              <td><strong>City :</strong> {{city}}</td>
+                                            </tr>
+                                          </tbody>
+                                          <tbody class="col-lg-12 col-xl-6 p-0">
+                                            <tr>
+                                              <td><strong>Country :</strong> {{country}}</td>
+                                            </tr>
+                                            <tr>
+                                              <td><strong>Postal Code :</strong> {{codePostal}}</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                      <div class="row profie-img">
+                                        <div class="col-md-12">
+                                          <div class="media-heading">
+                                            <h5>Biography</h5>
+                                          </div>
+                                          <p>Omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                                          <p class="mb-0">We denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  </div>
+                                  </div>
+                                </ng-template>
+                              </li>
+
+                              <li [ngbNavItem]="5">
+                                <a ngbNavLink>Friends</a>
+                                <ng-template ngbNavContent>
+                                  <div class="card">
+                                    <div class="card-body">
+                                  <div class="tab-pane" id="tab-61">
+                                    <ul class="widget-users row">
+                                      <li class="col-lg-3  col-md-6 col-sm-12 col-12">
+                                        <div class="card">
+                                          <div class="card-body text-center">
+                                            <img class="avatar avatar-xxl brround cover-image" src="./assets/images/users/male/5.jpg">
+                                            <h4 class="h4 mb-0 mt-3">James Thomas</h4>
+                                            <p class="card-text">Web designer</p>
+                                          </div>
+                                        </div>
+                                      </li>
+                                      <li class="col-lg-3 col-md-6 col-sm-12 col-12">
+                                        <div class="card">
+                                          <div class="card-body text-center">
+                                            <img class="avatar avatar-xxl brround cover-image" src="./assets/images/users/female/9.jpg">
+                                            <h4 class="h4 mb-0 mt-3">George Clooney</h4>
+                                            <p class="card-text">Web designer</p>
+                                          </div>
+                                        </div>
+                                      </li>
+                                      <li class="col-lg-3 col-md-6 col-sm-12 col-12">
+                                        <div class="card">
+                                          <div class="card-body text-center">
+                                            <img class="avatar avatar-xxl brround cover-image" src="./assets/images/users/male/2.jpg">
+                                            <h4 class="h4 mb-0 mt-3">Robert Downey Jr.</h4>
+                                            <p class="card-text">Web designer</p>
+                                          </div>
+                                        </div>
+                                      </li>
+                                      <li class="col-lg-3 col-md-6 col-sm-12 col-12">
+                                        <div class="card mb-lg-0">
+                                          <div class="card-body text-center">
+                                            <img class="avatar avatar-xxl brround cover-image" src="./assets/images/users/female/2.jpg">
+                                            <h4 class="h4 mb-0 mt-3">Emma Watson</h4>
+                                            <p class="card-text">Web designer</p>
+                                          </div>
+                                        </div>
+                                      </li>
+                                      <li class="col-lg-3 col-md-6 col-sm-12 col-12">
+                                        <div class="card mb-lg-0">
+                                          <div class="card-body text-center">
+                                            <img class="avatar avatar-xxl brround cover-image" src="./assets/images/users/male/4.jpg">
+                                            <h4 class="h4 mb-0 mt-3">Mila Kunis</h4>
+                                            <p class="card-text">Web designer</p>
+                                          </div>
+                                        </div>
+                                      </li>
+                                      <li class="col-lg-3 col-md-6 col-sm-12 col-12">
+                                        <div class="card">
+                                          <div class="card-body text-center">
+                                            <img class="avatar avatar-xxl brround cover-image" src="./assets/images/users/male/6.jpg">
+                                            <h4 class="h4 mb-0 mt-3">Ryan Gossling</h4>
+                                            <p class="card-text">Web designer</p>
+                                          </div>
+                                        </div>
+                                      </li>
+                                      <li class="col-lg-3  col-md-6 col-sm-12 col-12">
+                                        <div class="card">
+                                          <div class="card-body text-center">
+                                            <img class="avatar avatar-xxl brround cover-image" src="./assets/images/users/male/2.jpg">
+                                            <h4 class="h4 mb-0 mt-3">Dannie Plotkin</h4>
+                                            <p class="card-text">Web designer</p>
+                                          </div>
+                                        </div>
+                                      </li>
+                                      <li class="col-lg-3 col-md-6 col-sm-12 col-12">
+                                        <div class="card">
+                                          <div class="card-body text-center">
+                                            <img class="avatar avatar-xxl brround cover-image" src="./assets/images/users/female/1.jpg">
+                                            <h4 class="h4 mb-0 mt-3">Jesica Benford</h4>
+                                            <p class="card-text">Web designer</p>
+                                          </div>
+                                        </div>
+                                      </li>
+                                      <li class="col-lg-3 col-md-6 col-sm-12 col-12">
+                                        <div class="card">
+                                          <div class="card-body text-center">
+                                            <img class="avatar avatar-xxl brround cover-image" src="./assets/images/users/male/3.jpg">
+                                            <h4 class="h4 mb-0 mt-3">Sonny Dewolf</h4>
+                                            <p class="card-text">Web designer</p>
+                                          </div>
+                                        </div>
+                                      </li>
+                                      <li class="col-lg-3 col-md-6 col-sm-12 col-12">
+                                        <div class="card mb-lg-0">
+                                          <div class="card-body text-center">
+                                            <img class="avatar avatar-xxl brround cover-image" src="./assets/images/users/female/2.jpg">
+                                            <h4 class="h4 mb-0 mt-3">Inge Coulter</h4>
+                                            <p class="card-text">Web designer</p>
+                                          </div>
+                                        </div>
+                                      </li>
+                                      <li class="col-lg-3 col-md-6 col-sm-12 col-12">
+                                        <div class="card mb-lg-0">
+                                          <div class="card-body text-center">
+                                            <img class="avatar avatar-xxl brround cover-image" src="./assets/images/users/male/4.jpg">
+                                            <h4 class="h4 mb-0 mt-3">Jae Durazo</h4>
+                                            <p class="card-text">Web designer</p>
+                                          </div>
+                                        </div>
+                                      </li>
+                                      <li class="col-lg-3 col-md-6 col-sm-12 col-12">
+                                        <div class="card mb-0">
+                                          <div class="card-body text-center">
+                                            <img class="avatar avatar-xxl brround cover-image" src="./assets/images/users/male/6.jpg">
+                                            <h4 class="h4 mb-0 mt-3">Noel Aguilar</h4>
+                                            <p class="card-text">Web designer</p>
+                                          </div>
+                                        </div>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  </div>
+                                  </div>
+                                </ng-template>
+                              </li>
+                              <li [ngbNavItem]="4">
+                                <a ngbNavLink>Gallery</a>
+                                <ng-template ngbNavContent>
+                                   <div class="card">
+                                  <div class="card-body">
+                                  <ul id="lightgallery" class="list-unstyled row" >
+                                    <li *ngFor="let img of imagesRect" class="col-xs-6 col-sm-4 col-md-4 col-xl-3 mb-5 border-bottom-0" data-responsive="./assets/images/photos/1.jpg" data-src="./assets/images/photos/1.jpg" data-sub-html="<h4>Gallery Image 1</h4><p> Many desktop publishing packages and web page editors now use Lorem Ipsum</p>">
+                                      <a href="javascript:void(0)">
+                                        <img class="img-responsive rounded-3" [src]="img.modal.img" alt="Thumb-1" (click)="openImageModalRowDescription(2, img)">
+                                      </a>
+                                    </li>
+                                  </ul>
+                                  </div>
+                                  </div>
+                                </ng-template>
+                              </li>
+
+                              <li [ngbNavItem]="6">
+                                <a ngbNavLink>Account Settings</a>
+                                <ng-template ngbNavContent>
+                                  <div class="card">
+                                  <div class="card-body">
+                                  <div class="tab-pane" id="tab-81">
+                                    <div class="wideget-user-followers">
+                                      <div class="d-flex m-0 mt-0 ">
+                                        <img class="avatar brround avatar-md me-3" src="./assets/images/users/male/8.jpg" alt="avatar-img">
+                                        <div class="">
+                                          <a href="javascript:void(0)" class="text-default font-weight-semibold">John Paige</a>
+                                          <p class="text-muted ">johan@gmail.com</p>
+                                        </div>
+                                      </div>
+                                      <div class="d-flex mt-2 ">
+                                        <span class="avatar cover-image avatar-md brround bg-pink me-3">LQ</span>
+                                        <div class="">
+                                          <a href="javascript:void(0)" class="text-default font-weight-semibold">Lillian Quinn</a>
+                                          <p class="text-muted">lilliangore@gmail.com</p>
+                                        </div>
+                                      </div>
+                                      <div class="d-flex mt-2 ">
+                                        <span class="avatar cover-image avatar-md brround me-3">IH</span>
+                                        <div class="">
+                                          <a href="javascript:void(0)" class="text-default font-weight-semibold">Irene Harris</a>
+                                          <p class="text-muted">ireneharris@gmail.com</p>
+                                        </div>
+                                      </div>
+                                      <div class="d-flex mt-2 ">
+                                        <img class="avatar brround avatar-md me-3" src="./assets/images/users/female/2.jpg" alt="avatar-img">
+                                        <div class="">
+                                          <a href="javascript:void(0)" class="text-default font-weight-semibold">Harry Fisher</a>
+                                          <p class="text-muted">harryuqt@gmail.com</p>
+                                        </div>
+                                      </div>
+                                      <div class="d-flex m-0 mt-2 ">
+                                        <img class="avatar brround avatar-md me-3" src="./assets/images/users/male/8.jpg" alt="avatar-img">
+                                        <div class="">
+                                          <a href="javascript:void(0)" class="text-default font-weight-semibold">Eloy Tune</a>
+                                          <p class="text-muted ">eloytune@gmail.com</p>
+                                        </div>
+                                      </div>
+                                      <div class="d-flex mt-2 ">
+                                        <span class="avatar cover-image avatar-md brround bg-pink me-3">CA</span>
+                                        <div class="">
+                                          <a href="javascript:void(0)" class="text-default font-weight-semibold">Charlott Asher</a>
+                                          <p class="text-muted">charlottasher@gmail.com</p>
+                                        </div>
+                                      </div>
+                                      <div class="d-flex mt-2 ">
+                                        <span class="avatar cover-image avatar-md brround me-3">MP</span>
+                                        <div class="">
+                                          <a href="javascript:void(0)" class="text-default font-weight-semibold">Mora Purser</a>
+                                          <p class="text-muted">morapurser@gmail.com</p>
+                                        </div>
+                                      </div>
+                                      <div class="d-flex mt-2 ">
+                                        <img class="avatar brround avatar-md me-3" src="./assets/images/users/female/2.jpg" alt="avatar-img">
+                                        <div class="">
+                                          <a href="javascript:void(0)" class="text-default font-weight-semibold">Marna Berney</a>
+                                          <p class="text-muted mb-0">marnaberney@gmail.com</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  </div>
+                                  </div>
+                                </ng-template>
+                              </li>
+                            </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div [ngbNavOutlet]="nav"></div>
+  </div><!-- COL-END -->
+</div>
+<!-- ROW-1 CLOSED -->
+

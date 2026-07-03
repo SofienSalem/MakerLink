@@ -1,0 +1,544 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilterUsers($event)" placeholder="Ex. John" #input>
+</mat-form-field>
+
+<div class="row justify-content-center text-center pb-3 mb-sm-2 mb-lg-3">
+  <div class="col-xl-6 col-lg-7 col-md-9 ">
+     <h1 class="h1 mb-lg-4 textcouleur ">All Users for our MakerLink</h1>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table mat-table [dataSource]="dataSourceUsers" matSort class="table text-nowrap table-bordered">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <td mat-cell *matCellDef="let row"> {{row.idUser}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+      <td mat-cell *matCellDef="let row"> {{row.firstName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+      <td mat-cell *matCellDef="let row"> {{row.lastName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+      <td mat-cell *matCellDef="let row"> {{row.address}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+      <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="country">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Country </th>
+      <td mat-cell *matCellDef="let row"> {{row.country}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="city">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+      <td mat-cell *matCellDef="let row"> {{row.city}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
+      <td mat-cell *matCellDef="let row"> {{row.role}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="phoneNumber">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone Number </th>
+      <td mat-cell *matCellDef="let row"> {{row.phoneNumber}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="codePostal">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Code Postal </th>
+      <td mat-cell *matCellDef="let row"> {{row.codepostal}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="10">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>
+
+<hr>
+<!--ici pour loadALLmakers-->
+
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilterMakers($event)"  placeholder="Ex. John" #input>
+</mat-form-field>
+
+<div class="row justify-content-center text-center pb-3 mb-sm-2 mb-lg-3">
+  <div class="col-xl-6 col-lg-7 col-md-9 ">
+     <h1 class="h1 mb-lg-4 textcouleur ">All Maker </h1>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table mat-table  [dataSource]="dataSourceMakers"  matSort class="table text-nowrap table-bordered">
+    
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <td mat-cell *matCellDef="let row"> {{row.idUser}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+      <td mat-cell *matCellDef="let row"> {{row.firstName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+      <td mat-cell *matCellDef="let row">  {{row.lastName}} </td>
+    </ng-container>
+<!---->
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+      <td mat-cell *matCellDef="let row">{{row.address}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+      <td mat-cell *matCellDef="let row">  {{row.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="country">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Country </th>
+      <td mat-cell *matCellDef="let row">{{row.country}}  </td>
+    </ng-container>
+
+    <ng-container matColumnDef="city">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+      <td mat-cell *matCellDef="let row"> {{row.city}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
+      <td mat-cell *matCellDef="let row">  {{row.role}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="phoneNumber">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone Number </th>
+      <td mat-cell *matCellDef="let row"> {{row.phoneNumber}}  </td>
+    </ng-container>
+
+    <ng-container matColumnDef="codePostal">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Code Postal </th>
+      <td mat-cell *matCellDef="let row">  {{row.codepostal}}  </td>
+    </ng-container>--
+
+    <ng-container matColumnDef="badge">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Badge </th>
+      <td mat-cell *matCellDef="let row">
+        <img *ngIf="row.badge" [src]="row.badge" alt="Badge" style="width:50px; height:auto;">
+      </td>
+    </ng-container>
+    
+    
+
+    <ng-container matColumnDef="activate">
+      <th mat-header-cell *matHeaderCellDef> Activer </th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-button (click)="activate(row.idUser, true)" class="btn btn-secondary-light mb-1">Activer</button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="deactivate">
+      <th mat-header-cell *matHeaderCellDef> Désactiver </th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-button (click)="activate(row.idUser, false)" class="btn btn-danger-light mb-1">Désactiver</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsforMaker"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsforMaker;"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="10">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!---
+<app-page-header title="Apps"  active_item="Default Table"></app-page-header>
+  <!--row l--
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Basic Table</h3>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table border card-table table-vcenter text-nowrap">
+              <thead >
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th>Salary</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Joan Powell</td>
+                  <td>Associate Developer</td>
+                  <td class="">$450,870</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Gavin Gibson</td>
+                  <td>Account manager</td>
+                  <td class="">$230,540</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Julian Kerr</td>
+                  <td>Senior Javascript Developer</td>
+                  <td class="">$55,300</td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>Cedric Kelly</td>
+                  <td>Accountant</td>
+                  <td class="">$234,100</td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>Samantha May</td>
+                  <td>Junior Technical Author</td>
+                  <td class="">$43,198</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---ROW-1 CLOSED -
+
+  <!-- ROW-2 --
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Default Table</h3>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table card-table border table-vcenter text-nowrap  align-items-center">
+              <thead class="thead-light">
+                <tr>
+                  <th>Id</th>
+                  <th>Project Name</th>
+                  <th>Team</th>
+                  <th>Feedback</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2345</td>
+                  <td class="text-sm font-weight-600">Megan Peters</td>
+                  <td><div class="avatar-group">
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/male/9.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/2.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/male/1.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/3.jpg"></a>
+                    </div>
+                  </td>
+                  <td>please check pricing Info </td>
+                  <td class="text-nowrap">July 13, 2022</td>
+                </tr>
+                <tr>
+                  <td>4562</td>
+                  <td class="text-sm font-weight-600">Phil Vance</td>
+                  <td><div class="avatar-group">
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/3.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/4.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/male/5.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/6.jpg"></a>
+                    </div>
+                  </td>
+                  <td>New stock</td>
+                  <td class="text-nowrap">June 15, 2022</td>
+                </tr>
+                <tr>
+                  <td>8765</td>
+                  <td class="text-sm font-weight-600">Adam Sharp</td>
+                  <td><div class="avatar-group">
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/8.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/9.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/male/10.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/10.jpg"></a>
+                    </div>
+                  </td>
+                  <td>Daily updates</td>
+                  <td class="text-nowrap">July 8, 2022</td>
+                </tr>
+                <tr>
+                  <td>2665</td>
+                  <td class="text-sm font-weight-600">Samantha Slater</td>
+                  <td><div class="avatar-group">
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/male/2.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/2.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/male/8.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/1.jpg"></a>
+                    </div>
+                  </td>
+                  <td>available item list</td>
+                  <td class="text-nowrap">June 28, 2022</td>
+                </tr>
+                <tr>
+                  <td>1245</td>
+                  <td class="text-sm font-weight-600">Joanne Nash</td>
+                  <td><div class="avatar-group">
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/5.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/male/6.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/7.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/male/8.jpg"></a>
+                    </div>
+                  </td>
+                  <td>Provide Best Services</td>
+                  <td class="text-nowrap">July 2, 2022</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---ROW-2 CLOSED -
+
+  <!-- ROW-3 OPEN --
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Full color variations</h3>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table border card-table table-vcenter text-nowrap table-primary align-items-center">
+              <thead class="bg-primary text-white">
+                <tr>
+                  <th class="text-white">Id</th>
+                  <th class="text-white">Project Name</th>
+                  <th class="text-white">Team</th>
+                  <th class="text-white">Feedback</th>
+                  <th class="text-white">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2345</td>
+                  <td class="text-sm font-weight-600">Megan Peters</td>
+                  <td><div class="avatar-group">
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/male/9.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/10.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/male/1.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/2.jpg"></a>
+                    </div>
+                  </td>
+                  <td>please check pricing Info </td>
+                  <td class="text-nowrap">July 13, 2022</td>
+                </tr>
+                <tr>
+                  <td>4562</td>
+                  <td class="text-sm font-weight-600">Phil Vance</td>
+                  <td><div class="avatar-group">
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/3.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/4.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/male/5.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/6.jpg"></a>
+                    </div>
+                  </td>
+                  <td>New stock</td>
+                  <td class="text-nowrap">June 15, 2022</td>
+                </tr>
+                <tr>
+                  <td>8765</td>
+                  <td class="text-sm font-weight-600">Adam Sharp</td>
+                  <td><div class="avatar-group">
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/8.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/9.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/male/10.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/10.jpg"></a>
+                    </div>
+                  </td>
+                  <td>Daily updates</td>
+                  <td class="text-nowrap">July 8, 2022</td>
+                </tr>
+                <tr>
+                  <td>2665</td>
+                  <td class="text-sm font-weight-600">Samantha Slater</td>
+                  <td><div class="avatar-group">
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/male/2.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/1.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/male/8.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/1.jpg"></a>
+                    </div>
+                  </td>
+                  <td>available item list</td>
+                  <td class="text-nowrap">June 28, 2022</td>
+                </tr>
+                <tr>
+                  <td>1245</td>
+                  <td class="text-sm font-weight-600">Joanne Nash</td>
+                  <td><div class="avatar-group">
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/5.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/male/6.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/female/7.jpg"></a>
+                      <a class="avatar avatar-sm" data-bs-toggle="tooltip" href="javascript:void(0)" data-original-title="" title=""><img alt="Image placeholder" class="rounded-circle" src="./assets/images/users/male/8.jpg"></a>
+                    </div>
+                  </td>
+                  <td>Provide Best Services</td>
+                  <td class="text-nowrap">July 2, 2022</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--ROW-3 CLOSED --
+
+  <!-- ROW-4 OPEN --
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Full color variations2</h3>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table border card-table table-vcenter text-nowrap table-warning">
+              <thead  class="bg-warning text-white">
+                <tr>
+                  <th class="text-white">ID</th>
+                  <th class="text-white">Name</th>
+                  <th class="text-white">Position</th>
+                  <th class="text-white">Salary</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Joan Powell</td>
+                  <td>Associate Developer</td>
+                  <td class="">$450,870</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Gavin Gibson</td>
+                  <td>Account manager</td>
+                  <td class="">$230,540</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Julian Kerr</td>
+                  <td>Senior Javascript Developer</td>
+                  <td class="">$55,300</td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>Cedric Kelly</td>
+                  <td>Accountant</td>
+                  <td class="">$234,100</td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>Samantha May</td>
+                  <td>Junior Technical Author</td>
+                  <td class="">$43,198</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!- ROW-4 CLOSED -->

@@ -1,0 +1,105 @@
+<app-page-header title="Advanced UI" active_item="Accordion"></app-page-header>
+<!-- ROW-1 OPEN -->
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Static Tooltip</h3>
+      </div>
+      <div class="card-body text-center">
+        <div class="bd-example bd-example-tooltip-static">
+          <div class="tooltip tooltip-top" role="tooltip">
+            <div class="tooltip-inner">
+              Tooltip on the top
+            </div>
+          </div>
+          <div class="tooltip tooltip-right" role="tooltip">
+            <div class="tooltip-inner">
+              Tooltip on the right
+            </div>
+          </div>
+          <div class="tooltip tooltip-bottom" role="tooltip">
+            <div class="tooltip-inner">
+              Tooltip on the bottom
+            </div>
+          </div>
+          <div class="tooltip tooltip-left" role="tooltip">
+            <div class="tooltip-inner">
+              Tooltip on the left
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">Interactive Demo Tooltip</h3>
+        <div class="bd-example tooltip-demo">
+          <div class="bd-example-tooltips">
+            <div class="row text-center">
+              <div class="col-md-3 mt-2 mb-2">
+
+                <button type="button" class="btn btn-primary" placement="top" ngbTooltip="Tooltip on top">
+                  Tooltip on top</button>
+              </div>
+              <div class="col-md-3 mt-2 mb-2">
+
+                <button type="button" class="btn btn-secondary" placement="end" ngbTooltip="Tooltip on right">
+                  Tooltip on right
+                </button>
+              </div>
+              <div class="col-md-3 mt-2 mb-2">
+                <button type="button" class="btn btn-danger" placement="bottom" ngbTooltip="Tooltip on bottom">
+                  Tooltip on bottom
+                </button>
+
+              </div>
+              <div class="col-md-3 mt-2 mb-2">
+                <button type="button" class="btn btn-warning" placement="start" ngbTooltip="Tooltip on left">
+                  Tooltip on left
+                </button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- COL-END -->
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Basic Popover</h3>
+      </div>
+      <div class="card-body">
+        <div class="row text-center">
+          <div class="col-sm-6 col-lg-3 mt-2 mb-2">
+
+            <button type="button" class="btn btn-primary" placement="top"
+              ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover top">Popover
+              top</button>
+
+          </div>
+          <div class="col-sm-6 col-lg-3 mt-2 mb-2">
+            <button type="button" class="btn btn-danger" placement="right"
+              ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+              popoverTitle="Popover right">Popover right</button>
+
+          </div>
+          <div class="col-sm-6 col-lg-3 mt-2 mb-2">
+            <button type="button" class="btn btn-warning" placement="left"
+              ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." popoverTitle="Popover left">Popover
+              left</button>
+           
+          </div>
+          <div class="col-sm-6 col-lg-3 mt-2 mb-2 ">
+
+            <button type="button" class="btn btn-secondary" placement="top"
+              ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+              popoverTitle="Popover bottom">Popover bottom</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- COL-END -->
+</div>
+<!-- ROW-1 CLOSED -->

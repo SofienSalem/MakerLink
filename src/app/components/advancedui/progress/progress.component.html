@@ -1,0 +1,153 @@
+<app-page-header title="Advanced UI" active_item="Progress"></app-page-header>
+<div class="row">
+  <div class="col-md-6 col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Basic Progress</h3>
+      </div>
+      <div class="card-body">
+        <p><ngb-progressbar type=" bg-default " [value]="10"></ngb-progressbar></p>
+        <p><ngb-progressbar type=" bg-primary " [value]="20"></ngb-progressbar></p>
+        <p><ngb-progressbar type=" bg-primary " [value]="40"></ngb-progressbar></p>
+        <p><ngb-progressbar type=" bg-primary " [value]="60"></ngb-progressbar></p>
+        <p><ngb-progressbar type=" bg-primary " [value]="80"></ngb-progressbar></p>
+
+
+      </div>
+    </div>
+  </div><!-- COL-END -->
+  <div class="col-md-6 col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Contextual Progress</h3>
+      </div>
+      <div class="card-body">
+        <p><ngb-progressbar type=" bg-pink " [value]="10"></ngb-progressbar></p>
+        <p><ngb-progressbar type=" bg-green " [value]="20"></ngb-progressbar></p>
+        <p><ngb-progressbar type=" bg-yellow " [value]="40"></ngb-progressbar></p>
+        <p><ngb-progressbar type=" bg-blue " [value]="60"></ngb-progressbar></p>
+        <p><ngb-progressbar type=" bg-orange " [value]="80"></ngb-progressbar></p>
+      </div>
+    </div>
+  </div><!-- COL-END -->
+  <div class="col-md-6 col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Basic Progress with label</h3>
+      </div>
+      <div class="card-body">
+        <p><ngb-progressbar [showValue]="true" type=" bg-default " [value]="10"></ngb-progressbar></p>
+        <p><ngb-progressbar [showValue]="true" type=" bg-secondary " [value]="20"></ngb-progressbar></p>
+        <p><ngb-progressbar [showValue]="true" type=" bg-success " [value]="40"></ngb-progressbar></p>
+        <p><ngb-progressbar [showValue]="true" type=" bg-warning " [value]="60"></ngb-progressbar></p>
+        <p><ngb-progressbar [showValue]="true" type=" bg-info " [value]="80"></ngb-progressbar></p>
+      </div>
+    </div>
+  </div><!-- COL-END -->
+  <div class="col-md-6 col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Contextual Progress with label</h3>
+      </div>
+      <div class="card-body">
+
+        <p><ngb-progressbar [showValue]="true" type=" bg-pink " [value]="7"></ngb-progressbar></p>
+        <p><ngb-progressbar [showValue]="true" type=" bg-green " [value]="20"></ngb-progressbar></p>
+        <p><ngb-progressbar [showValue]="true" type=" bg-yellow " [value]="40"></ngb-progressbar></p>
+        <p><ngb-progressbar [showValue]="true" type=" bg-blue " [value]="60"></ngb-progressbar></p>
+        <p><ngb-progressbar [showValue]="true" type=" bg-orange " [value]="80"></ngb-progressbar></p>
+      </div>
+    </div>
+  </div><!-- COL-END -->
+</div>
+<!-- ROW-1 OPEN -->
+
+<!-- ROW-2 OPEN -->
+<div class="row">
+  <div class="col-md-6 col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Progress Sizes</h3>
+      </div>
+      <div class="card-body">
+        <p><ngb-progressbar type=" bg-primary " [value]="30"height="3.5px"></ngb-progressbar></p>
+        <p><ngb-progressbar type=" bg-primary " [value]="60" height="10px"></ngb-progressbar></p>
+        <p><ngb-progressbar type=" bg-primary " [value]="70" height="15px"></ngb-progressbar></p>
+        <p><ngb-progressbar type=" bg-primary " [value]="80" height="20px"></ngb-progressbar></p>
+        </div>
+    </div>
+  </div><!-- COL-END -->
+  <div class="col-md-6 col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Mixed color Progress with Sizes</h3>
+      </div>
+<div class="card-body">
+ <div class="progress progress-xs mb-3">
+          <div class="progress-bar bg-orange w-5"></div>
+          <div class="progress-bar bg-warning w-5"></div>
+          <div class="progress-bar bg-info w-5"></div>
+        </div>
+        <div class="progress progress-sm mb-3">
+          <div class="progress-bar bg-pink w-10"></div>
+          <div class="progress-bar bg-yellow w-15"></div>
+          <div class="progress-bar bg-teal w-15"></div>
+        </div>
+        <div class="progress progress-md mb-3">
+          <div class="progress-bar bg-pink w-15"></div>
+          <div class="progress-bar bg-blue w-20"></div>
+          <div class="progress-bar bg-cyan w-30"></div>
+        </div>
+
+        <div class="progress progress-lg">
+          <div class="progress-bar bg-green w-30"></div>
+          <div class="progress-bar bg-pink w-20"></div>
+          <div class="progress-bar bg-orange w-40"></div>
+        </div>
+      </div>
+    </div>
+  </div><!-- COL-END -->
+</div>
+<!-- ROW-2 CLOSED -->
+
+<!-- ROW-3 OPEN -->
+<div class="row">
+  <div class="col-md-6 col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Striped Progress</h3>
+      </div>
+      <div class="card-body">
+        <p><ngb-progressbar type=" bg-pink " [value]="10" [striped]="true"></ngb-progressbar></p>
+        <p><ngb-progressbar type=" bg-blue " [value]="20" [striped]="true"></ngb-progressbar></p>
+        <p><ngb-progressbar type=" bg-yellow " [value]="40" [striped]="true">50%</ngb-progressbar></p>
+        <p><ngb-progressbar type=" bg-green " [value]="60" [striped]="true">40%</ngb-progressbar></p>
+
+      </div>
+    </div>
+  </div><!-- COL-END -->
+  <div class="col-md-6 col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Animated Progress</h3>
+      </div>
+      <div class="card-body">
+        <div class="progress progress-md mb-3">
+          <div class="progress-bar progress-bar-indeterminate bg-pink"></div>
+        </div>
+        <div class="progress progress-md mb-3">
+          <div class="progress-bar progress-bar-indeterminate bg-yellow-1"></div>
+        </div>
+        <div class="progress progress-md mb-3">
+          <div class="progress-bar progress-bar-indeterminate bg-blue-1"></div>
+        </div>
+        <div class="progress progress-md">
+          <div class="progress-bar progress-bar-indeterminate bg-purple-1"></div>
+        </div>
+      </div>
+    </div>
+  </div><!-- COL-END -->
+</div>
+<!-- ROW-3 CLOSED -->
+
+

@@ -1,0 +1,11 @@
+
+
+::ng-deep{
+    .dark-mode{
+        app-apex-charts{
+            line{
+                stroke: rgba($color: #fff, $alpha: 0.1) !important;
+            }
+        }
+    }
+}

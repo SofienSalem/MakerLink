@@ -1,0 +1,183 @@
+<app-page-header title="Elements"  active_item="Notifications"></app-page-header>
+<!-- ROW-1 OPEN -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+
+            <div class="card-header">
+                <h3 class="card-title">Alerts Notifications</h3>
+            </div>
+            <div class="card-body text-center">
+                <div class="example">
+                    <div class="btn-list">
+                     <button (click)="showSuccess()" class="btn btn-success notice">Success</button>
+                      <button (click)="showWarning()" class="btn btn-warning warning">Warning</button>
+                      <button (click)="showError()"  class="btn btn-danger danger">Danger</button>
+                 
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Alerts Popovers</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-4 col-xl-2 mt-2 mb-2">
+                      <button
+                      type="button"
+                      class="btn btn-success btn-block"
+                      placement="bottom"
+                      ngbPopover="Well done! You successfully read this important alert message.."
+                      popoverTitle="alert sucess.."
+                      >
+                        Show success
+                      </button>
+                    </div>
+                    <div class="col-lg-4 col-xl-2 mt-2 mb-2">
+                      <button
+                      type="button"
+                      class="btn btn-info btn-block"
+                      placement="top"
+                      popoverTitle="alert info"
+                      ngbPopover="Heads up! This alert needs your attention, but it's not super important..."
+                    >
+                      Show info
+                    </button>
+                  </div>
+                    <div class="col-lg-4 col-xl-2 mt-2 mb-2">
+                      <button
+                      type="button"
+                      class="btn btn-warning btn-block"
+                      placement="bottom"
+                      popoverTitle="alert warning"
+                      ngbPopover="Warning! Best check yo self, you're not looking too good.."
+                    >
+                      Show warning
+                    </button>
+                    </div>
+
+                    <div class="col-lg-4 col-xl-2 mt-2 mb-2">
+                      <button
+                      type="button"
+                      class="btn btn-danger btn-block"
+                      placement="bottom"
+                      popoverTitle="alert danger"
+                      ngbPopover="Oh snap! Change a few things up and try submitting again."
+                    >
+                      Show danger
+                    </button>
+                      </div>
+                    <div class="col-lg-4 col-xl-2 mt-2 mb-2">
+                      <button
+                      type="button"
+                      class="btn btn-secondary btn-block"
+                      placement="top"
+                      popoverTitle="alert secondary"
+                      ngbPopover="Error! Please Check u r emial id.."
+                    >
+                      Show secondary
+                    </button>
+                    </div>
+
+                    <div class="col-lg-4 col-xl-2 mt-2 mb-2">
+                        <button
+                      type="button"
+                      class="btn btn-primary btn-block"
+                      placement="top"
+                      popoverTitle="alert primary"
+                      ngbPopover="Cool! This alert will close in 3 seconds. The data-delay attribute is in milliseconds."
+                    >
+                      Show primary
+                    </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- COL-END -->
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Alerts style</h3>
+            </div>
+            <div class="card-body">
+
+                      <ngb-alert
+                type="success"
+                [dismissible]="false"
+                *ngIf="notificationStyle1"
+                >
+                <strong>Success Message</strong>
+                <button
+                  type="button"
+                  class="close"
+                  data-bs-dismiss="alert"
+                  aria-hidden="true"
+                  (click)="notificationStyle1 = false"
+                >
+                  ×
+                </button>
+                <hr class="message-inner-separator" />
+                You successfully read this important alert message.</ngb-alert
+              >
+            <ngb-alert
+            type="info"
+            [dismissible]="false"
+            *ngIf="notificationStyle2"
+            >
+            <strong>Info Message</strong>
+            <button
+              type="button"
+              class="close"
+              data-bs-dismiss="alert"
+              aria-hidden="true"
+              (click)="notificationStyle2 = false"
+            >
+              ×
+            </button>
+            <hr class="message-inner-separator" />
+            This alert needs your attention, but it's not super important.</ngb-alert
+          > <ngb-alert
+          type="warning"
+          [dismissible]="false"
+          *ngIf="notificationStyle3"
+          >
+          <strong>Warning Message</strong>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="alert"
+            aria-hidden="true"
+            (click)="notificationStyle3 = false"
+          >
+            ×
+          </button>
+          <hr class="message-inner-separator" />
+          Best check yo self, you're not looking too good.</ngb-alert
+        >
+        <ngb-alert
+        type="danger"
+        [dismissible]="false"
+        *ngIf="notificationStyle4"
+        >
+        <strong>Danger Message</strong>
+        <button
+          type="button"
+          class="close"
+          data-bs-dismiss="alert"
+          aria-hidden="true"
+          (click)="notificationStyle4 = false"
+        >
+          ×
+        </button>
+        <hr class="message-inner-separator" />
+        Change a few things up and try submitting again.</ngb-alert
+      >
+
+
+
+
+
+
+

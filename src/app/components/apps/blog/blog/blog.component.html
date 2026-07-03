@@ -1,0 +1,176 @@
+<app-page-header title="Apps"  active_item="Blog"></app-page-header>
+  <!-- ROW-1 OPEN -->
+  <!-- ROW-1 OPEN -->
+<div class="row row-cards">
+  
+  <!-- Utilisez paginatedBlogs pour l'itération -->
+  <div class="col-md-4" *ngFor="let blog of paginatedBlogs">
+    <div class="card">
+      <!-- Dynamic image source -->
+      <a [routerLink]="['/apps/blog/blogdetails', blog.idBlog]">
+        <img class="card-img-top" [src]="blog.imageBlog" alt="Card image cap">
+      </a>
+      <div class="card-header">
+        <div class="row">
+        <h5 class="card-title">{{ blog.title }}</h5>
+      </div>
+     <br>
+
+      <h6 class="card-subtitle mb-2 text-muted">{{ blog.process }}</h6>
+
+      </div>
+      <div class="card-body">
+        <!-- Display only the first 200 characters of the post -->
+        <p class="card-text" [innerHTML]="safePost(blog.post) | stripHtml | slice:0:200"></p>
+        <!-- Dynamic router link -->
+        <a [routerLink]="['/apps/blog/blogdetails', blog.idBlog]" class="float-end">Read more <i class="fa fa-angle-double-right"></i></a>
+      </div>
+    </div>
+  </div><!-- COL-END -->
+</div>
+<!-- ROW-1 CLOSED -->
+<!-- Contrôles de pagination -->
+<nav aria-label="Page navigation example" *ngIf="blogs.length > pageSize">
+  <ul class="pagination">
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <a class="page-link" href="javascript:void(0)" aria-label="Previous" (click)="setPage(currentPage - 1)">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <!-- Ici, vous pouvez ajouter la logique pour afficher les numéros de page -->
+    <li class="page-item" [class.active]="currentPage === page" *ngFor="let page of getPages()">
+      <a class="page-link" href="javascript:void(0)" (click)="setPage(page)">{{ page }}</a>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
+      <a class="page-link" href="javascript:void(0)" aria-label="Next" (click)="setPage(currentPage + 1)">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+  <!-- ROW-1 CLOSED -->
+
+
+<!--
+  <div class="col-sm-6 col-xl-3">
+    <div class="card">
+      <a routerLink="/apps/blog/blogdetails"><img class="card-img-top" src="./assets/images/photos/13.jpg" alt="And this isn&#39;t my nose. This is a false one."></a>
+      <div class="card-body">
+        <h4><a href="javascript:void(0)">voluptatem quia voluptas.</a></h4>
+        <div class="text-muted">To take a trivial example, which of us ever undertakes laborious physical exerciser , except to obtain some advantage from it...</div>
+        <div class="d-flex align-items-center pt-5 mt-auto">
+          <img class="avatar brround avatar-md me-3 cover-image" src="./assets/images/users/female/8.jpg"/>
+          <div>
+            <a routerLink="/pages/profile" class="text-default">Megan Peters</a>
+            <small class="d-block text-muted">1 days ago</small>
+          </div>
+          <div class="ms-auto text-muted">
+            <a href="javascript:void(0)" class="icon d-none d-md-inline-block ms-3"><i class="fe fe-heart me-1"></i></a>
+            <a href="javascript:void(0)" class="icon d-none d-md-inline-block ms-3"><i class="fa fa-thumbs-o-up"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="card">
+      <a routerLink="/apps/blog/blogdetails"><img class="card-img-top" src="./assets/images/photos/14.jpg" alt="Well, I didn&#39;t vote for you."></a>
+      <div class="card-body">
+        <h4><a href="javascript:void(0)">voluptatem quia voluptas.</a></h4>
+        <div class="text-muted">Who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces consequences.</div>
+        <div class="d-flex align-items-center pt-5 mt-auto">
+          <img class="avatar brround avatar-md me-3 cover-image" src="./assets/images/users/male/6.jpg"/>
+          <div>
+            <a routerLink="/pages/profile" class="text-default">Anna Ogden</a>
+            <small class="d-block text-muted">2 days ago</small>
+          </div>
+          <div class="ms-auto text-muted">
+            <a href="javascript:void(0)" class="icon d-none d-md-inline-block ms-3"><i class="fe fe-heart me-1"></i></a>
+            <a href="javascript:void(0)" class="icon d-none d-md-inline-block ms-3"><i class="fa fa-thumbs-o-up"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="card">
+      <div class="card-body">
+        <h4><a href="javascript:void(0)">voluptatem quia voluptas</a></h4>
+        <div class="text-muted">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque...</div>
+        <div class="d-flex align-items-center pt-5 mt-auto">
+          <img class="avatar  brround avatar-md me-3 cover-image" src="./assets/images/users/male/2.jpg"/>
+          <div>
+            <a routerLink="/pages/profile" class="text-default">Carol Paige</a>
+            <small class="d-block text-muted">2 days ago</small>
+          </div>
+          <div class="ms-auto text-muted">
+            <a href="javascript:void(0)" class="icon d-none d-md-inline-block ms-3"><i class="fe fe-heart me-1"></i></a>
+            <a href="javascript:void(0)" class="icon d-none d-md-inline-block ms-3"><i class="fa fa-thumbs-o-up"></i></a>
+          </div>
+        </div>
+      </div>
+      <a routerLink="/apps/blog/blogdetails"><img class="card-img-bottom" src="./assets/images/photos/15.jpg" alt="How do you know she is a witch?"></a>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="card">
+      <div class="card-body">
+        <h4><a href="javascript:void(0)">voluptatem quia voluptas..</a></h4>
+        <div class="text-muted">Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut ..</div>
+        <div class="d-flex align-items-center pt-5 mt-auto">
+          <img class="avatar brround avatar-md me-3 cover-image" src="./assets/images/users/female/7.jpg"/>
+          <div>
+            <a routerLink="/pages/profile" class="text-default">Fiona Hodges</a>
+            <small class="d-block text-muted">5 days ago</small>
+          </div>
+          <div class="ms-auto text-muted">
+            <a href="javascript:void(0)" class="icon d-none d-md-inline-block ms-3"><i class="fe fe-heart me-1"></i></a>
+            <a href="javascript:void(0)" class="icon d-none d-md-inline-block ms-3"><i class="fa fa-thumbs-o-up"></i></a>
+          </div>
+        </div>
+      </div>
+      <a routerLink="/apps/blog/blogdetails"><img class="card-img-bottom" src="./assets/images/photos/16.jpg" alt="Shut up!"></a>
+    </div>
+  </div>
+  <div class="col-xl-6">
+    <div class="card card-aside overflow-hidden">
+      <a routerLink="/apps/blog/blogdetails"></a> <img src="./assets/images/photos/17.jpg"class="card-aside-column cover-image"/>
+      <div class="card-body">
+        <h4><a href="javascript:void(0)">Generator on the Internet..</a></h4>
+        <div class="text-muted">Excepteur sint occaecat cupidatat non proident, accusantium  sunt in culpa qui officia deserunt mollit anim id est laborum....</div>
+        <div class="d-flex align-items-center pt-5 mt-auto">
+          <img class="avatar  brround avatar-md me-3 cover-image" src="./assets/images/users/female/8.jpg"/>
+          <div>
+            <a routerLink="/pages/profile" class="text-default">Anna Ogden</a>
+            <small class="d-block text-muted">1 days ago</small>
+          </div>
+          <div class="ms-auto text-muted">
+            <a href="javascript:void(0)" class="icon d-none d-md-inline-block ms-3"><i class="fe fe-heart me-1"></i></a>
+            <a href="javascript:void(0)" class="icon d-none d-md-inline-block ms-3"><i class="fa fa-thumbs-o-up"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-6">
+    <div class="card card-aside overflow-hidden">
+      <div class="card-body">
+        <h4><a href="javascript:void(0)">Nihil molestiae consequatur.</a></h4>
+        <div class="text-muted">Many desktop publishing packages and web page editors now use  default model text, and a search for will uncover...</div>
+        <div class="d-flex align-items-center pt-5 mt-auto">
+          <img class="avatar  brround avatar-md me-3 cover-image" src="./assets/images/users/male/6.jpg"/>
+          <div>
+            <a routerLink="/pages/profile" class="text-default">Irene	Scott</a>
+            <small class="d-block text-muted">2 days ago</small>
+          </div>
+          <div class="ms-auto text-muted">
+            <a href="javascript:void(0)" class="icon d-none d-md-inline-block ms-3"><i class="fe fe-heart me-1"></i></a>
+            <a href="javascript:void(0)" class="icon d-none d-md-inline-block ms-3"><i class="fa fa-thumbs-o-up"></i></a>
+          </div>
+        </div>
+      </div>
+      <a routerLink="/apps/blog/blogdetails"></a><img class="card-aside-column cover-image" src="./assets/images/photos/18.jpg"/>
+    </div>
+  </div>
+-->

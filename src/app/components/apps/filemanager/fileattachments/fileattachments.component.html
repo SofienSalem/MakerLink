@@ -1,0 +1,526 @@
+<app-page-header title="Apps"  active_item="ContactUs Archive"></app-page-header>
+
+
+
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Coloured Rounded File Attachment</h3>
+  </div>
+  <div class="card-body">
+    <!--restor-->
+<h2 class="h5 text-primary pt-1 pt-lg-3 mt-4">Your archive</h2>
+<div class="row">
+  <div class="col-9">
+    <p class="pb-3 mb-3">This is a list of contacts that have been archived. You can restore them.</p>
+  </div>
+  <div class="col-3">
+    <div class="mb-3 w-100">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search with contact.email" [(ngModel)]="searchEmail" (input)="filterArchivedContacts()">
+        <a class="btn btn-primary" href="javascript:void(0)"><i class="fe fe-search"></i></a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<ul class="list-unstyled mb-0">
+  <li *ngFor="let contact of archivedContacts" class="d-flex align-items-center justify-content-between mb-4">
+    <div class="d-flex align-items-start me-3">
+      <div class="bg-secondary rounded-1 p-2">
+        <!-- Icône, vous pouvez ajuster selon le type de contact ou autre logique -->
+        <i class="bx bx-user fs-xl text-primary d-block"></i>
+      </div>
+      <div class="ps-3">
+        <!-- Affiche le nom complet et l'email du contact -->
+        <div class="fw-medium text-nav mb-1">{{ contact.fullName }} – {{ contact.email }}</div>
+        <!-- Affiche l'ID et le message du contact -->
+        <span class="d-inline-block fs-sm text-muted border-end pe-2 me-2">{{ contact.idContactUs }}</span>
+        <span class="d-inline-block fs-sm text-muted">{{ contact.message }}</span>
+      </div>
+    </div>
+    <!-- Bouton pour restaurer le contact -->
+    <button type="button" class="btn btn-outline-secondary px-3 px-sm-4" *ngIf="contact.idContactUs as id" (click)="restoreContact(id)">
+      <i class="fa fa-window-restore me-1"></i>
+      <span class="d-none d-sm-inline">Restore</span>
+    </button>
+  </li>
+</ul>
+  </div>
+</div>
+
+
+<!-- Row --
+<div class="row">
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Coloured Rounded File Attachment</h3>
+      </div>
+      <div class="card-body">
+        <div class="tags">
+          <span class="tag tag-attachments rounded-pill bg-primary text-white mt-0"><span class="me-2"><i class="mdi mdi-file-image"></i></span> <span class="">Image01..._jpg </span><a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments  rounded-pill bg-info text-white"><span class="me-2"><i class="mdi mdi-music"></i></span>music-mp3 <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments rounded-pill bg-danger text-white"><span class="me-2"><i class="mdi mdi-file-video"></i></span>video0014-mp4 <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments rounded-pill bg-success text-white"><span class="me-2"><i class="mdi mdi-file-excel"></i></span> Document.exl <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments rounded-pill bg-danger text-white"><span class="me-2"><i class="mdi mdi-file-pdf"></i></span>AMN0012.pdf <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments  rounded-pill bg-primary text-white"><span class="me-2"><i class="mdi mdi-zip-box"></i></span> design00123.zip <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments rounded-pill bg-info text-white"><span class="me-2"><i class="mdi mdi-file-word"></i></span>Document.doc <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments rounded-pill bg-warning text-white text-white"><span class="me-2"><i class="mdi mdi-file-powerpoint "></i></span> prsentation.ppt <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments  rounded-pill bg-pink text-white"><span class="me-2"><i class="mdi mdi-volume-high"></i></span>audio-mp4 <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Outline Rounded File Attachment</h3>
+      </div>
+      <div class="card-body">
+        <div class="tags">
+          <span class="tag tag-attachments rounded-pill  tag-outline-primary mt-0"><span class="me-2"><i class="mdi mdi-file-image"></i></span> Image01..._jpg <a href="javascript:void(0);" class="ms-4 text-primary"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments rounded-pill tag-outline-info"><span class="me-2"><i class="mdi mdi-music"></i></span>music-mp3 <a href="javascript:void(0);" class="ms-4 text-info"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments rounded-pill  tag-outline-danger"><span class="me-2"><i class="mdi mdi-file-video"></i></span>video0014-mp4 <a href="javascript:void(0);" class="ms-4 text-danger"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments rounded-pill  tag-outline-success"><span class="me-2"><i class="mdi mdi-file-excel"></i></span> Document.exl <a href="javascript:void(0);" class="ms-4 text-success"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments rounded-pill  tag-outline-danger"><span class="me-2"><i class="mdi mdi-file-pdf"></i></span>AMN0012.pdf <a href="javascript:void(0);" class="ms-4 text-danger"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments rounded-pill   tag-outline-primary"><span class="me-2"><i class="mdi mdi-zip-box"></i></span> design00123.zip <a href="javascript:void(0);" class="ms-4 text-primary"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments rounded-pill   tag-outline-info"><span class="me-2"><i class="mdi mdi-file-word"></i></span>Document.doc <a href="javascript:void(0);" class="ms-4 text-info"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments rounded-pill   tag-outline-warning"><span class="me-2"><i class="mdi mdi-file-powerpoint "></i></span> prsentation.ppt <a href="javascript:void(0);" class="ms-4 text-warning"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments rounded-pill   tag-outline-pink"><span class="me-2"><i class="mdi mdi-volume-high"></i></span>audio-mp4 <a href="javascript:void(0);" class="ms-4 text-pink"><i class="fe fe-x"></i></a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Coloured Square File Attachment</h3>
+      </div>
+      <div class="card-body">
+        <div class="tags">
+          <span class="tag tag-attachments  bg-primary text-white mt-0"><span class="me-2"><i class="mdi mdi-file-image"></i></span> Image01..._jpg <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments   bg-info text-white"><span class="me-2"><i class="mdi mdi-music"></i></span>music-mp3 <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments  bg-danger text-white"><span class="me-2"><i class="mdi mdi-file-video"></i></span>video0014-mp4 <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments  bg-success text-white"><span class="me-2"><i class="mdi mdi-file-excel"></i></span> Document.exl <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments  bg-danger text-white"><span class="me-2"><i class="mdi mdi-file-pdf"></i></span>AMN0012.pdf <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments   bg-primary text-white"><span class="me-2"><i class="mdi mdi-zip-box"></i></span> design00123.zip <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments  bg-info text-white"><span class="me-2"><i class="mdi mdi-file-word"></i></span>Document.doc <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments  bg-warning text-white text-white"><span class="me-2"><i class="mdi mdi-file-powerpoint "></i></span> prsentation.ppt <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments   bg-pink text-white"><span class="me-2"><i class="mdi mdi-volume-high"></i></span>audio-mp4 <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Rounded Square File Attachment</h3>
+      </div>
+      <div class="card-body">
+        <div class="tags">
+          <span class="tag tag-attachments   tag-outline-primary mt-0"><span class="me-2"><i class="mdi mdi-file-image"></i></span> Image01..._jpg <a href="javascript:void(0);" class="ms-4 text-primary"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments  tag-outline-info"><span class="me-2"><i class="mdi mdi-music"></i></span>music-mp3 <a href="javascript:void(0);" class="ms-4 text-info"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments   tag-outline-danger"><span class="me-2"><i class="mdi mdi-file-video"></i></span>video0014-mp4 <a href="javascript:void(0);" class="ms-4 text-danger"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments   tag-outline-success"><span class="me-2"><i class="mdi mdi-file-excel"></i></span> Document.exl <a href="javascript:void(0);" class="ms-4 text-success"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments   tag-outline-danger"><span class="me-2"><i class="mdi mdi-file-pdf"></i></span>AMN0012.pdf <a href="javascript:void(0);" class="ms-4 text-danger"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments    tag-outline-primary"><span class="me-2"><i class="mdi mdi-zip-box"></i></span> design00123.zip <a href="javascript:void(0);" class="ms-4 text-primary"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments    tag-outline-info"><span class="me-2"><i class="mdi mdi-file-word"></i></span>Document.doc <a href="javascript:void(0);" class="ms-4 text-info"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments    tag-outline-warning"><span class="me-2"><i class="mdi mdi-file-powerpoint "></i></span> prsentation.ppt <a href="javascript:void(0);" class="ms-4 text-warning"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments    tag-outline-pink"><span class="me-2"><i class="mdi mdi-volume-high"></i></span>audio-mp4 <a href="javascript:void(0);" class="ms-4 text-pink"><i class="fe fe-x"></i></a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Rounded File-Attachment Sizes</h3>
+      </div>
+      <div class="card-body">
+        <div class="tags">
+          <span class="tag tag-attachments-sm rounded-pill bg-primary text-white mt-0"><span class="me-2"><i class="mdi mdi-file-image tx-20"></i></span> Image01..._jpg <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments  rounded-pill bg-info text-white"><span class="me-2"><i class="mdi mdi-music tx-24"></i></span>music-mp3 <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments-lg rounded-pill bg-danger text-white"><span class="me-2"><i class="mdi mdi-file-video tx-24"></i></span>video0014-mp4 <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Rounded Outline File-Attachment Sizes</h3>
+      </div>
+      <div class="card-body">
+        <div class="tags">
+          <span class="tag tag-attachments-sm rounded-pill tag-outline-warning mt-0"><span class="me-2"><i class="mdi mdi-file-image tx-20"></i></span> Image01..._jpg <a href="javascript:void(0);" class="ms-4 text-warning"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments  rounded-pill tag-outline-success"><span class="me-2"><i class="mdi mdi-music tx-24"></i></span>music-mp3 <a href="javascript:void(0);" class="ms-4 text-success"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments-lg rounded-pill tag-outline-pink"><span class="me-2"><i class="mdi mdi-file-video tx-24"></i></span>video0014-mp4 <a href="javascript:void(0);" class="ms-4 text-pink"><i class="fe fe-x"></i></a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Square File-Attachment Sizes</h3>
+      </div>
+      <div class="card-body">
+        <div class="tags">
+          <span class="tag tag-attachments-sm  bg-primary text-white mt-0"><span class="me-2"><i class="mdi mdi-file-image tx-20"></i></span> Image01..._jpg <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments   bg-info text-white"><span class="me-2"><i class="mdi mdi-music tx-24"></i></span>music-mp3 <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments-lg  bg-danger text-white"><span class="me-2"><i class="mdi mdi-file-video tx-24"></i></span>video0014-mp4 <a href="javascript:void(0);" class="ms-4 text-white"><i class="fe fe-x"></i></a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Square Outline File-Attachment Sizes</h3>
+      </div>
+      <div class="card-body">
+        <div class="tags">
+          <span class="tag tag-attachments-sm  tag-outline-warning mt-0"><span class="me-2"><i class="mdi mdi-file-image tx-20"></i></span> Image01..._jpg <a href="javascript:void(0);" class="ms-4 text-warning"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments   tag-outline-success"><span class="me-2"><i class="mdi mdi-music tx-24"></i></span>music-mp3 <a href="javascript:void(0);" class="ms-4 text-success"><i class="fe fe-x"></i></a></span>
+
+          <span class="tag tag-attachments-lg  tag-outline-pink"><span class="me-2"><i class="mdi mdi-file-video tx-24"></i></span>video0014-mp4 <a href="javascript:void(0);" class="ms-4 text-pink"><i class="fe fe-x"></i></a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Row -
+
+<!-- Row --
+<div class="row">
+  <div class="col-xl-3 col-lg-6 col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Image-attachment</h3>
+      </div>
+      <div class="card-body">
+        <div class="h-100  attached-file-grid6">
+          <div class="pro-img-box attached-file-image">
+            <a href="javascript:void(0);">
+              <img class=" pic-1 pos-relative rounded-3 w-100" src="./assets/images/photos/1.jpg" alt="attached-file-image"><span class="image-pic">123image.jpg</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Image-attachment</h3>
+      </div>
+      <div class="card-body">
+        <div class="h-100  attached-file-grid6">
+          <div class="pro-img-box attached-file-image">
+            <a href="javascript:void(0);">
+              <img class=" pic-1 pos-relative rounded-3 w-100" src="./assets/images/photos/2.jpg" alt="attached-file-image"><span class="image-pic">123image.jpg</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Image-attachment</h3>
+      </div>
+      <div class="card-body">
+        <div class="h-100  attached-file-grid6">
+          <div class="pro-img-box attached-file-image">
+            <a href="javascript:void(0);">
+              <img class=" pic-1 pos-relative rounded-3 w-100" src="./assets/images/photos/3.jpg" alt="attached-file-image"><span class="image-pic">123image.jpg</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-6 col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Image-attachment</h3>
+      </div>
+      <div class="card-body">
+        <div class="h-100  attached-file-grid6">
+          <div class="pro-img-box attached-file-image">
+            <a href="javascript:void(0);">
+              <img class=" pic-1 pos-relative rounded-3 w-100" src="./assets/images/photos/4.jpg" alt="attached-file-image"><span class="image-pic">123image.jpg</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Row -->
+
+<!-- Row --
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Image File_Attachment Small Size</h3>
+      </div>
+      <div class="card-body">
+        <div class="text-wrap pb-3">
+          <div class="file-image-1">
+            <div class="product-image">
+              <a routerLink="/apps/filemanager/filedetails">
+                <img src="./assets/images/files/6.png" class="rounded-3" alt="">
+              </a>
+              <ul class="icons">
+                <li><a href="javascript:void(0);" class="bg-danger"><i class="fe fe-trash"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-pink"><i class="fe fe-download"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-primary"><i class="fe fe-eye"></i></a></li>
+              </ul>
+            </div>
+            <span class="file-name-1">Image01.jpg</span>
+          </div>
+          <div class="file-image-1">
+            <div class="product-image">
+              <a routerLink="/apps/filemanager/filedetails"><img src="./assets/images/files/1.png" alt=""></a>
+              <ul class="icons">
+                <li><a href="javascript:void(0);" class="bg-danger"><i class="fe fe-trash"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-pink"><i class="fe fe-download"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-primary"><i class="fe fe-eye"></i></a></li>
+              </ul>
+            </div>
+            <span class="file-name-1">Word.doc</span>
+          </div>
+          <div class="file-image-1">
+            <div class="product-image">
+              <a routerLink="/apps/filemanager/filedetails"><img src="./assets/images/files/3.png" alt=""></a>
+              <ul class="icons">
+                <li><a href="javascript:void(0);" class="bg-danger"><i class="fe fe-trash"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-pink"><i class="fe fe-download"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-primary"><i class="fe fe-eye"></i></a></li>
+              </ul>
+            </div>
+            <span class="file-name-1">Excel.xls</span>
+          </div>
+          <div class="file-image-1">
+            <div class="product-image">
+              <a routerLink="/apps/filemanager/filedetails"><img src="./assets/images/files/2.png" alt=""></a>
+              <ul class="icons">
+                <li><a href="javascript:void(0);" class="bg-danger"><i class="fe fe-trash"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-pink"><i class="fe fe-download"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-primary"><i class="fe fe-eye"></i></a></li>
+              </ul>
+            </div>
+            <span class="file-name-1">Document.pdf</span>
+          </div>
+          <div class="file-image-1">
+            <div class="product-image">
+              <a routerLink="/apps/filemanager/filedetails">
+                <img src="./assets/images/photos/1.jpg" class="rounded-3" alt="">
+              </a>
+              <ul class="icons">
+                <li><a href="javascript:void(0);" class="bg-danger"><i class="fe fe-trash"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-pink"><i class="fe fe-download"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-primary"><i class="fe fe-eye"></i></a></li>
+              </ul>
+            </div>
+            <span class="file-name-1">Image02.jpg</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Row -->
+
+<!-- Row --
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Image File_Attachment Medium Size</h3>
+      </div>
+      <div class="card-body">
+        <div class="text-wrap pb-3">
+          <div class="file-image-1 file-image-md">
+            <div class="product-image">
+              <a routerLink="/apps/filemanager/filedetails">
+                <img src="./assets/images/files/6.png" class="rounded-3" alt="">
+              </a>
+              <ul class="icons">
+                <li><a href="javascript:void(0);" class="bg-danger"><i class="fe fe-trash"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-pink"><i class="fe fe-download"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-primary"><i class="fe fe-eye"></i></a></li>
+              </ul>
+            </div>
+            <span class="file-name-1">Image01.jpg</span>
+          </div>
+          <div class="file-image-1 file-image-md">
+            <div class="product-image">
+              <a routerLink="/apps/filemanager/filedetails"><img src="./assets/images/files/1.png" alt=""></a>
+              <ul class="icons">
+                <li><a href="javascript:void(0);" class="bg-danger"><i class="fe fe-trash"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-pink"><i class="fe fe-download"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-primary"><i class="fe fe-eye"></i></a></li>
+              </ul>
+            </div>
+            <span class="file-name-1">Word.doc</span>
+          </div>
+          <div class="file-image-1 file-image-md">
+            <div class="product-image">
+              <a routerLink="/apps/filemanager/filedetails"><img src="./assets/images/files/3.png"  alt=""></a>
+              <ul class="icons">
+                <li><a href="javascript:void(0);" class="bg-danger"><i class="fe fe-trash"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-pink"><i class="fe fe-download"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-primary"><i class="fe fe-eye"></i></a></li>
+              </ul>
+            </div>
+            <span class="file-name-1">Excel.xls</span>
+          </div>
+          <div class="file-image-1 file-image-md">
+            <div class="product-image">
+              <a routerLink="/apps/filemanager/filedetails"><img src="./assets/images/files/2.png" alt=""></a>
+              <ul class="icons">
+                <li><a href="javascript:void(0);" class="bg-danger"><i class="fe fe-trash"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-pink"><i class="fe fe-download"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-primary"><i class="fe fe-eye"></i></a></li>
+              </ul>
+            </div>
+            <span class="file-name-1">Document.pdf</span>
+          </div>
+          <div class="file-image-1 file-image-md">
+            <div class="product-image">
+              <a routerLink="/apps/filemanager/filedetails">
+                <img src="./assets/images/photos/1.jpg" class="rounded-3" alt="">
+              </a>
+              <ul class="icons">
+                <li><a href="javascript:void(0);" class="bg-danger"><i class="fe fe-trash"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-pink"><i class="fe fe-download"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-primary"><i class="fe fe-eye"></i></a></li>
+              </ul>
+            </div>
+            <span class="file-name-1">Image02.jpg</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Row -->
+
+<!-- Row --
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Image File_Attachment Large Size</h3>
+      </div>
+      <div class="card-body">
+        <div class="text-wrap pb-3">
+          <div class="file-image-1 file-image-lg">
+            <div class="product-image">
+              <a routerLink="/apps/filemanager/filedetails">
+                <img src="./assets/images/files/6.png" class="rounded-3" alt="">
+              </a>
+              <ul class="icons">
+                <li><a href="javascript:void(0);" class="bg-danger"><i class="fe fe-trash"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-pink"><i class="fe fe-download"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-primary"><i class="fe fe-eye"></i></a></li>
+              </ul>
+            </div>
+            <span class="file-name-1">Image01.jpg</span>
+          </div>
+          <div class="file-image-1 file-image-lg">
+            <div class="product-image">
+              <a routerLink="/apps/filemanager/filedetails"><img src="./assets/images/files/1.png" alt=""></a>
+              <ul class="icons">
+                <li><a href="javascript:void(0);" class="bg-danger"><i class="fe fe-trash"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-pink"><i class="fe fe-download"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-primary"><i class="fe fe-eye"></i></a></li>
+              </ul>
+            </div>
+            <span class="file-name-1">Word.doc</span>
+          </div>
+          <div class="file-image-1 file-image-lg">
+            <div class="product-image">
+              <a routerLink="/apps/filemanager/filedetails"><img src="./assets/images/files/3.png" alt=""></a>
+              <ul class="icons">
+                <li><a href="javascript:void(0);" class="bg-danger"><i class="fe fe-trash"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-pink"><i class="fe fe-download"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-primary"><i class="fe fe-eye"></i></a></li>
+              </ul>
+            </div>
+            <span class="file-name-1">Excel.xls</span>
+          </div>
+          <div class="file-image-1 file-image-lg">
+            <div class="product-image">
+              <a routerLink="/apps/filemanager/filedetails"><img src="./assets/images/files/2.png"  alt=""></a>
+              <ul class="icons">
+                <li><a href="javascript:void(0);" class="bg-danger"><i class="fe fe-trash"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-pink"><i class="fe fe-download"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-primary"><i class="fe fe-eye"></i></a></li>
+              </ul>
+            </div>
+            <span class="file-name-1">Document.pdf</span>
+          </div>
+          <div class="file-image-1 file-image-lg">
+            <div class="product-image">
+              <a routerLink="/apps/filemanager/filedetails">
+                <img src="./assets/images/photos/1.jpg" class="rounded-3" alt="">
+              </a>
+              <ul class="icons">
+                <li><a href="javascript:void(0);" class="bg-danger"><i class="fe fe-trash"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-pink"><i class="fe fe-download"></i></a></li>
+                <li><a href="javascript:void(0);" class="bg-primary"><i class="fe fe-eye"></i></a></li>
+              </ul>
+            </div>
+            <span class="file-name-1">Image02.jpg</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<! End Row -->

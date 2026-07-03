@@ -1,0 +1,240 @@
+<app-page-header title="Advanced UI" active_item="Ratings"></app-page-header>
+<!-- Row -->
+<div class="row row-deck">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          Star Rating
+        </div>
+      </div>
+      <div class="card-body">
+
+        <ng-template #basicstar let-fill="fill">
+          <span class="star" [class.full]="fill === 100">
+            <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+          </span>
+        </ng-template>
+
+
+        <ngb-rating [(rate)]="currentRate4" [starTemplate]="basicstar" [max]="5" class="ng-rating "></ngb-rating>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          Heart Rating
+        </div>
+      </div>
+      <div class="card-body">
+
+        <ng-template #t let-fill="fill">
+          <span class="star" [class.full]="fill === 100">
+            <span class="heartHalf" [style.width.%]="fill">&hearts;</span>&hearts;
+          </span>
+        </ng-template>
+
+        <ngb-rating [(rate)]="heartRate" [starTemplate]="t" [max]="5" class="ng-rating"></ngb-rating>
+
+        <div class="rating-stars block" id="rating-2" data-stars="2">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          Multi Star Rating
+        </div>
+      </div>
+      <div class="card-body">
+        <ngb-rating [rate]="2" class="d-inline-flex flex-wrap justify-content-center">
+          <ng-template let-fill="fill" let-index="index">
+            <span class="star" [class.filled]="fill === 100" [class.bad]="index < 5">&#9733;</span>
+          </ng-template>
+        </ngb-rating>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          Multi Heart Rating
+        </div>
+      </div>
+      <div class="card-body">
+        <ng-template #t let-fill="fill">
+          <i class="bi-circle-fill">
+            <i *ngIf="fill > 0" class="bi-heart-fill filled" [style.width.%]="fill"></i>
+          </i>
+        </ng-template>
+        <ngb-rating [(rate)]="currentRate2" [starTemplate]="t" [max]="10" class="ng-rating"></ngb-rating>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          Multi circle Rating
+        </div>
+      </div>
+      <div class="card-body">
+
+
+        <ng-template #t let-fill="fill">
+          <i class="bi-circle-fill">
+            <i *ngIf="fill > 0" class="bi-circle-fill filled" [style.width.%]="fill"></i>
+          </i>
+        </ng-template>
+        <ngb-rating [(rate)]="currentRate3" [starTemplate]="t" [max]="10" class="ng-rating"></ngb-rating>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          Thumbs-up Rating
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <ng-template #formstar let-fill="fill">
+            <span class="star" [class.full]="fill === 100">
+              <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+            </span>
+          </ng-template>
+          <ngb-rating [starTemplate]="formstar" [formControl]="ctrl" class="d-inline-flex flex-wrap justify-content-center"></ngb-rating>
+          <div class="form-text small">
+            <div *ngIf="ctrl.valid" class="text-success">Thanks!</div>
+            <div *ngIf="ctrl.invalid" class="text-danger">Please rate us</div>
+          </div>
+        </div>
+
+        <p>Ratings: <b>{{ ctrl.value }}</b></p>
+        <button class="btn btn-sm btn-outline-{{ ctrl.disabled ? 'danger' : 'success'}} me-2" (click)="toggle()">
+          {{ ctrl.disabled ? "control disabled" : " control enabled" }}
+        </button>
+        <button class="btn btn-sm btn-outline-primary me-2" (click)="ctrl.setValue(null)">Clear</button>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          Events and readonly ratings
+        </div>
+      </div>
+      <div class="card-body">
+        <ng-template #eventstar let-fill="fill">
+          <span class="star" [class.full]="fill === 100">
+            <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+          </span>
+        </ng-template>
+
+        <ngb-rating [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly"
+          [starTemplate]="eventstar" [max]="5" class="ng-rating"></ngb-rating>
+
+        <hr>
+        <p>
+          Selected: <b>{{selected}}</b>
+          Hovered: <b>{{hovered}}</b>
+        </p>
+        <button class="btn btn-sm btn-outline-{{readonly ? 'danger' : 'success'}}" (click)="readonly = !readonly">
+          {{ readonly ? "readonly" : "editable"}}
+        </button>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          Movie Rating
+        </div>
+      </div>
+      <div class="card-body">
+        <bar-rating class="d-inline-flex flex-wrap justify-content-center" name="rating" [(rate)]="movieRate" [max]="4" [theme]="'movie'" [showText]="true"
+          [titles]="['No Rating', 'Bad', 'Mediocre' , 'Good', 'Awesome']"></bar-rating>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          Read only mode
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="static-rate text-center fs-30 mt-3">
+          <i class="fa fa-star text-warning" aria-hidden="true"></i>
+          <i class="fa fa-star text-warning" aria-hidden="true"></i>
+          <i class="fa fa-star text-warning" aria-hidden="true"></i>
+          <i class="fa fa-star text-warning" aria-hidden="true"></i>
+          <i class="fa fa-star text-warning" aria-hidden="true"></i>
+        </div>
+        <div class="rating-stars block my-rating-7" data-stars="2">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          Basic Star Rating
+        </div>
+      </div>
+      <div class="card-body">
+
+        <input [(ngModel)]="customCurrentRateInput">
+        <ngb-rating [(rate)]="customCurrentRateInput" class="d-inline-flex flex-wrap justify-content-center">
+          <ng-template let-fill="fill" let-index="index">
+            <span class="star" [class.filled]="fill === 100">&#9733;</span>
+          </ng-template>
+        </ngb-rating>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+
+          Horizontal Rating
+        </div>
+      </div>
+      <div class="card-body">
+        <bar-rating [(rate)]="horiRate" [max]="10" [theme]="'horizontal'" [showText]="true"></bar-rating>
+       
+        <span class="live-rating"></span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          Square Rating
+        </div>
+      </div>
+      <div class="card-body">
+        <bar-rating [(rate)]="squareRate" [max]="5" [theme]="'square'"></bar-rating>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Row -->

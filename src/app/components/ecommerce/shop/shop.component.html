@@ -1,0 +1,208 @@
+<app-page-header title="Ecommerce"  active_item="Shop"></app-page-header>
+<!-- ROW-1 OPEN -->
+<div class="row row-cards">
+    <div class="col-lg-4 col-xl-3">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <form class="shop__filter card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            Colors
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row gutters-xs">
+                            <div class="col-auto">
+                                <label class="colorinput">
+                                    <input name="color" type="radio" value="azure" class="colorinput-input" checked="">
+                                    <span class="colorinput-color bg-azure"></span>
+                                </label>
+                            </div>
+
+                            <div class="col-auto">
+                                <label class="colorinput">
+                                    <input name="color" type="radio" value="indigo" class="colorinput-input">
+                                    <span class="colorinput-color bg-indigo"></span>
+                                </label>
+                            </div>
+                            <div class="col-auto">
+                                <label class="colorinput">
+                                    <input name="color" type="radio" value="purple" class="colorinput-input">
+                                    <span class="colorinput-color bg-purple"></span>
+                                </label>
+                            </div>
+                            <div class="col-auto">
+                                <label class="colorinput">
+                                    <input name="color" type="radio" value="pink" class="colorinput-input">
+                                    <span class="colorinput-color bg-pink"></span>
+                                </label>
+                            </div>
+                            <div class="col-auto">
+                                <label class="colorinput">
+                                    <input name="color" type="radio" value="red" class="colorinput-input">
+                                    <span class="colorinput-color bg-red"></span>
+                                </label>
+                            </div>
+                            <div class="col-auto">
+                                <label class="colorinput">
+                                    <input name="color" type="radio" value="orange" class="colorinput-input">
+                                    <span class="colorinput-color bg-orange"></span>
+                                </label>
+                            </div>
+                            <div class="col-auto">
+                                <label class="colorinput">
+                                    <input name="color" type="radio" value="yellow" class="colorinput-input">
+                                    <span class="colorinput-color bg-yellow"></span>
+                                </label>
+                            </div>
+                            <div class="col-auto">
+                                <label class="colorinput">
+                                    <input name="color" type="radio" value="lime" class="colorinput-input">
+                                    <span class="colorinput-color bg-lime"></span>
+                                </label>
+                            </div>
+                            <div class="col-auto">
+                                <label class="colorinput">
+                                    <input name="color" type="radio" value="green" class="colorinput-input">
+                                    <span class="colorinput-color bg-green"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="card shop-category">
+                    <div class="card-header">
+                        <div class="card-title"> Categories &amp; Fliters</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="custom-checkbox custom-control">
+                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1" checked="">
+                            <label for="checkbox-1" class="custom-control-label">Mens</label>
+                        </div>
+                        <div class="custom-checkbox custom-control">
+                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-2">
+                            <label for="checkbox-2" class="custom-control-label">Womens</label>
+                        </div>
+                        <div class="custom-checkbox custom-control">
+                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-3">
+                            <label for="checkbox-3" class="custom-control-label">Kids</label>
+                        </div>
+                        <div class="custom-checkbox custom-control">
+                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-4">
+                            <label for="checkbox-4" class="custom-control-label">Others</label>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label class="form-label">Category</label>
+                            <ng-select name="beast" id="select-beast">
+                                <ng-option  value="0">--Select--</ng-option>
+                                <ng-option value="1">Dress</ng-option>
+                                <ng-option value="2">Bags &amp; Purses</ng-option>
+                                <ng-option value="3">Coat &amp; Jacket</ng-option>
+                                <ng-option value="4">Beauty</ng-option>
+                                <ng-option value="5">Jeans</ng-option>
+                                <ng-option value="5">Jewellery</ng-option>
+                                <ng-option value="5">Electronics</ng-option>
+                                <ng-option value="5">Sports</ng-option>
+                                <ng-option value="5">Technology</ng-option>
+                                <ng-option value="5">Watches</ng-option>
+                                <ng-option value="5">Accessories</ng-option>
+                            </ng-select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Brand</label>
+                            <ng-select name="beast" id="select-beast1" >
+                                <ng-option value="0">--Select--</ng-option>
+                                <ng-option value="1">White</ng-option>
+                                <ng-option value="2">Black</ng-option>
+                                <ng-option value="3">Red</ng-option>
+                                <ng-option value="4">Green</ng-option>
+                                <ng-option value="5">Blue</ng-option>
+                                <ng-option value="6">Yellow</ng-option>
+                            </ng-select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Type</label>
+                            <ng-select name="beast" id="select-beast2" >
+                                <ng-option value="0">--Select--</ng-option>
+                                <ng-option value="1">Extra Small</ng-option>
+                                <ng-option value="2">Small</ng-option>
+                                <ng-option value="3">Medium</ng-option>
+                                <ng-option value="4">Large</ng-option>
+                                <ng-option value="5">Extra Large</ng-option>
+                            </ng-select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Color</label>
+                            <ng-select name="beast" id="select-beast3" >
+                                <ng-option value="0">--Select--</ng-option>
+                                <ng-option value="1">White</ng-option>
+                                <ng-option value="2">Black</ng-option>
+                                <ng-option value="3">Red</ng-option>
+                                <ng-option value="4">Green</ng-option>
+                                <ng-option value="5">Blue</ng-option>
+                                <ng-option value="6">Yellow</ng-option>
+                            </ng-select>
+                        </div>
+                        <div class="btn-list">
+                            <a class="btn btn-primary " href="javascript:void(0)">Apply Filter</a>
+                            <a class="btn btn-danger" href="javascript:void(0)">Search Now</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-xl-9">
+        <div class="card">
+            <div class="row card-body p-3">
+                <div class="col-sm-12">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search ...">
+                        <button class="btn btn-primary" type="button">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngFor="let products of productData" class="col-sm-12 col-md-6 col-lg-6 col-xl-4" >
+                <div class="card item-card">
+                    <div class="ribbone">
+                    </div>
+                    <div class="product-grid6  card-body">
+                        <div class="product-image6">
+                          <a routerLink ="/ecommerce/productdetails/{{products.id}}">
+                                <a (click)="onSelect(products)" >
+
+                              <img class="img-fluid" img src={{products.photo}} alt="img"></a></a>
+
+                        </div>
+                        <div class="product-content text-center">
+                            <div class="mb-2 text-warning">
+
+                            </div>
+                            <h4 class="title text-primary"><a routerLink="/ecommerce/productdetails">{{products.name}}
+                            </a></h4>
+                            <div class="price">{{products.offer_price}}<span class="ms-4">{{products.price }}</span></div>
+                        </div>
+                        <ul class="icons">
+                            <li><a routerLink="ecommerce/productdetails" data-tip="Quick View"><i class="fa fa-search "></i></a></li>
+                            <li><a routerLink="/ecommerce/wishlist" data-tip="Add to Wishlist"><i class="fa fa-heart-o"></i></a></li>
+                            <li><a (click)="AddToCart(products.id)"  routerLink="/ecommerce/shoppingcart"data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+        </div>
+        <div class="mb-3">
+            <div class="float-end">
+              <ngb-pagination [collectionSize]="50" [(page)]="page1" aria-label="Custom pagination">
+                <ng-template ngbPaginationPrevious>Prev</ng-template>
+                <ng-template ngbPaginationNext>Next</ng-template>
+                <ng-template ngbPaginationNumber let-p>{{ getPageSymbol(p) }}</ng-template>
+              </ngb-pagination>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ROW-1 CLOSED -->

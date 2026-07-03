@@ -1,0 +1,687 @@
+<app-page-header title="Elements"  active_item="Alerts"></app-page-header>
+<!-- ROW-1 OPEN -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card default-alert">
+   <app-element-card-header [title]="'Default alerts'" [item]="collapse" [item1]='isCollapsed' ></app-element-card-header>
+      <div class="card-body">
+        <div class="text-wrap">
+          <div class="example">
+            <p *ngFor="let alert of alerts">
+              <ngb-alert type="{{alert.type}}">{{
+                alert.message
+              }}<button
+              type="button"
+              class="close"
+               (click)="close(alert)"
+            >×</button
+            ></ngb-alert>
+            </p>
+
+          </div>
+        </div>
+      </div>
+      <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+        <div class="panel panel-primary tabs-style-1 my-3">
+          <ul ngbNav #nav1="ngbNav" class="panel-tabs">
+            <li class="me-2 mb-1" [ngbNavItem]="1">
+              <a ngbNavLink>HTML</a>
+              <ng-template ngbNavContent>
+                <pre><code >{{html1}}</code></pre>
+
+              </ng-template>
+            </li>
+            <li class="me-2 mb-1" [ngbNavItem]="2">
+              <a ngbNavLink>TS</a>
+              <ng-template ngbNavContent>
+                <pre><code >{{ts1}}</code></pre>
+
+              </ng-template>
+            </li>
+          </ul>
+
+          <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+            <div [ngbNavOutlet]="nav1" class="tab-pane"></div>
+            <div class="tab-content"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- COL END -->
+</div>
+<!-- ROW-1 CLOSED -->
+<!-- ROW-2 OPEN -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+    <app-element-card-header [title]="'Links in alerts'" [item]="collapse2" [item1]='isCollapsed2' ></app-element-card-header>
+      <div class="card-body">
+        <div class="text-wrap">
+          <div class="example">
+            <p *ngFor="let alert of alertswithlinks">
+              <ngb-alert [type]="alert.type" [dismissible]="false"
+                ><button
+                  type="button"
+                  class="close"
+                  data-bs-dismiss="alert"
+                  aria-hidden="true"
+                  (click)="close2(alert.id)"
+                >
+                  ×</button
+                ><strong>{{ alert.strong }}</strong> {{ alert.message }}
+                <a href="javascript:void(0)" class="alert-link">{{
+                  alert.link
+                }}</a></ngb-alert
+              >
+            </p>
+          </div>
+        </div>
+        <div #collapse2="ngbCollapse" [(ngbCollapse)]="isCollapsed2">
+          <div class="panel panel-primary tabs-style-1 my-3">
+            <ul ngbNav #nav2="ngbNav" class="panel-tabs">
+              <li class="me-2 mb-1" [ngbNavItem]="1">
+                <a ngbNavLink>HTML</a>
+                <ng-template ngbNavContent>
+                  <pre><code >{{html2}}</code></pre>
+
+                </ng-template>
+              </li>
+              <li class="me-2 mb-1" [ngbNavItem]="2">
+                <a ngbNavLink>TS</a>
+                <ng-template ngbNavContent>
+                  <pre><code >{{ts2}}</code></pre>
+
+                </ng-template>
+              </li>
+            </ul>
+
+            <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+              <div [ngbNavOutlet]="nav2" class="tab-pane"></div>
+              <div class="tab-content"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- COL END -->
+</div>
+<!-- ROW-2 CLOSED -->
+
+<!-- ROW-3 OPEN -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+
+      <app-element-card-header [title]="'Links in alerts'" [item]="collapse3" [item1]='isCollapsed3' ></app-element-card-header>
+
+      <div class="card-body">
+        <div class="text-wrap">
+          <p>Add <code class="highlighter-rouge">.alert-icon</code> class.</p>
+          <div class="example">
+            <p *ngFor="let alert of alertswithicons">
+              <ngb-alert [type]="alert.type" [dismissible]="false"
+                ><button
+                  type="button"
+                  class="close"
+                  data-bs-dismiss="alert"
+                  aria-hidden="true"
+                  (click)="close3(alert.id)"
+                >
+                  ×
+                </button>
+                <i class="{{ alert.icon }}"></i> {{ alert.message }}
+              </ngb-alert>
+            </p>
+          </div>
+        </div>
+        <div #collapse3="ngbCollapse" [(ngbCollapse)]="isCollapsed3">
+          <div class="panel panel-primary tabs-style-1 my-3">
+            <ul ngbNav #nav3="ngbNav" class="panel-tabs">
+              <li class="me-2 mb-1" [ngbNavItem]="1">
+                <a ngbNavLink>HTML</a>
+                <ng-template ngbNavContent>
+                  <pre><code >{{html3}}</code></pre>
+
+                </ng-template>
+              </li>
+              <li class="me-2 mb-1" [ngbNavItem]="2">
+                <a ngbNavLink>TS</a>
+                <ng-template ngbNavContent>
+                  <pre><code >{{ts3}}</code></pre>
+
+                </ng-template>
+              </li>
+            </ul>
+
+            <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+              <div [ngbNavOutlet]="nav3" class="tab-pane"></div>
+              <div class="tab-content"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- COL END -->
+  </div>
+  <!-- ROW-3 CLOSED -->
+
+  <!-- ROW-4 OPEN -->
+
+  <div class="row">
+   <div  class="col-lg-12">
+      <div class="card">
+        <app-element-card-header [title]="'Alert with avatar'" [item]="collapse4" [item1]='isCollapsed4' ></app-element-card-header>
+        <div class="card-body">
+          <div class="text-wrap">
+            <div class="example">
+              <ngb-alert
+                type="primary"
+                [dismissible]="false"
+                *ngIf="staticAlertClosed"
+              >
+                <button
+                  type="button"
+                  class="close"
+                  data-bs-dismiss="alert"
+                  aria-hidden="true"
+                  (click)="staticAlertClosed = false"
+                >
+                  ×
+                </button>
+                <img
+                  class="avatar brround cover-image"
+                  src="./assets/images/users/female/4.jpg"
+                />
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem
+                ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum
+                dolor sit amet, consectetur adipisicing elit.
+              </ngb-alert>
+              <ngb-alert
+                type="success"
+                [dismissible]="false"
+                *ngIf="secondAlertClosed"
+              >
+                <button
+                  type="button"
+                  class="close"
+                  data-bs-dismiss="alert"
+                  aria-hidden="true"
+                  (click)="secondAlertClosed = false"
+                >
+                  ×
+                </button>
+                <img
+                  class="avatar brround cover-image"
+                  src="./assets/images/users/male/5.jpg"
+                />
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              </ngb-alert>
+            </div>
+          </div>
+          <div #collapse4="ngbCollapse" [(ngbCollapse)]="isCollapsed4">
+            <div class="panel panel-primary tabs-style-1 my-3">
+              <ul ngbNav #nav4="ngbNav" class="panel-tabs">
+                <li class="me-2 mb-1" [ngbNavItem]="1">
+                  <a ngbNavLink>HTML</a>
+                  <ng-template ngbNavContent>
+                    <pre><code >{{html4}}</code></pre>
+
+                  </ng-template>
+                </li>
+                <li class="me-2 mb-1" [ngbNavItem]="2">
+                  <a ngbNavLink>TS</a>
+                  <ng-template ngbNavContent>
+                    <pre><code >{{ts4}}</code></pre>
+
+                  </ng-template>
+                </li>
+              </ul>
+
+              <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                <div [ngbNavOutlet]="nav4" class="tab-pane"></div>
+                <div class="tab-content"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <!-- ROW-4 CLOSED -->
+
+    <!-- ROW-5 OPEN -->
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="card">
+          <app-element-card-header [title]="'Alerts With Icons'" [item]="collapse5" [item1]='isCollapsed5' ></app-element-card-header>
+
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 mb-3">
+
+                <ngb-alert type="default" [dismissible]="false">
+                  <span class="alert-inner--icon"
+                    ><i class="fe fe-download me-2"></i
+                  ></span>
+                  <span class="alert-inner--text"
+                    ><strong>Default!</strong> This is a warning alert—check it
+                    out that has an icon too!</span
+                  >
+                </ngb-alert>
+                <ngb-alert type="primary" [dismissible]="false">
+                  <span class="alert-inner--icon"
+                    ><i class="fe fe-check-square me-2"></i
+                  ></span>
+                  <span class="alert-inner--text"
+                    ><strong>Primary!</strong> This is a warning alert—check it
+                    out that has an icon too!</span
+                  >
+                </ngb-alert>
+                <ngb-alert type="success" [dismissible]="false">
+                  <span class="alert-inner--icon"
+                    ><i class="fe fe-thumbs-up me-2"></i
+                  ></span>
+                  <span class="alert-inner--text"
+                    ><strong>Success!</strong> This is a warning alert—check it
+                    out that has an icon too!</span
+                  >
+                </ngb-alert>
+                <ngb-alert type="info" [dismissible]="false">
+                  <span class="alert-inner--icon"
+                    ><i class="fe fe-bell me-2"></i
+                  ></span>
+                  <span class="alert-inner--text"
+                    ><strong>Info!</strong> This is a warning alert—check it out
+                    that has an icon too!</span
+                  >
+                </ngb-alert>
+
+                <ngb-alert type="warning" [dismissible]="false">
+                  <span class="alert-inner--icon"
+                    ><i class="fe fe-info me-2"></i
+                  ></span>
+                  <span class="alert-inner--text"
+                    ><strong>Warning!</strong> This is a warning alert—check it
+                    out that has an icon too!</span
+                  >
+                </ngb-alert>
+                <ngb-alert type="danger" [dismissible]="false">
+                  <span class="alert-inner--icon"
+                    ><i class="fe fe-slash me-2"></i
+                  ></span>
+                  <span class="alert-inner--text"
+                    ><strong>Danger!</strong> This is a warning alert—check it
+                    out that has an icon too!</span
+                  >
+                </ngb-alert>
+              </div>
+            </div>
+            <div #collapse5="ngbCollapse" [(ngbCollapse)]="isCollapsed5">
+              <div class="panel panel-primary tabs-style-1 my-3">
+                <ul ngbNav #nav5="ngbNav" class="panel-tabs">
+                  <li class="me-2 mb-1" [ngbNavItem]="1">
+                    <a ngbNavLink>HTML</a>
+                    <ng-template ngbNavContent>
+                      <pre><code >{{html5}}</code></pre>
+
+                    </ng-template>
+                  </li>
+                  <li class="me-2 mb-1" [ngbNavItem]="2">
+                    <a ngbNavLink>TS</a>
+                    <ng-template ngbNavContent>
+                      <pre><code >{{ts5}}</code></pre>
+
+                    </ng-template>
+                  </li>
+                </ul>
+
+                <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                  <div [ngbNavOutlet]="nav5" class="tab-pane"></div>
+                  <div class="tab-content"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <app-element-card-header [title]="'Alerts With Icons Dismissing'" [item]="collapse6" [item1]='isCollapsed6' ></app-element-card-header>
+
+          <div class="card-body">
+            <div class="text-wrap">
+              <ngb-alert
+                type="default"
+                [dismissible]="false"
+                *ngIf="alertClosed"
+                ><i class="fe fe-download me-2"></i
+                ><strong>Default!</strong> This is a default alert—check it out!
+                <button
+                  type="button"
+                  class="close"
+                  data-bs-dismiss="alert"
+                  aria-hidden="true"
+                  (click)="alertClosed = false"
+                >
+                  ×
+                </button></ngb-alert
+              >
+
+              <ngb-alert
+                type="primary"
+                [dismissible]="false"
+                *ngIf="alertClosed2"
+                ><i class="fe fe-check-square me-2"></i
+                ><strong>Primary!</strong> This is a primary alert—check it out!
+                <button
+                  type="button"
+                  class="close"
+                  data-bs-dismiss="alert"
+                  aria-hidden="true"
+                  (click)="alertClosed2 = false"
+                >
+                  ×
+                </button></ngb-alert
+              >
+
+              <ngb-alert
+                type="success"
+                [dismissible]="false"
+                *ngIf="alertClosed3"
+                ><i class="fe fe-thumbs-up me-2"></i
+                ><strong>Success!</strong> This is a success alert—check it out!
+                <button
+                  type="button"
+                  class="close"
+                  data-bs-dismiss="alert"
+                  aria-hidden="true"
+                  (click)="alertClosed3 = false"
+                >
+                  ×
+                </button></ngb-alert
+              >
+
+              <ngb-alert
+                type="warning"
+                [dismissible]="false"
+                *ngIf="alertClosed4"
+                ><i class="fe fe-info me-2"></i><strong>Warning!</strong> This
+                is a warning alert—check it out!
+                <button
+                  type="button"
+                  class="close"
+                  data-bs-dismiss="alert"
+                  aria-hidden="true"
+                  (click)="alertClosed4 = false"
+                >
+                  ×
+                </button></ngb-alert
+              >
+
+              <ngb-alert type="info" [dismissible]="false" *ngIf="alertClosed5"
+                ><i class="fe fe-bell me-2"></i><strong>Info!</strong> This is a
+                info alert—check it out!
+                <button
+                  type="button"
+                  class="close"
+                  data-bs-dismiss="alert"
+                  aria-hidden="true"
+                  (click)="alertClosed5 = false"
+                >
+                  ×
+                </button></ngb-alert
+              >
+
+              <ngb-alert
+                type="danger"
+                [dismissible]="false"
+                *ngIf="alertClosed6"
+                ><i class="fe fe-slash me-2"></i><strong>Danger!</strong> This
+                is a danger alert—check it out!
+                <button
+                  type="button"
+                  class="close"
+                  data-bs-dismiss="alert"
+                  aria-hidden="true"
+                  (click)="alertClosed6 = false"
+                >
+                  ×
+                </button></ngb-alert
+              >
+            </div>
+          </div>
+
+        <div #collapse6="ngbCollapse" [(ngbCollapse)]="isCollapsed6">
+          <div class="panel panel-primary tabs-style-1 my-3">
+            <ul ngbNav #nav6="ngbNav" class="panel-tabs">
+              <li class="me-2 mb-1" [ngbNavItem]="1">
+                <a ngbNavLink>HTML</a>
+                <ng-template ngbNavContent>
+                  <pre><code >{{html6}}</code></pre>
+
+                </ng-template>
+              </li>
+              <li class="me-2 mb-1" [ngbNavItem]="2">
+                <a ngbNavLink>TS</a>
+                <ng-template ngbNavContent>
+                  <pre><code >{{ts6}}</code></pre>
+
+                </ng-template>
+              </li>
+            </ul>
+
+            <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+              <div [ngbNavOutlet]="nav6" class="tab-pane"></div>
+              <div class="tab-content"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+  <!-- COL END -->
+
+<!-- ROW-5 CLOSED -->
+
+<!-- ROW-6 OPEN -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <app-element-card-header [title]="'Alerts style'" [item]="collapse7" [item1]='isCollapsed7' ></app-element-card-header>
+     <div class="card-body">
+        <div class="row">
+          <div class="col-xl-2 col-md-4 mt-2 mb-2">
+            <button
+            type="button"
+            class="btn btn-success btn-block"
+            placement="bottom"
+            ngbPopover="Well done! You successfully read this important alert message.."
+            popoverTitle="alert sucess.."
+            >
+              Show success
+            </button>
+          </div>
+          <div class="col-xl-2 col-md-4 mt-2 mb-2">
+            <button
+              type="button"
+              class="btn btn-info btn-block"
+              placement="top"
+              popoverTitle="alert info"
+              ngbPopover="Heads up! This alert needs your attention, but it's not super important..."
+            >
+              Show info
+            </button>
+          </div>
+          <div class="col-xl-2 col-md-4 mt-2 mb-2">
+            <button
+              type="button"
+              class="btn btn-block btn-warning"
+              placement="bottom"
+              popoverTitle="alert warning"
+              ngbPopover="Warning! Best check yo self, you're not looking too good.."
+            >
+              Show warning
+            </button>
+          </div>
+
+          <div class="col-xl-2 col-md-4 mt-2 mb-2">
+            <button
+              type="button"
+              class="btn btn-block btn-danger"
+              placement="bottom"
+              popoverTitle="alert danger"
+              ngbPopover="Oh snap! Change a few things up and try submitting again."
+            >
+              Show danger
+            </button>
+          </div>
+          <div class="col-xl-2 col-md-4 mt-2 mb-2">
+            <button
+              type="button"
+              class="btn btn-block btn-secondary"
+              placement="top"
+              popoverTitle="alert secondary"
+              ngbPopover="Error! Please Check u r emial id.."
+            >
+              Show secondary
+            </button>
+          </div>
+          <div class="col-xl-2 col-md-4 mt-2 mb-2">
+            <button
+              type="button"
+              class="btn btn-block btn-primary"
+              placement="top"
+              popoverTitle="alert primary"
+              ngbPopover="Cool! This alert will close in 3 seconds. The data-delay attribute is in milliseconds."
+            >
+              Show primary
+            </button>
+          </div>
+        </div>
+        <div #collapse7="ngbCollapse" [(ngbCollapse)]="isCollapsed7">
+          <div class="panel panel-primary tabs-style-1 my-3">
+            <ul ngbNav #nav7="ngbNav" class="panel-tabs">
+              <li class="me-2 mb-1" [ngbNavItem]="1">
+                <a ngbNavLink>HTML</a>
+                <ng-template ngbNavContent>
+                  <pre><code >{{html7}}</code></pre>
+
+                </ng-template>
+              </li>
+              <li class="me-2 mb-1" [ngbNavItem]="2">
+                <a ngbNavLink>TS</a>
+                <ng-template ngbNavContent>
+                  <pre><code >{{ts7}}</code></pre>
+
+                </ng-template>
+              </li>
+            </ul>
+
+            <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+              <div [ngbNavOutlet]="nav7" class="tab-pane"></div>
+              <div class="tab-content"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- COL END -->
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Alerts style</h3>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 mb-3">
+
+                <ngb-alert
+                type="success"
+                [dismissible]="false"
+                *ngIf="alertStyle1"
+                >
+                <strong>Success Message</strong>
+                <button
+                  type="button"
+                  class="close"
+                  data-bs-dismiss="alert"
+                  aria-hidden="true"
+                  (click)="alertStyle1 = false"
+                >
+                  ×
+                </button>
+                <hr class="message-inner-separator" />
+                You successfully read this important alert message.</ngb-alert
+              >
+
+              </div>
+          <div class="col-sm-12 col-md-12 mb-3">
+            <ngb-alert
+                type="info"
+                [dismissible]="false"
+                *ngIf="alertStyle2"
+                >
+                <strong>Info Message</strong>
+                <button
+                  type="button"
+                  class="close"
+                  data-bs-dismiss="alert"
+                  aria-hidden="true"
+                  (click)="alertStyle2 = false"
+                >
+                  ×
+                </button>
+                <hr class="message-inner-separator" />
+                This alert needs your attention, but it's not super important.</ngb-alert
+              >
+
+
+
+            <ngb-alert
+            type="warning"
+            [dismissible]="false"
+            *ngIf="alertStyle3"
+            >
+            <strong>Warning Message</strong>
+            <button
+              type="button"
+              class="close"
+              data-bs-dismiss="alert"
+              aria-hidden="true"
+              (click)="alertStyle3 = false"
+            >
+              ×
+            </button>
+            <hr class="message-inner-separator" />
+            Best check yo self, you're not looking too good.</ngb-alert
+          >
+
+            <ngb-alert
+            type="danger"
+            [dismissible]="false"
+            *ngIf="alertStyle4"
+            >
+            <strong>Danger Message</strong>
+            <button
+              type="button"
+              class="close"
+              data-bs-dismiss="alert"
+              aria-hidden="true"
+              (click)="alertStyle4 = false"
+            >
+              ×
+            </button>
+            <hr class="message-inner-separator" />
+            Change a few things up and try submitting again.</ngb-alert
+          >
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- COL END -->
+</div>
+<!-- ROW-6 CLOSED -->

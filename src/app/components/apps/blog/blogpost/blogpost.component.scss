@@ -1,0 +1,39 @@
+.editor-container {
+  max-height: 500px; /* Hauteur maximale pour le défilement vertical */
+  overflow-y: auto; /* Défilement vertical si nécessaire */
+}
+
+.editor {
+  overflow-y: auto; /* Défilement vertical si nécessaire */
+  overflow-x: hidden; /* Cacher le débordement horizontal */
+  border-bottom: 1px solid #ccc; /* Ajouter une bordure en bas de l'éditeur */
+  min-height: 200px; /* Définissez une hauteur minimale pour l'éditeur lui-même */
+  max-height: 500px; /* Définissez une hauteur maximale pour l'éditeur lui-même si nécessaire */
+}
+
+.dropzone-container {
+  border-top: 1px solid #ccc; /* La bordure en haut du conteneur dropzone */
+}
+
+
+/* Supprimez la propriété 'position: absolute' et 'top: 0' pour que le dropzone soit placé naturellement après l'éditeur */
+.dropzone {
+  width: 100%;
+  height: 100%;
+  border: none; /* Enlever la bordure si nécessaire */
+  background: rgba(255, 255, 255, 0); /* Transparent */
+  cursor: pointer;
+}
+
+/* Vous pourriez ne pas avoir besoin de ce style avec ::ng-deep */
+::ng-deep .editor {
+  max-height: 500px;
+  overflow-y: auto;
+}
+/* blogpost.component.scss */
+.loading-indicator {
+  /* Styles pour l'indicateur de chargement */
+  display: block;
+  text-align: center;
+  /* Ajoutez ici d'autres styles comme l'animation du spinner, etc. */
+}

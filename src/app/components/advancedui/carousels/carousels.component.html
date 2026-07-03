@@ -1,0 +1,267 @@
+<app-page-header title="Advanced UI" active_item="Carousels"></app-page-header>
+<!-- ROW-1 OPEN -->
+<div class="row">
+  <div class="col-md-6 col-lg-4">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Carousel</h3>
+      </div>
+      <div class="card-body">
+        <ngb-carousel *ngIf="products">
+          <ng-template ngbSlide *ngFor="let product of products">
+            <img [src]="product.img" >
+            <div class="carousel-caption"></div>
+          </ng-template>
+        </ngb-carousel>
+      
+
+
+      </div>
+
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-4">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Carousel with indicators</h3>
+      </div>
+      <div class="card-body">
+
+        <ngb-carousel *ngIf="pictureData">
+          <ng-template ngbSlide *ngFor="let picture of pictureData7">
+            <img [src]="picture.img" alt="Random slide">
+
+          </ng-template>
+        </ngb-carousel>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-4">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Carousel with controls</h3>
+      </div>
+      <div class="card-body">
+
+        <ngb-carousel *ngIf="pictureData">
+          <ng-template ngbSlide *ngFor="let picture of pictureData8">
+            <img [src]="picture.img" alt="Random slide">
+            <div class="carousel-caption"></div>
+          </ng-template>
+        </ngb-carousel>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-4">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Carousel with captions</h3>
+      </div>
+      <div class="card-body">
+
+        <ngb-carousel *ngIf="pictureData">
+          <ng-template ngbSlide *ngFor="let picture of pictureData5">
+            <img [src]="picture.img" alt="Random slide">
+          </ng-template>
+        </ngb-carousel>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-4">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Carousel with top controls</h3>
+      </div>
+      <div class="card-body">
+
+        <ngb-carousel *ngIf="pictureData">
+          <ng-template ngbSlide *ngFor="let picture of pictureData5">
+            <img [src]="picture.img" alt="Random slide">
+
+          </ng-template>
+        </ngb-carousel>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-4">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Carousel with top-right controls</h3>
+      </div>
+      <div class="card-body">
+
+
+        <ngb-carousel *ngIf="pictureData">
+          <ng-template ngbSlide *ngFor="let picture of pictureData4">
+            <img [src]="picture.img" alt="Random slide">
+            <div class="carousel-caption">
+
+            </div>
+          </ng-template>
+        </ngb-carousel>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ROW-1 CLOSED -->
+
+<!-- ROW-2 OPEN -->
+<div class="row">
+  <div class="col-md-6 col-lg-4">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Carousel with top-left controls</h3>
+      </div>
+      <div class="card-body">
+
+        <ngb-carousel *ngIf="pictureData">
+          <ng-template ngbSlide *ngFor="let picture of pictureData2">
+            <img [src]="picture.img" alt="Random slide">
+            <div class="carousel-caption">
+
+            </div>
+          </ng-template>
+        </ngb-carousel>
+
+
+      </div>
+    </div>
+  </div><!-- COL-END -->
+  <div class="col-md-6 col-lg-4">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Carousel with bottom-right controls</h3>
+      </div>
+      <div class="card-body">
+
+        <ngb-carousel *ngIf="pictureData">
+          <ng-template ngbSlide *ngFor="let picture of pictureData1">
+            <img [src]="picture.img" alt="Random slide">
+            <div class="carousel-caption">
+
+            </div>
+          </ng-template>
+        </ngb-carousel>
+
+      </div>
+    </div>
+  </div><!-- COL-END -->
+
+
+  <div class="col-md-6 col-lg-4">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Carousel with bottom-left controls</h3>
+      </div>
+      <div class="card-body">
+          <ngb-carousel *ngIf="pictureData">
+            <ng-template ngbSlide *ngFor="let picture of pictureData1">
+              <img [src]="picture.img" alt="Random slide">
+              <div class="carousel-caption">
+
+              </div>
+            </ng-template>
+          </ngb-carousel>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div><!-- COL-END -->
+
+
+  <div class="col-md-6 col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Carousel with Background color captions</h3>
+      </div>
+      <div class="card-body">
+
+        <ngb-carousel *ngIf="backgroundColorImages" [interval]="9000" [showNavigationArrows]='true'
+          [showNavigationIndicators]='false' class="carousel slide">
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img [src]="backgroundColorImages[0]" alt="Random first slide">
+            </div>
+            <div class="carousel-caption">
+              <h3 class="text-white">Slide label</h3>
+              <p>The wise man therefore always holds in these matters to this principle of selection he rejects
+                pleasures.</p>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img [src]="backgroundColorImages[2]" alt="Random second slide">
+            </div>
+            <div class="carousel-caption">
+              <h3 class="text-white">Slide label</h3>
+              <p>The wise man therefore always holds in these matters to this principle of selection he rejects
+                pleasures.</p>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img [src]="backgroundColorImages[1]" alt="Random third slide">
+            </div>
+            <div class="carousel-caption">
+              <h3 class="text-white">Slide label</h3>
+              <p>The wise man therefore always holds in these matters to this principle of selection he rejects
+                pleasures.</p>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+
+      </div>
+    </div>
+  </div><!-- COL-END -->
+
+
+  <div class="col-md-6 col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Carousel with GradientBackground caption</h3>
+
+      </div>
+      <div class="card-body">
+        <ngb-carousel *ngIf="backgroundColorImages1" [interval]="9000" [showNavigationArrows]='true'
+          [showNavigationIndicators]='false' class="carousel slide">
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img [src]="backgroundColorImages1[1]" alt="Random first slide">
+            </div>
+            <div class="carousel-caption">
+              <h3 class="text-white">Slide label</h3>
+              <p>The wise man therefore always holds in these matters to this principle of selection: he rejects
+                pleasures.</p>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img [src]="backgroundColorImages1[0]" alt="Random second slide">
+            </div>
+            <div class="carousel-caption">
+              <h3 class="text-white">Slide label</h3>
+              <p>The wise man therefore always holds in these matters to this principle of selection: he rejects
+                pleasures.</p>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img [src]="backgroundColorImages1[2]" alt="Random third slide">
+            </div>
+            <div class="carousel-caption">
+              <h3 class="text-white">slide label</h3>
+              <p>The wise man therefore always holds in these matters to this principle of selection: he rejects
+                pleasures.</p>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+
+      </div>
+    </div><!-- COL-END -->
+  </div>
+  <!-- ROW-2 CLOSED -->

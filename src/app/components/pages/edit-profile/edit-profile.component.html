@@ -1,0 +1,278 @@
+<app-page-header title="Pages"  active_item="Edit Profile"></app-page-header>
+<!-- ROW-1 OPEN -->
+<div class="row">
+    <div class="col-lg-4 col-xl-4 col-md-12 col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-center">
+                    <div class="userprofile">
+                        <div > 
+                            <div class="profile-container mx-auto mt-2 mt-lg-4 pt-5 mb-3">
+                                <img src="{{ user.photoUrl }}"  class="profile-image" >
+                            
+                            <!--
+                                  <div class="profile-container mx-auto mt-2 mt-lg-4 pt-5 mb-3   ">
+                                <img src="{{ user.photoUrl }}"  class="profile-image" >
+                            <ngx-dropzone (change)="onSelect($event)"  class="dropzone">
+                            </ngx-dropzone>
+                            <button type="button" (click)="uploadFiles()" class="btn btn-icon btn-light bg-white btn-sm border rounded-circle shadow-sm position-absolute bottom-0 end-0 mt-4" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Change picture" aria-label="Change picture">
+                              <i class="bx bx-refresh"></i>
+                            </button>
+                          </div>
+                            -->
+                          </div>
+                                                   </div>
+                        <h3 class="username text-dark mb-2"><h4>{{ firstName }} {{ lastName }}</h4></h3>
+                        <p class="mb-1 text-muted">{{userRole}}</p>
+                        <div class="text-center mb-4">
+                            <span><i class="fa fa-star text-warning"></i></span>
+                            <span><i class="fa fa-star text-warning"></i></span>
+                            <span><i class="fa fa-star text-warning"></i></span>
+                            <span><i class="fa fa-star-half-o text-warning"></i></span> 
+                            <span><i class="fa fa-star-o text-warning"></i></span>
+                        </div>
+                        <div class="socials text-center me-3">
+                            <a href="javascript:void(0)" class="btn btn-circle btn-primary me-1 ">
+                            <i class="fa fa-facebook "></i></a> <a href="javascript:void(0)" class="btn btn-circle btn-danger me-1">
+                            <i class="fa fa-google-plus"></i></a> <a href="javascript:void(0)" class="btn btn-circle btn-info me-1 ">
+                            <i class="fa fa-twitter"></i></a> <a href="javascript:void(0)" class="btn btn-circle btn-warning me-1"><i class="fa fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Edit Password</div>
+            </div>
+            <div class="card-body">
+                <div class="d-flex mb-3">
+                    <img alt="User Avatar" class="rounded-circle avatar-lg me-2" [src]="pathToProfileImage || userProfilePictureUrl ">
+                    <div class="ms-auto mt-xl-2 mt-lg-0 ms-lg-2">
+                        <button href="javascript:void(0)" class="btn btn-primary btn-sm mt-1 me-1" (click)="toggleDropzone()">
+                          <i class="fe fe-camera me-1"></i>Edit profile
+                        </button>
+                                              
+                        <a href="javascript:void(0)" class="btn btn-danger btn-sm mt-1 me-1" (click)="deleteUserProfilePicture()">
+                          <i class="fe fe-camera-off me-1"></i>Delete profile
+                        </a>
+                      </div>
+                      
+                      <ngx-dropzone *ngIf="showDropzone" (change)="onSelect($event)" class="dropzone"></ngx-dropzone>
+                      
+                      
+                </div>
+                <form (ngSubmit)="changePassword()" #changePasswordForm="ngForm">
+
+                <div class="form-group">
+                    <label class="form-label">Change Password</label>
+                    <input type="password" class="form-control" id="currentPassword" [(ngModel)]="currentPassword" name="currentPassword" >
+                  
+                </div>
+                <div class="form-group">
+                    <label class="form-label">New Password</label>
+                    <input type="password" class="form-control" id="newPassword"  [(ngModel)]="newPassword" name="newPassword" >
+                   
+                      
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control"   id="confirmationPassword"  [(ngModel)]="confirmationPassword" name="confirmationPassword">
+                 
+                </div>
+                <div class="card-footer text-end">
+                     <button type="submit" class="btn btn-primary me-1">Update </button>
+                     <button  type="reset" class="btn btn-danger me-1"> Cancel </button>
+                </div>
+            </form>
+           </div>
+
+        </div>
+        <div class="card panel-theme">
+            <div class="card-header">
+                <div class="float-start">
+                    <h3 class="card-title">Contact</h3>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="card-body no-padding">
+                <ul class="list-group no-margin">
+                    <li class="list-group-item"><i class="fa fa-envelope me-4"></i> support@demo.com</li>
+                    <li class="list-group-item"><i class="fa fa-globe me-4"></i> www.Slica.com</li>
+                    <li class="list-group-item"><i class="fa fa-phone me-4"></i> +125 5826 3658 </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-xl-8 col-md-12 col-sm-12">
+
+        <form (ngSubmit)=" updateProfile()" #profileForm= "ngForm"  novalidate>
+        <div class="card edit-profile">
+            <div class="card-header">
+                <h3 class="card-title">Edit Profile</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                            <label for="exampleInputname">First Name </label>
+                            <input type="text" id="firstName" class="form-control" [(ngModel)]="user.firstName" name="firstName" placeholder="First Name" [disabled]="!isEditMode" >
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                            <label for="exampleInputname1">Last Name</label>
+                            <input type="text" id="lasttName" [(ngModel)]="user.lastName" name="lastName" class="form-control" placeholder="Enter Last Name" [disabled]="!isEditMode" >
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                            <label for="exampleInputname">Address</label>
+                            <input type="text" id="address" [(ngModel)]="user.address" name="address" class="form-control" laceholder="Entre Address" [disabled]="!isEditMode" >
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                            <label for="exampleInputname1">Code postal </label>
+                            <input type="text" id="codepostal" [(ngModel)]="user.codepostal" name="codepostal" class="form-control" placeholder="Enter code postal" [disabled]="!isEditMode" >
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                      <div class="form-group">
+                        <label for="country-select">Country</label>
+                        <select  id="country" [(ngModel)]="user.country" name="country" class="form-control" (change)="onCountryChange($event)" [disabled]="!isEditMode" >
+                          <option value="">Select Country</option>
+                          <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                      <div class="form-group">
+                        <label for="city-select">City</label>
+                        <select  id="city" [(ngModel)]="user.city" name="city"  class="form-control" *ngIf="selectedCountry" [disabled]="!isEditMode" >
+                          <option value="">Select City</option>
+                          <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+                        </select>
+                        <div *ngIf="!selectedCountry" class="form-control disabled">Select City</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input  id="email" type="email"  class="form-control"  [(ngModel)]="user.email" name="email" placeholder="email address"  readonly>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputnumber">Conatct Number</label>
+                    <input type="text" class="form-control" id="phoneNumberr"  [(ngModel)]="user.phoneNumber" name="phoneNumber" placeholder="phoneNumber" [disabled]="!isEditMode" >
+                </div>
+             
+                <div class="form-group">
+                    <label class="form-label">Website</label>
+                    <input class="form-control" placeholder="http://makerlink.com" [disabled]="!isEditMode" >
+                </div>
+                
+            </div>
+            <div class="card-footer">
+                <button  class="btn btn-danger me-1" type="button" (click)="toggleEditMode()" >Edit Account Information</button>
+                <button type="submit" class="btn btn-primary me-1" >Save</button>
+            </div>
+        </div>
+        </form>
+
+        <!---
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Recently Connected</h3>
+            </div>
+            <div class="card-body p-5">
+                <div class="memberblock mb-0">
+                    <div class="row ">
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4 px-1 m-t-5 m-b-5">
+                            <a href="javascript:void(0)" class="member"><img src="./assets/images/users/male/3.jpg" alt="">
+                                <div class="memmbername">Ajay Sriram</div>
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4 px-1 m-t-5 m-b-5">
+                            <a href="javascript:void(0)" class="member"><img src="./assets/images/users/female/8.jpg" alt="">
+                                <div class="memmbername">Samantha</div>
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4 px-1 m-t-5 m-b-5">
+                            <a href="javascript:void(0)" class="member"><img src="./assets/images/users/female/4.jpg" alt="">
+                                <div class="memmbername">Stella</div>
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4 px-1 m-t-5 m-b-5">
+                            <a href="javascript:void(0)" class="member"><img src="./assets/images/users/male/2.jpg" alt="">
+                                <div class="memmbername">James Thomas</div>
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4 px-1 m-t-5 m-b-5">
+                            <a href="javascript:void(0)" class="member"><img src="./assets/images/users/male/8.jpg" alt="">
+                                <div class="memmbername">Christopher</div>
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-sm-4 px-1 m-t-5 m-b-5">
+                            <a href="javascript:void(0)" class="member"><img src="./assets/images/users/male/5.jpg" alt="">
+                                <div class="memmbername">Manish Sriram</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</div>
+<!-- ROW-1 CLOSED -->
+
+<!-- ROW-2 OPEN 
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header ">
+                <h3 class="card-title ">Projects</h3>
+                <div class="card-options">
+                    <button type="button" class="btn btn-md btn-primary"><i class="fa fa-plus"></i> Add a new Project</button>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover card-table table-vcenter table-outline text-nowrap">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Project Name</th>
+                            <th scope="col">Backend</th>
+                            <th scope="col">Deadline</th>
+                            <th scope="col">Team Members</th>
+                            <th scope="col">Edit Project Details </th>
+                            <th scope="col">list info</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let products of productData">
+                            <td>{{products.id}}</td>
+                            <td>{{products.name}}</td>
+                            <td>{{products.backend}}</td>
+                            <td>{{products.date}}</td>
+                            <td>{{products.team}}</td>
+                            <td>
+                                <a class="btn btn-sm btn-primary me-1" href="javascript:void(0)"><i class="fa fa-edit "></i> Edit</a>
+                                <a class="btn btn-sm btn-danger me-1" href="javascript:void(0)"(click)="click(products.id)"><i class="fa fa-trash "></i> Delete</a>
+                            </td>
+                            <td><a class="btn btn-sm btn-secondary" href="javascript:void(0)"><i class="fa fa-info-circle"></i> Details</a> </td>
+                        </tr>
+
+                      </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+ ROW-2 CLOSED -->
+

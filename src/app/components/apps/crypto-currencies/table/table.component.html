@@ -1,0 +1,58 @@
+<form>
+  <div class="mb-3 row">
+    <label for="table-complete-search" class="col-xs-3 col-sm-auto col-form-label">Full text search:</label>
+    <div class="col-xs-3 col-sm-auto">
+      <input id="table-complete-search" type="text" class="form-control" name="searchTerm"
+        [(ngModel)]="service.searchTerm">
+    </div>
+    <span class="col col-form-label" *ngIf="service.loading$ | async">Loading...</span>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered text-nowrap mb-0">
+      <thead class="border-top">
+        <tr>
+          <th scope="col" sortable="name" (sort)="onSort($event)">Name</th>
+          <th scope="col" sortable="marketcap" (sort)="onSort($event)">Icon</th>
+          <th scope="col" sortable="price" (sort)="onSort($event)">Price</th>
+          <th scope="col" sortable="marketcap" (sort)="onSort($event)">% 24h</th>
+          <th scope="col" sortable="inflation" (sort)="onSort($event)">Market Cap</th>
+          <th scope="col" sortable="price" (sort)="onSort($event)">Circulating Supply</th>
+          <th scope="col" sortable="price" (sort)="onSort($event)">Volume 24H</th>
+          <th scope="col" sortable="price" (sort)="onSort($event)">CMGR/Month</th>
+          <th scope="col" sortable="price" (sort)="onSort($event)">Inflation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-bottom" *ngFor="let country of countries$ | async">
+
+          <td><ngb-highlight [result]="country.name" [term]="service.searchTerm"></ngb-highlight></td>
+          <td>
+            <img [src]="country.icon" class="me-2" style="width: 20px">
+
+          </td>
+          <td><ngb-highlight [result]="country.price" [term]="service.searchTerm"></ngb-highlight></td>
+          <td><ngb-highlight [result]="country.quantity" [term]="service.searchTerm"></ngb-highlight></td>
+          <td><ngb-highlight [result]="country.marketcap | currency " [term]="service.searchTerm"></ngb-highlight></td>
+          <td><ngb-highlight [result]="country.CirculatingSupply" [term]="service.searchTerm"></ngb-highlight></td>
+          <td><ngb-highlight [result]="country.volume | currency " [term]="service.searchTerm"></ngb-highlight></td>
+          <td><ngb-highlight [result]="country.cmgrMonth" [term]="service.searchTerm"></ngb-highlight></td>
+          <td><ngb-highlight [result]="country.inflation" [term]="service.searchTerm"></ngb-highlight></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="d-sm-flex justify-content-between p-2">
+    <ngb-pagination [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize">
+    </ngb-pagination>
+
+    <ng-select class="mt-2 mt-sm-0" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
+      <ng-option ng-option-selected value="0">--Select--</ng-option>
+      <ng-option value="2">2 items per page</ng-option>
+      <ng-option value="4">4 items per page</ng-option>
+      <ng-option value="6">6 items per page</ng-option>
+    </ng-select>
+  </div>
+
+</form>

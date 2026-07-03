@@ -1,0 +1,409 @@
+<app-page-header title="Management" active_item="Piece"></app-page-header>
+
+
+<!-- ROW OPEN -->
+<div class="row">
+  <div class="col-xl-3 col-md-6">
+    <div class="card sales-1 overflow-hidden">
+      <div class="card-body">
+        <span class="bg-primary-transparent icon-service text-primary float-end"><i class="fe fe-briefcase"></i> </span>
+        <h6 class="mb-3 font-weight-500">Number of Piece</h6>
+        <h4 class="mb-1"><span class="number-font "><span class="counter">{{ pieceCount }}</span></span><span class="fs-11 ms-2">
+            </span></h4>
+        <p class="mb-2"><span class="text-success fs-13 me-2">(100%)</span> <span class="small text-muted">Of Piece
+            </span></p>
+      </div>
+      <div class="card-over-data ">
+
+        <div class="chartjs-wrapper-demo ">
+
+          <canvas height="90" #myCanvas1></canvas>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-md-6">
+    <div class="card sales-1 overflow-hidden">
+      <div class="card-body">
+        <span class="bg-danger-transparent icon-service text-danger float-end"><i class="fe fe-box"></i> </span>
+        <h6 class="mb-3 font-weight-500">Piece Estimate </h6>
+        <h4 class="mb-1"><span class="number-font"><span class="counter">{{ estimatedPieceCount }} </span></span><span class="fs-11 ms-2"> 
+            </span></h4>
+        <p class="mb-2"><span class="text-success fs-13 me-2">({{ percentage | number:'1.0-2' }}%)</span><span class="small text-muted">of piece estimate </span></p>
+      </div>
+      <div class="card-over-data">
+
+
+        <div class="chartjs-wrapper-demo">
+
+          <canvas height="90" #myCanvas></canvas>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-md-6">
+    <div class="card sales-1 overflow-hidden">
+      <div class="card-body">
+        <span class="bg-secondary-transparent icon-service text-secondary float-end"><i class="fe fe-pie-chart"></i>
+        </span>
+        <h6 class="mb-3 font-weight-500"> Number of Piece success</h6>
+        <h4 class="mb-1"><span class="number-font"><span class=" counter">{{ startedManufacturingCount }}</span></span><span class="fs-11 ms-2">
+            VS $7,783</span></h4>
+        <p class="mb-2"><span class="text-danger fs-13 me-2">({{ percentagePieceSucces | number:'1.0-2' }}%)</span><span class="small text-muted">percentage of piece success</span></p>
+      </div>
+      <div class="card-over-data">
+        <div class="chartjs-wrapper-demo ">
+          <canvas height="90" #myCanvas2></canvas>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-md-6">
+    <div class="card sales-1 overflow-hidden">
+      <div class="card-body">
+        <span class="bg-success-transparent icon-service text-success float-end"><i class="fe fe-trending-up"></i>
+        </span>
+        <h6 class="mb-3 font-weight-500">Pieces without delivery </h6>
+        <h4 class="mb-1"><span class="number-font"><span class="counter">{{ piecesWithoutDeliveryCount }}</span></span><span class="fs-11 ms-2"> </span></h4>
+        <p class="mb-2"><span class="text-danbjguhger fs-13 me-2"></span><span class="small text-muted"></span></p>
+      </div>
+      <div class="card-over-data">
+        <div class="chartjs-wrapper-demo ">
+          <canvas height="90" #myCanvas3></canvas>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ROW END -->
+
+
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Pieces With Delivery</h3>
+        <div class="input-group">
+          <select class="form-control" [(ngModel)]="filterValue" (ngModelChange)="applyFilter()">
+            <option value="">All Processes</option>
+            <option value="trois printing">Trois Printing</option>
+            <option value="laser cutting">Laser Cutting</option>
+            <option value="ed machining">Ed Machining</option>
+            <option value="cnc machining">Cnc Machining</option>
+          </select>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table mat-table [dataSource]="dataSource" class="table card-table border table-vcenter text-nowrap align-items-center">
+            <ng-container matColumnDef="idPiece">
+              <th mat-header-cell *matHeaderCellDef> Id </th>
+              <td mat-cell *matCellDef="let piece"> {{ piece.idPiece }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="process">
+              <th mat-header-cell *matHeaderCellDef> Process </th>
+              <td mat-cell *matCellDef="let piece"> {{ formatProcess(piece.process) }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="material">
+              <th mat-header-cell *matHeaderCellDef> Material </th>
+              <td mat-cell *matCellDef="let piece"> {{ piece.material }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="quantity">
+              <th mat-header-cell *matHeaderCellDef> Quantity </th>
+              <td mat-cell *matCellDef="let piece"> {{ piece.quantity }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="technicalDrawing">
+              <th mat-header-cell *matHeaderCellDef> Technical Drawing </th>
+              <td mat-cell *matCellDef="let piece">
+                {{ piece.technicalDrawing }}
+                <i class="fas fa-download text-primary ml-2" *ngIf="piece?.idPiece !== undefined" (click)="downloadTechnicalDrawingByPiece(piece.idPiece!)"></i>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="filePath">
+              <th mat-header-cell *matHeaderCellDef> File Path </th>
+              <td mat-cell *matCellDef="let piece">
+                {{ piece.filePath }}
+                <i class="fas fa-download text-primary ml-2" (click)="downloadPieceZip(piece?.idPiece ?? 0)"></i>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="additionalNotes">
+              <th mat-header-cell *matHeaderCellDef> Additional Notes </th>
+              <td mat-cell *matCellDef="let piece"> {{ piece.additionalNotes }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="userEmail">
+              <th mat-header-cell *matHeaderCellDef> User Email </th>
+              <td mat-cell *matCellDef="let piece"> {{ piece.user?.email }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef> Actions </th>
+              <td mat-cell *matCellDef="let piece">
+                <button class="btn text-danger btn-sm" *ngIf="piece.idPiece !== undefined" type="button" placement="top" ngbTooltip="Delete" (click)="deletePiece(piece.idPiece!)">
+                  <span class="fe fe-trash fs-14"></span>
+                </button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of piecesWithDelivery"></mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ROW-1 OPEN -->
+<div class="row row-deck">
+  <div class="col-sm-12 col-md-6 col-lg-12 col-xl-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Default Accordion</h3>
+      </div>
+      <div class="card-body">
+        <ngb-accordion #acc="ngbAccordion">
+          <ngb-panel class="active" title="Collapsible Group Item #1" cardClass="acc-card mb-2 br-5 ">
+            <ng-template ngbPanelContent>
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+              moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+              Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+              shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+              proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+              aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel title="Collapsible Group Item #2" cardClass="acc-card mb-2 br-5 border-top">
+            <ng-template ngbPanelContent>
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+              moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+              Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+              shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+              proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+              aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel title="Collapsible Group Item #3" cardClass="acc-card mb-2 br-5 border-top">
+            <ng-template ngbPanelContent>
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+              moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+              Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+              shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+              proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+              aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+      </div>
+    </div>
+  </div><!-- COL-END -->
+  <div class="col-sm-12 col-md-6 col-lg-12 col-xl-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Closed Accordion</h3>
+      </div>
+      <div class="card-body">
+        <ngb-accordion [closeOthers]="true" activeIds="static-1">
+          <ngb-panel id="static-1" title="Accordion Item #1">
+            <ng-template ngbPanelContent>
+              Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+              in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Fusce aliquet neque
+              et accumsan fermentum. Aliquam lobortis neque in nulla tempus, molestie fermentum purus euismod.
+
+
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel id="static-2" title="Accordion Item #2">
+            <ng-template ngbPanelContent>
+              Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+              in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Fusce aliquet neque
+              et accumsan fermentum. Aliquam lobortis neque in nulla tempus, molestie fermentum purus euismod.
+
+
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel id="static-3" title="Accordion Item #3">
+            <ng-template ngbPanelContent>
+              Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+              in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Fusce aliquet neque
+              et accumsan fermentum. Aliquam lobortis neque in nulla tempus, molestie fermentum purus euismod.
+
+
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+        <!-- ACCORDION BEGIN -->
+      </div>
+    </div>
+  </div><!-- COL-END -->
+</div>
+<!-- ROW-1 CLOSED -->
+
+<!-- ROW-2 OPEN -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Accordion Style 3</h3>
+      </div>
+      <div class="card-body">
+        <ngb-accordion [closeOthers]="true" activeIds="static-1">
+          <ngb-panel id="static-1" cardClass="br-5">
+            <ng-template ngbPanelTitle>
+              <i class="fa fa-minus-circle mx-1 "></i>
+              Select 1
+            </ng-template>
+            <ng-template ngbPanelContent>
+              Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+              in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Fusce aliquet neque
+              et accumsan fermentum. Aliquam lobortis neque in nulla tempus, molestie fermentum purus euismod.
+
+
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel id="static-2" cardClass="mt-2 border-top br-5">
+            <ng-template ngbPanelTitle>
+              <i class="fa fa-minus-circle mx-1"></i>
+              Select 2
+            </ng-template>
+            <ng-template ngbPanelContent>
+              Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+              in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Fusce aliquet neque
+              et accumsan fermentum. Aliquam lobortis neque in nulla tempus, molestie fermentum purus euismod.
+
+
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel id="static-3" cardClass="mt-2 border-top br-5">
+            <ng-template ngbPanelTitle>
+              <i class="fa fa-minus-circle mx-1"></i>
+              Select 3
+            </ng-template>
+            <ng-template ngbPanelContent>
+              Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+              in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Fusce aliquet neque
+              et accumsan fermentum. Aliquam lobortis neque in nulla tempus, molestie fermentum purus euismod.
+
+
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Accordion style</h3>
+      </div>
+      <div class="card-body">
+        <div class="panel-group1" id="accordion1">
+          <div class="panel panel-default mb-4 overflow-hidden">
+            <div class="panel-heading1 ">
+              <h4 class="panel-title1 text-white">
+                <a class="accordion-toggle firstgradient bg-gradient-primary collapsed"
+                  (click)="FirstGradient()">Section 1</a>
+              </h4>
+            </div>
+            <div *ngIf="isFirstGradient">
+              <div class="panel-collapse">
+                <div class="panel-body">
+                  <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,
+                    making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words
+                  </p>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and scrambled.Nor again is there anyone who loves or pursues or desires to obtain pain of itself,
+                    because it is pain, but because occasionally circumstances occur in which toil and pain can procure
+                    him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical
+                    exercise</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default mb-4 overflow-hidden">
+            <div class="panel-heading1 ">
+              <h4 class="panel-title1 text-white">
+                <a class="accordion-toggle secondgradient bg-gradient-primary collapsed"
+                  (click)="SecondGradient()">Section 2</a>
+              </h4>
+            </div>
+            <div *ngIf="isSecondGradient">
+              <div class="panel-collapse">
+                <div class="panel-body">
+                  <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,
+                    making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words
+                  </p>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and scrambled.Nor again is there anyone who loves or pursues or desires to obtain pain of itself,
+                    because it is pain, but because occasionally circumstances occur in which toil and pain can procure
+                    him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical
+                    exercise</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- COL-END -->
+</div>
+<!-- ROW-2 CLOSED OPEN -->

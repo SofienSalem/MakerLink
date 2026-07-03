@@ -1,0 +1,150 @@
+<app-page-header title="Advanced UI" active_item="Counters"></app-page-header>
+<!-- ROW-1 OPEN -->
+<div class="row row-cards">
+  <div class="col-md-12 col-xl-4">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          Time Counting From 0
+        </div>
+      </div>
+      <div class="card-body text-center">
+        <div class="example rounded-3">
+          <div class="">
+            <span class="text-primary fs-30 pe-5" id="timer-countup" class="h3 text-primary"></span>
+
+            <cd-timer id="timer-countup" class="h3 text-primary" format="dhms">00 Day 00 : 00 : 00</cd-timer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- COL-END -->
+  <div class="col-md-12 col-xl-4">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          Time Counting From 60 to 20
+        </div>
+      </div>
+      <div class="card-body text-center">
+        <div class="example rounded-3">
+          <span id="timer-countinbetween" class="h3 text-primary"></span>
+          <div class="">
+            <cd-timer id="timer-countinbetween" class="h3 text-primary" format="hms" [startTime]="60" [endTime]="20"
+              [countdown]="true"></cd-timer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- COL-END -->
+  <div class="col-md-12 col-xl-4">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          Time 1 minute counter
+        </div>
+      </div>
+      <div class="card-body text-center">
+        <div class="example rounded-3">
+          <span id="timer-countercallback" class="h3 text-primary"></span>
+          <cd-timer id="timer-countercallback" class="h3 text-primary" format="hms" [startTime]="60" [countdown]="true"
+            (onComplete)="onComplete($event)" (onTick)="onTick($event)" (onStart)="onStart($event)"></cd-timer>
+        </div>
+      </div>
+    </div>
+  </div><!-- COL-END -->
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          Time Counting days Limit
+        </div>
+      </div>
+      <div class="card-body text-center">
+        <div class="example rounded-3">
+          <span id="timer-outputpattern" class="h3 text-info"></span>
+          <cd-timer id="timer-outputpattern" class="h3 text-info" format="default" [startTime]="222222"
+            [countdown]="true">02 Days 23 Hours 43 Minutes 13 Seconds</cd-timer>
+        </div>
+      </div>
+    </div>
+  </div><!-- COL-END -->
+  <div class="col-md-12 col-lg-4 col-xl-4">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          Numbers counter
+        </div>
+      </div>
+
+      <div class="card-body text-center">
+
+        <h5>Employess</h5>
+        <h2 class="counter1 text-success number-font" [countUp]="2569"></h2>
+      </div>
+    </div>
+  </div><!-- COL-END -->
+  <div class="col-md-12 col-lg-4 col-xl-4">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          Numbers counter
+        </div>
+      </div>
+
+      <div class="card-body text-center">
+        <h5>Profit</h5>
+        <h2 class="counter text-success number-font" [countUp]="256989.32"></h2>
+
+      </div>
+    </div>
+  </div><!-- COL-END -->
+  <div class="col-md-12 col-lg-4 col-xl-4">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          Numbers counter
+        </div>
+      </div>
+      <div class="card-body text-center">
+        <h5>Errors</h5>
+        <h2 class="counter text-success number-font" [countUp]="0.8998" [options]="options">0</h2>
+
+      </div>
+    </div>
+  </div><!-- COL-END -->
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          Day Counter
+        </div>
+      </div>
+      <div class="card-body text-center">
+        <div class="count-down row">
+          <div class="col-6 col-sm-6 col-md-12 col-xl-2 countdown">
+
+            <span class="days text-primary ">{{daysToDday}}</span>
+            <span class="text-dark">Days</span>
+
+          </div>
+          <div class="col-6 col-sm-6 col-md-12 col-xl-2 countdown">
+            <span class="hours text-primary ">{{hoursToDday}}</span>
+            <span class="text-dark">Hours</span>
+          </div>
+
+          <div class="col-6 col-sm-6 col-md-12 col-xl-2 countdown">
+            <span class="minutes text-primary ">{{minutesToDday}}</span>
+            <span class="text-dark">Minutes</span>
+          </div>
+          <div class="col-6 col-sm-6 col-md-12 col-xl-2 countdown">
+            <span class="seconds text-primary ">{{secondsToDday}}</span>
+            <span class="text-dark">Seconds</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- COL-END -->
+</div>
+<!-- ROW-1 CLOSED CLOSED -->

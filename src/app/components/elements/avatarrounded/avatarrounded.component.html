@@ -1,0 +1,199 @@
+<app-page-header title="Elements"  active_item="Avatar-Rounded"></app-page-header>
+<!-- ROW-1 OPEN -->
+<div class="row row-deck">
+    <div class="col-md-12 col-lg-12">
+        <div class="card">
+            <app-element-card-header [title]="'Simple avatar'" [item]="collapse" [item1]='isCollapsed' ></app-element-card-header>
+
+            <div class="card-body">
+                <div class="text-wrap">
+                    <div class="example">
+                        <div class="avatar-list">
+                            <img class="avatar  brround cover-image" src="./assets/images/users/male/2.jpg"/>
+                            <img class="avatar  brround cover-image" src="./assets/images/users/male/3.jpg"/>
+                            <img class="avatar  brround cover-image" src= "./assets/images/users/female/1.jpg"/>
+                            <img class="avatar  brround cover-image" src= "./assets/images/users/female/2.jpg"/>
+                            <img class="avatar  brround cover-image" src= "./assets/images/users/male/4.jpg"/>
+                        </div>
+                    </div>
+                    <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                      <div class="panel panel-primary tabs-style-1 my-3">
+                        <ul ngbNav #nav1="ngbNav" class="panel-tabs">
+                          <li class="me-2 mb-1" [ngbNavItem]="1">
+                            <a ngbNavLink>HTML</a>
+                            <ng-template ngbNavContent>
+                              <pre><code >{{html1}}</code></pre>
+
+                            </ng-template>
+                          </li>
+                          <li class="me-2 mb-1" [ngbNavItem]="2">
+                            <a ngbNavLink>TS</a>
+                            <ng-template ngbNavContent>
+                              <pre><code >{{ts1}}</code></pre>
+
+                            </ng-template>
+                          </li>
+                        </ul>
+
+                        <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                          <div [ngbNavOutlet]="nav1" class="tab-pane"></div>
+                          <div class="tab-content"></div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- COL END -->
+    <div class="col-md-12 col-lg-12">
+        <div class="card">
+
+              <app-element-card-header [title]="'RoundAvatars list'" [item]="collapse2" [item1]='isCollapsed2' ></app-element-card-header>
+
+
+            <div class="card-body">
+                <div class="text-wrap">
+                    <div class="example">
+                        <div class="avatar-list avatar-list-stacked">
+                            <img class="avatar brround cover-image"  src="./assets/images/users/female/2.jpg"/>
+                            <img class="avatar brround cover-image"  src="./assets/images/users/female/1.jpg"/>
+                            <img class="avatar brround cover-image"  src="./assets/images/users/female/9.jpg"/>
+                            <img class="avatar brround cover-image"  src="./assets/images/users/female/2.jpg"/>
+                            <img class="avatar brround cover-image"  src="./assets/images/users/male/4.jpg"/>
+                            <span class="avatar brround cover-image">+8</span>
+                        </div>
+                    </div>
+                    <div #collapse2="ngbCollapse" [(ngbCollapse)]="isCollapsed2">
+                      <div class="panel panel-primary tabs-style-1 my-3">
+                        <ul ngbNav #nav2="ngbNav" class="panel-tabs">
+                          <li class="me-2 mb-1" [ngbNavItem]="1">
+                            <a ngbNavLink>HTML</a>
+                            <ng-template ngbNavContent>
+                              <pre><code >{{html2}}</code></pre>
+
+                            </ng-template>
+                          </li>
+                          <li class="me-2 mb-1" [ngbNavItem]="2">
+                            <a ngbNavLink>TS</a>
+                            <ng-template ngbNavContent>
+                              <pre><code >{{ts2}}</code></pre>
+
+                            </ng-template>
+                          </li>
+                        </ul>
+
+                        <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                          <div [ngbNavOutlet]="nav2" class="tab-pane"></div>
+                          <div class="tab-content"></div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- COL END -->
+</div>
+<!-- ROW-1 CLOSED -->
+
+<!-- ROW-2 OPEN -->
+<div class="row row-deck">
+    <div class="col-md-12 col-lg-12">
+        <div class="card">
+          <app-element-card-header [title]="'RoundAvatar size'" [item]="collapse3" [item1]='isCollapsed3' ></app-element-card-header>
+
+            <div class="card-body">
+                <div class="text-wrap">
+                    <div class="example">
+                        <div class="avatar-list">
+                            <img class="avatar avatar-sm brround cover-image"  src="./assets/images/users/male/5.jpg"/>
+                            <img class="avatar brround cover-image"  src="./assets/images/users/female/3.jpg"/>
+                            <img class="avatar avatar-md brround cover-image"  src="./assets/images/users/male/6.jpg"/>
+                            <img class="avatar avatar-lg brround cover-image"  src="./assets/images/users/male/7.jpg"/>
+                            <img class="avatar avatar-xl brround cover-image"  src="./assets/images/users/female/4.jpg"/>
+                            <img class="avatar avatar-xxl brround cover-image"  src="./assets/images/users/male/8.jpg"/>
+                        </div>
+                    </div>
+                    <div #collapse3="ngbCollapse" [(ngbCollapse)]="isCollapsed3">
+                      <div class="panel panel-primary tabs-style-1 my-3">
+                        <ul ngbNav #nav3="ngbNav" class="panel-tabs">
+                          <li class="me-2 mb-1" [ngbNavItem]="1">
+                            <a ngbNavLink>HTML</a>
+                            <ng-template ngbNavContent>
+                              <pre><code >{{html3}}</code></pre>
+
+                            </ng-template>
+                          </li>
+                          <li class="me-2 mb-1" [ngbNavItem]="2">
+                            <a ngbNavLink>TS</a>
+                            <ng-template ngbNavContent>
+                              <pre><code >{{ts3}}</code></pre>
+
+                            </ng-template>
+                          </li>
+                        </ul>
+
+                        <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                          <div [ngbNavOutlet]="nav3" class="tab-pane"></div>
+                          <div class="tab-content"></div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- COL END -->
+    <div class="col-md-12 col-lg-12">
+        <div class="card">
+          <app-element-card-header [title]="'Avatars list'" [item]="collapse4" [item1]='isCollapsed4' ></app-element-card-header>
+
+            <div class="card-body">
+                <div class="text-wrap">
+                    <div class="example">
+                        <div class="avatar-list">
+                      <span  class="avatar brround cover-image">  <img  src="./assets/images/users/male/9.jpg" class=" avatar rounded-circle cover-image"></span>
+                      <span  class="avatar brround cover-image" >   <img    src="./assets/images/users/female/5.jpg"class=" avatar rounded-circle cover-image">
+                                <img class="avatar-status bg-gray"></span>
+
+                                <span  class="avatar brround cover-image" ><img    src="./assets/images/users/male/2.jpg"class=" avatar rounded-circle cover-image">
+                                <img class="avatar-status bg-red"></span>
+
+                                <span  class="avatar brround cover-image" ><img  src="./assets/images/users/female/6.jpg"class=" avatar rounded-circle cover-image" />
+                                <img class="avatar-status bg-green"></span>
+
+                                <span  class="avatar brround cover-image" ><img  src="./assets/images/users/female/7.jpg"class=" avatar rounded-circle cover-image" />
+                                <img class="avatar-status bg-yellow"></span>
+
+                        </div>
+                        <div #collapse4="ngbCollapse" [(ngbCollapse)]="isCollapsed4">
+                          <div class="panel panel-primary tabs-style-1 my-3">
+                            <ul ngbNav #nav4="ngbNav" class="panel-tabs">
+                              <li class="me-2 mb-1" [ngbNavItem]="1">
+                                <a ngbNavLink>HTML</a>
+                                <ng-template ngbNavContent>
+                                  <pre><code >{{html4}}</code></pre>
+
+                                </ng-template>
+                              </li>
+                              <li class="me-2 mb-1" [ngbNavItem]="2">
+                                <a ngbNavLink>TS</a>
+                                <ng-template ngbNavContent>
+                                  <pre><code >{{ts4}}</code></pre>
+
+                                </ng-template>
+                              </li>
+                            </ul>
+
+                            <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                              <div [ngbNavOutlet]="nav4" class="tab-pane"></div>
+                              <div class="tab-content"></div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div><!-- COL END -->
+</div>
+<!-- ROW-2 CLOSED -->

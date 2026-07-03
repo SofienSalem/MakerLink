@@ -1,0 +1,56 @@
+::ng-deep{
+  .dark-mode{
+    .ng-select .ng-select-container .ng-value-container .ng-input>input{
+        color: white;
+      }
+  }
+}
+
+.profile-container {
+  position: relative;
+  width: 150px; /* Assurez-vous que la largeur et la hauteur sont les mêmes pour un cercle parfait */
+  height: 150px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Ajouté pour centrer verticalement */
+}
+
+.profile-image {
+  width: 85%; // Utilisez 100% pour remplir complètement le conteneur circulaire
+  height: 100%; // Utilisez 100% pour remplir complètement le conteneur circulaire
+  object-fit: cover; // Assurez-vous que l'image couvre l'espace disponible sans être déformée
+  object-position: center; // Centrez l'image dans le cadre
+  border-radius: 50%; // Rend l'image circulaire
+  border: 3px solid #ffffff; // Ajoute une bordure blanche si nécessaire
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); // Ajoute une ombre si nécessaire
+  object-position: top center; // Ajustez en fonction de la composition de l'image
+
+  
+
+}
+
+
+
+.dropzone {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none; /* Enlever la bordure si nécessaire */
+  background: rgba(255, 255, 255, 0); /* Transparent */
+  cursor: pointer;
+}
+
+.btn-refresh {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(50%, 50%); /* Ajuster selon le design */
+  /* Autres styles pour le bouton ici */
+}
+
+
+
+

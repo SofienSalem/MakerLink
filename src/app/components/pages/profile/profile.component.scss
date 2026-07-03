@@ -1,0 +1,12 @@
+.circular-image {
+    width: 150px; /* ou une autre dimension spécifique */
+    height: 150px; /* la hauteur doit être la même que la largeur pour un cercle parfait */
+    border-radius: 50%; /* Ceci rend l'image ronde */
+    border: 2px solid #ffffff; /* Ceci ajoute une bordure blanche. Changez la couleur selon vos besoins. */
+    object-fit: cover; /* Ceci s'assure que l'image couvre la zone sans être étirée ou comprimée */
+    display: block;
+    overflow: hidden; /* Ceci s'assure que rien ne dépasse le cercle */
+    object-fit: cover; /* Cela garantit que l'image couvre tout l'espace disponible sans être déformée */
+    object-position: top center;
+  }
+  

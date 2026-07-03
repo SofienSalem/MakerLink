@@ -1,0 +1,10 @@
+.dropdown{
+  display: inline-flex ;
+}
+.dropdown-menu-content {
+  .dropdown-item {
+    .fe-chevron-right {
+      vertical-align: bottom;
+    }
+  }
+}

@@ -1,0 +1,434 @@
+<app-page-header title="Elements"  active_item="Tags"></app-page-header><!-- ROW-1 OPEN -->
+<div class="row">
+  <div class="col-lg-6 col-md-6">
+    <div class="card">
+      <app-element-card-header [title]="'Default tag'" [item]="collapse" [item1]='isCollapsed' > </app-element-card-header>
+      <div class="card-body">
+        <div class="text-wrap">
+          <div class="example">
+            <div class="tags">
+              <span class="tag">First tag</span>
+              <span class="tag">Second tag</span>
+              <span class="tag">Third tag</span>
+            </div>
+          </div>
+          <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+            <div class="panel panel-primary tabs-style-1 my-3">
+              <ul ngbNav #nav1="ngbNav" class="panel-tabs">
+                <li class="me-2 mb-1" [ngbNavItem]="1">
+                  <a ngbNavLink>HTML</a>
+                  <ng-template ngbNavContent>
+                    <pre><code >{{html1}}</code></pre>
+
+                  </ng-template>
+                </li>
+                <li class="me-2 mb-1" [ngbNavItem]="2">
+                  <a ngbNavLink>TS</a>
+                  <ng-template ngbNavContent>
+                    <pre><code >{{ts1}}</code></pre>
+
+                  </ng-template>
+                </li>
+              </ul>
+
+              <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                <div [ngbNavOutlet]="nav1" class="tab-pane"></div>
+                <div class="tab-content"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6">
+    <div class="card">
+      <app-element-card-header [title]="'Link tag'" [item]="collapse2" [item1]='isCollapsed2' ></app-element-card-header>
+      <div class="card-body">
+        <div class="text-wrap">
+          <div class="example">
+            <div class="tags">
+              <a href="javascript:void(0)" class="tag">First tag</a>
+              <a href="javascript:void(0)" class="tag">Second tag</a>
+              <a href="javascript:void(0)" class="tag">Third tag</a>
+            </div>
+          </div>
+          <div #collapse2="ngbCollapse" [(ngbCollapse)]="isCollapsed2">
+            <div class="panel panel-primary tabs-style-1 my-3">
+              <ul ngbNav #nav2="ngbNav" class="panel-tabs">
+                <li class="me-2 mb-1" [ngbNavItem]="1">
+                  <a ngbNavLink>HTML</a>
+                  <ng-template ngbNavContent>
+                    <pre><code >{{html2}}</code></pre>
+
+                  </ng-template>
+                </li>
+                <li class="me-2 mb-1" [ngbNavItem]="2">
+                  <a ngbNavLink>TS</a>
+                  <ng-template ngbNavContent>
+                    <pre><code >{{ts2}}</code></pre>
+
+                  </ng-template>
+                </li>
+              </ul>
+
+              <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                <div [ngbNavOutlet]="nav2" class="tab-pane"></div>
+                <div class="tab-content"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ROW-1 CLOSED -->
+
+<!-- ROW-2 OPEN -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <app-element-card-header [title]="'Rounded tag Style'" [item]="collapse3" [item1]='isCollapsed3' ></app-element-card-header>
+      <div class="card-body">
+        <div class="text-wrap">
+          <div class="example">
+            <div class="tags">
+              <span class="tag tag-rounded">First tag</span>
+              <span class="tag tag-rounded">Second tag</span>
+              <span class="tag tag-rounded">Third tag</span>
+            </div>
+          </div>
+          <div #collapse3="ngbCollapse" [(ngbCollapse)]="isCollapsed3">
+            <div class="panel panel-primary tabs-style-1 my-3">
+              <ul ngbNav #nav3="ngbNav" class="panel-tabs">
+                <li class="me-2 mb-1" [ngbNavItem]="1">
+                  <a ngbNavLink>HTML</a>
+                  <ng-template ngbNavContent>
+                    <pre><code >{{html3}}</code></pre>
+
+                  </ng-template>
+                </li>
+                <li class="me-2 mb-1" [ngbNavItem]="2">
+                  <a ngbNavLink>TS</a>
+                  <ng-template ngbNavContent>
+                    <pre><code >{{ts1}}</code></pre>
+
+                  </ng-template>
+                </li>
+              </ul>
+
+              <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                <div [ngbNavOutlet]="nav3" class="tab-pane"></div>
+                <div class="tab-content"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-12">
+    <div class="card">
+      <app-element-card-header [title]="'Color tag'" [item]="collapse8" [item1]='isCollapsed8' ></app-element-card-header>
+
+      <div class="card-body">
+        <div class="text-wrap">
+          <div class="example">
+            <div class="tags">
+              <span class="tag tag-blue">Blue tag</span>
+              <span class="tag tag-azure">Azure tag</span>
+              <span class="tag tag-indigo">Indigo tag</span>
+              <span class="tag tag-purple">Purple tag</span>
+              <span class="tag tag-pink">Pink tag</span>
+              <span class="tag tag-red">Red tag</span>
+              <span class="tag tag-orange">Orange tag</span>
+              <span class="tag tag-yellow">Yellow tag</span>
+              <span class="tag tag-lime">Lime tag</span>
+              <span class="tag tag-green">Green tag</span>
+              <span class="tag tag-teal">Teal tag</span>
+              <span class="tag tag-cyan">Cyan tag</span>
+              <span class="tag tag-gray">Gray tag</span>
+              <span class="tag tag-gray-dark">Dark gray tag</span>
+            </div>
+          </div>
+        </div>
+        <div #collapse8="ngbCollapse" [(ngbCollapse)]="isCollapsed8">
+          <div class="panel panel-primary tabs-style-1 my-3">
+            <ul ngbNav #nav8="ngbNav" class="panel-tabs">
+              <li class="me-2 mb-1" [ngbNavItem]="1">
+                <a ngbNavLink>HTML</a>
+                <ng-template ngbNavContent>
+                  <pre><code >{{html8}}</code></pre>
+
+                </ng-template>
+              </li>
+              <li class="me-2 mb-1" [ngbNavItem]="2">
+                <a ngbNavLink>TS</a>
+                <ng-template ngbNavContent>
+                  <pre><code >{{ts1}}</code></pre>
+
+                </ng-template>
+              </li>
+            </ul>
+
+            <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+              <div [ngbNavOutlet]="nav8" class="tab-pane"></div>
+              <div class="tab-content"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-12">
+    <div class="card">
+      <app-element-card-header [title]="'Avatar tag'" [item]="collapse9" [item1]='isCollapsed9' ></app-element-card-header>
+
+      <div class="card-body">
+        <div class="text-wrap">
+          <div class="example">
+            <div class="tags">
+              <span class="tag">
+                <img class="tag-avatar avatar cover-image" src="./assets/images/users/female/6.jpg">
+                Victoria
+              </span>
+              <span class="tag">
+                <img class="tag-avatar avatar cover-image" src="./assets/images/users/male/4.jpg">
+                Nathan
+              </span>
+              <span class="tag">
+                <img class="tag-avatar avatar cover-image" src="./assets/images/users/female/1.jpg">
+                Alice
+              </span>
+              <span class="tag">
+                <img class="tag-avatar avatar cover-image" src="./assets/images/users/female/8.jpg">
+                Rose
+              </span>
+              <span class="tag">
+                <img class="tag-avatar avatar cover-image" src="./assets/images/users/male/6.jpg">
+                Peter
+              </span>
+              <span class="tag">
+                <img class="tag-avatar avatar cover-image" src="./assets/images/users/male/5.jpg">
+                Wayne
+              </span>
+              <span class="tag">
+                <img class="tag-avatar avatar cover-image" src="./assets/images/users/female/7.jpg">
+                Michelle
+              </span>
+              <span class="tag">
+                <img class="tag-avatar avatar cover-image" src="./assets/images/users/female/9.jpg">
+                Debra
+              </span>
+            </div>
+          </div>
+        </div>
+        <div #collapse9="ngbCollapse" [(ngbCollapse)]="isCollapsed9">
+          <div class="panel panel-primary tabs-style-1 my-3">
+            <ul ngbNav #nav9="ngbNav" class="panel-tabs">
+              <li class="me-2 mb-1" [ngbNavItem]="1">
+                <a ngbNavLink>HTML</a>
+                <ng-template ngbNavContent>
+                  <pre><code >{{html9}}</code></pre>
+
+                </ng-template>
+              </li>
+              <li class="me-2 mb-1" [ngbNavItem]="2">
+                <a ngbNavLink>TS</a>
+                <ng-template ngbNavContent>
+                  <pre><code >{{ts1}}</code></pre>
+
+                </ng-template>
+              </li>
+            </ul>
+
+            <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+              <div [ngbNavOutlet]="nav9" class="tab-pane"></div>
+              <div class="tab-content"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-12">
+    <div class="card">
+      <app-element-card-header [title]="'List of tags'" [item]="collapse10" [item1]='isCollapsed10' ></app-element-card-header>
+
+      <div class="card-body">
+        <div class="text-wrap">
+          <p>You can create a list of tags with the <code class="highlighter-rouge">.tags</code> container.</p>
+          <div class="example">
+            <div class="tags">
+              <span class="tag">First tag</span>
+              <span class="tag">Second tag</span>
+              <span class="tag">Third tag</span>
+            </div>
+          </div>
+          <p class="mt-4">If the list is very long, it will automatically wrap on multiple lines, while keeping all tags evenly spaced.</p>
+          <div class="example">
+            <div class="tags">
+              <span class="tag">One</span>
+              <span class="tag">Two</span>
+              <span class="tag">Three</span>
+              <span class="tag">Four</span>
+              <span class="tag">Five</span>
+              <span class="tag">Six</span>
+              <span class="tag">Seven</span>
+              <span class="tag">Eight</span>
+              <span class="tag">Nine</span>
+              <span class="tag">Ten</span>
+              <span class="tag">Eleven</span>
+              <span class="tag">Twelve</span>
+              <span class="tag">Thirteen</span>
+              <span class="tag">Fourteen</span>
+              <span class="tag">Fifteen</span>
+              <span class="tag">Sixteen</span>
+              <span class="tag">Seventeen</span>
+              <span class="tag">Eighteen</span>
+              <span class="tag">Nineteen</span>
+              <span class="tag">Twenty</span>
+            </div>
+          </div>
+        </div>
+        <div #collapse10="ngbCollapse" [(ngbCollapse)]="isCollapsed10">
+          <div class="panel panel-primary tabs-style-1 my-3">
+            <ul ngbNav #nav10="ngbNav" class="panel-tabs">
+              <li class="me-2 mb-1" [ngbNavItem]="1">
+                <a ngbNavLink>HTML</a>
+                <ng-template ngbNavContent>
+                  <pre><code >{{html10}}</code></pre>
+
+                </ng-template>
+              </li>
+              <li class="me-2 mb-1" [ngbNavItem]="2">
+                <a ngbNavLink>TS</a>
+                <ng-template ngbNavContent>
+                  <pre><code >{{ts1}}</code></pre>
+
+                </ng-template>
+              </li>
+            </ul>
+
+            <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+              <div [ngbNavOutlet]="nav10" class="tab-pane"></div>
+              <div class="tab-content"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-12">
+    <div class="card">
+      <app-element-card-header [title]="'Tag remove'" [item]="collapse11" [item1]='isCollapsed11' ></app-element-card-header>
+
+      <div class="card-body">
+        <div class="text-wrap">
+          <div class="example">
+            <div class="tags">
+              <span class="tag">
+                One
+                <a href="javascript:void(0)" class="tag-addon"><i class="fe fe-x"></i></a>
+              </span>
+              <span class="tag">
+                Two
+                <a href="javascript:void(0)" class="tag-addon"><i class="fe fe-x"></i></a>
+              </span>
+              <span class="tag">
+                Three
+                <a href="javascript:void(0)" class="tag-addon"><i class="fe fe-x"></i></a>
+              </span>
+              <span class="tag">
+                Four
+                <a href="javascript:void(0)" class="tag-addon"><i class="fe fe-x"></i></a>
+              </span>
+            </div>
+          </div>
+          <div #collapse11="ngbCollapse" [(ngbCollapse)]="isCollapsed11">
+            <div class="panel panel-primary tabs-style-1 my-3">
+              <ul ngbNav #nav11="ngbNav" class="panel-tabs">
+                <li class="me-2 mb-1" [ngbNavItem]="1">
+                  <a ngbNavLink>HTML</a>
+                  <ng-template ngbNavContent>
+                    <pre><code >{{html11}}</code></pre>
+
+                  </ng-template>
+                </li>
+                <li class="me-2 mb-1" [ngbNavItem]="2">
+                  <a ngbNavLink>TS</a>
+                  <ng-template ngbNavContent>
+                    <pre><code >{{ts1}}</code></pre>
+
+                  </ng-template>
+                </li>
+              </ul>
+
+              <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                <div [ngbNavOutlet]="nav11" class="tab-pane"></div>
+                <div class="tab-content"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-12">
+    <div class="card">
+      <app-element-card-header [title]="'Tag addons'" [item]="collapse12" [item1]='isCollapsed12' ></app-element-card-header>
+
+      <div class="card-body">
+        <div class="text-wrap">
+          <div class="example">
+            <div class="tags">
+              <div class="tag">
+                npm
+                <a href="javascript:void(0)" class="tag-addon"><i class="fe fe-x"></i></a>
+              </div>
+              <div class="tag tag-danger">
+                npm
+                <span class="tag-addon"><i class="fe fe-activity"></i></span>
+              </div>
+              <div class="tag">
+                bundle
+                <span class="tag-addon tag-success">passing</span>
+              </div>
+              <span class="tag tag-dark">
+                CSS gzip size
+                <span class="tag-addon tag-warning">20.9 kB</span>
+              </span>
+            </div>
+          </div>
+          <div #collapse12="ngbCollapse" [(ngbCollapse)]="isCollapsed12">
+            <div class="panel panel-primary tabs-style-1 my-3">
+              <ul ngbNav #nav12="ngbNav" class="panel-tabs">
+                <li class="me-2 mb-1" [ngbNavItem]="1">
+                  <a ngbNavLink>HTML</a>
+                  <ng-template ngbNavContent>
+                    <pre><code >{{html12}}</code></pre>
+
+                  </ng-template>
+                </li>
+                <li class="me-2 mb-1" [ngbNavItem]="2">
+                  <a ngbNavLink>TS</a>
+                  <ng-template ngbNavContent>
+                    <pre><code >{{ts1}}</code></pre>
+
+                  </ng-template>
+                </li>
+              </ul>
+
+              <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                <div [ngbNavOutlet]="nav12" class="tab-pane"></div>
+                <div class="tab-content"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ROW-2 CLOSED -->

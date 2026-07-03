@@ -1,0 +1,63 @@
+
+
+.horizontal .app-sidebar.horizontal-main .side-menu h3 {
+  display: none;
+}
+@media (max-width: 991.9px) {
+  .sidemenu-logo{
+      display: none;
+  }
+}
+
+.sub-slide-menu.open,
+.slide-menu.open{
+  display: block;
+}
+
+::ng-deep{
+
+  .horizontalmenu .hor-menu li.nav-item .nav-link{
+      min-width: max-content;
+  }
+
+  .horizontalmenu app-sidemenu ng-scrollbar{
+      position: static !important;
+  }
+}
+.side-menu{
+  margin-right: 105px;
+}
+@media (min-width: 992px){
+.horizontal .side-menu__item .angle {
+
+    position: relative;
+    top: 2px;
+    right: -4px;
+}
+}
+.layout-boxed .horizontal-main {
+  max-width: 1400px;
+}
+@media (min-width: 992px){
+.horizontal .main-sidemenu .slide-left, .horizontal .main-sidemenu .slide-right {
+    position: absolute;
+    top: 5px;
+    padding: 10px;
+    font-size: 16px;
+    color: #1c1d22;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    cursor: pointer;
+    border: 1px solid #e3e3f7;
+    background-color: #f0f0f9;
+    margin: 0 10px;
+    border-radius: 50px;
+}
+}
+@media (min-width: 992px){
+.horizontal .main-sidemenu .slide-right {
+    right: 0;
+}
+}

@@ -1,0 +1,309 @@
+<app-page-header title="Elements"  active_item="Pagination"></app-page-header><!-- ROW-1 OPEN -->
+<!-- Row -->
+<div class="row">
+  <div class="col-md-12 col-xl-6">
+      <div class="card">
+          <app-element-card-header [title]="'Basic pagination'" [item]="collapse" [item1]='isCollapsed' ></app-element-card-header>
+
+          <div class="card-body">
+              <p>Pagination to indicate a series of related content exists across multiple pages.</p>
+              <div class="pagination-wrapper">
+                  <nav aria-label="Page navigation">
+                      <ul class="pagination mb-0">
+                          <li class="page-item">
+                              <a class="page-link" href="javascript:void(0)">1</a>
+                          </li>
+                          <li class="page-item">
+                              <a class="page-link" href="javascript:void(0)">2</a>
+                          </li>
+                          <li class="page-item">
+                              <a class="page-link" href="javascript:void(0)">3</a>
+                          </li>
+                          <li class="page-item">
+                              <a class="page-link" href="javascript:void(0)">4</a>
+                          </li>
+                          <li class="page-item">
+                              <a class="page-link" href="javascript:void(0)">5</a>
+                          </li>
+                          <li class="page-item">
+                              <a aria-label="Next" class="page-link" href="javascript:void(0)"><i class="fa fa-angle-right"></i></a>
+                          </li>
+                      </ul>
+                  </nav>
+              </div>
+              <!-- pagination-wrapper -->
+              <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                  <div class="panel panel-primary tabs-style-1 my-3">
+                    <ul ngbNav #nav1="ngbNav" class="panel-tabs">
+                      <li class="me-2 mb-1" [ngbNavItem]="1">
+                        <a ngbNavLink>HTML</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{html1}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                      <li class="me-2 mb-1" [ngbNavItem]="2">
+                        <a ngbNavLink>TS</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{ts1}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                    </ul>
+
+                    <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                      <div [ngbNavOutlet]="nav1" class="tab-pane"></div>
+                      <div class="tab-content"></div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-12 col-xl-6">
+      <div class="card">
+
+          <app-element-card-header [title]="'Active pagination'" [item]="collapse2" [item1]='isCollapsed2' ></app-element-card-header>
+
+          <div class="card-body">
+              <p>Use <code class="highlighter-rouge">.active</code> to indicate the current page.</p>
+              <ngb-pagination class="d-flex justify-content-start" [collectionSize]="40" [page]="1">
+                  <ng-template ngbPaginationPrevious>Prev</ng-template>
+                  <ng-template ngbPaginationNext>Next</ng-template>
+              </ngb-pagination>
+              <!-- pagination-wrapper -->
+              <div #collapse2="ngbCollapse" [(ngbCollapse)]="isCollapsed2">
+                  <div class="panel panel-primary tabs-style-1 my-3">
+                    <ul ngbNav #nav2="ngbNav" class="panel-tabs">
+                      <li class="me-2 mb-1" [ngbNavItem]="1">
+                        <a ngbNavLink>HTML</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{html2}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                      <li class="me-2 mb-1" [ngbNavItem]="2">
+                        <a ngbNavLink>TS</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{ts1}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                    </ul>
+
+                    <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                      <div [ngbNavOutlet]="nav2" class="tab-pane"></div>
+                      <div class="tab-content"></div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- End Row -->
+
+<!-- Row -->
+<div class="row">
+  <div class="col-md-12 col-xl-6">
+      <div class="card">
+
+          <app-element-card-header [title]="'Disable Pagination'" [item]="collapse3" [item1]='isCollapsed3' ></app-element-card-header>
+
+          <div class="card-body ">
+              <p>Use <code class="highlighter-rouge">.disabled</code> for links that appear un-clickable.</p>
+              <div class="card-body pagination mg-b-0 page-0 ">
+              <ngb-pagination [collectionSize]="30" [page]="2" [boundaryLinks]="true"></ngb-pagination>
+          </div>
+          <div #collapse3="ngbCollapse" [(ngbCollapse)]="isCollapsed3">
+              <div class="panel panel-primary tabs-style-1 my-3">
+                <ul ngbNav #nav3="ngbNav" class="panel-tabs">
+                  <li class="me-2 mb-1" [ngbNavItem]="1">
+                    <a ngbNavLink>HTML</a>
+                    <ng-template ngbNavContent>
+                      <pre><code >{{html3}}</code></pre>
+
+                    </ng-template>
+                  </li>
+                  <li class="me-2 mb-1" [ngbNavItem]="2">
+                    <a ngbNavLink>TS</a>
+                    <ng-template ngbNavContent>
+                      <pre><code >{{ts1}}</code></pre>
+
+                    </ng-template>
+                  </li>
+                </ul>
+
+                <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                  <div [ngbNavOutlet]="nav3" class="tab-pane"></div>
+                  <div class="tab-content"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- pagination-wrapper -->
+      </div>
+      <!-- section-wrapper -->
+  </div>
+  <div class="col-md-12 col-xl-6">
+      <div class="card">
+
+          <app-element-card-header [title]="'Pagination Samples'" [item]="collapse4" [item1]='isCollapsed4' ></app-element-card-header>
+
+          <div class="card-body">
+              <p>Pagination to indicate a series of related content exists across multiple pages.</p>
+              <div class="row">
+                  <div class="col-md-12 col-lg-6 my-2">
+                      <nav aria-label="Page navigation">
+                              <ngb-pagination [collectionSize]="40" [page]="1" [maxSize]="1" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
+                      </nav>
+
+                  </div>
+                  <div class="col-md-6 col-lg-6 my-2">
+                      <nav aria-label="Page navigation example ">
+                              <ngb-pagination class="d-flex justify-content-start mx-4" [collectionSize]="30" [page]="1">
+                                  <ng-template ngbPaginationPrevious><</ng-template>
+                                  <ng-template ngbPaginationNext>></ng-template>
+                              </ngb-pagination>
+                      </nav>
+                  </div>
+              </div>
+              <div #collapse4="ngbCollapse" [(ngbCollapse)]="isCollapsed4">
+                  <div class="panel panel-primary tabs-style-1 my-3">
+                    <ul ngbNav #nav4="ngbNav" class="panel-tabs">
+                      <li class="me-2 mb-1" [ngbNavItem]="1">
+                        <a ngbNavLink>HTML</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{html4}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                      <li class="me-2 mb-1" [ngbNavItem]="2">
+                        <a ngbNavLink>TS</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{ts1}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                    </ul>
+
+                    <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                      <div [ngbNavOutlet]="nav4" class="tab-pane"></div>
+                      <div class="tab-content"></div>
+                    </div>
+                  </div>
+                </div>
+              <!-- pagination-wrapper -->
+          </div>
+      </div>
+  </div>
+</div>
+<!-- End Row -->
+
+<!-- Row -->
+<div class="row">
+  <div class="col-md-12 col-xl-6">
+      <div class="card">
+
+          <app-element-card-header [title]="'Pagination Sizes'" [item]="collapse5" [item1]='isCollapsed5' ></app-element-card-header>
+
+          <div class="card-body">
+              <p>Use <code class="highlighter-rouge">.pagination-lg</code> or <code class="highlighter-rouge">.pagination-sm</code> for additional sizes.</p>
+              <div class="card-body pagination mg-b-0 page-0 my-3">
+                  <ngb-pagination class="d-flex justify-content-start" size="lg" [collectionSize]="30" [page]="1">
+                      <ng-template ngbPaginationPrevious><</ng-template>
+                      <ng-template ngbPaginationNext>></ng-template>
+                  </ngb-pagination>
+              </div>
+              <ngb-pagination class="d-flex justify-content-start" [collectionSize]="40" [page]="1" size="sm">
+                  <ng-template ngbPaginationPrevious>Prev</ng-template>
+                  <ng-template ngbPaginationNext>Next</ng-template>
+              </ngb-pagination>
+              <div #collapse5="ngbCollapse" [(ngbCollapse)]="isCollapsed5">
+                  <div class="panel panel-primary tabs-style-1 my-3">
+                    <ul ngbNav #nav5="ngbNav" class="panel-tabs">
+                      <li class="me-2 mb-1" [ngbNavItem]="1">
+                        <a ngbNavLink>HTML</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{html5}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                      <li class="me-2 mb-1" [ngbNavItem]="2">
+                        <a ngbNavLink>TS</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{ts1}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                    </ul>
+
+                    <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                      <div [ngbNavOutlet]="nav5" class="tab-pane"></div>
+                      <div class="tab-content"></div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-12 col-xl-6">
+      <div class="card">
+       
+          <app-element-card-header [title]="'Pagination Alignments'" [item]="collapse6" [item1]='isCollapsed6' ></app-element-card-header>
+
+          <div class="card-body">
+              <p>Change the alignment of pagination components with <b>flexbox Utilities</b></p>
+              <nav aria-label="Page navigation example">
+                  <ngb-pagination class="d-flex justify-content-start" [collectionSize]="30" [page]="1">
+                      <ng-template ngbPaginationPrevious><</ng-template>
+                      <ng-template ngbPaginationNext>></ng-template>
+                  </ngb-pagination>
+              </nav><br>
+              <nav aria-label="Page navigation example">
+                  <div class="pagination justify-content-center">
+                      <ngb-pagination class="d-flex justify-content-start" [collectionSize]="30" [page]="1">
+                          <ng-template ngbPaginationPrevious><</ng-template>
+                          <ng-template ngbPaginationNext>></ng-template>
+                      </ngb-pagination>
+                  </div>
+              </nav><br>
+              <nav aria-label="Page navigation example">
+                  <div class="pagination justify-content-end">
+                      <ngb-pagination class="d-flex justify-content-start" [collectionSize]="30" [page]="1">
+                          <ng-template ngbPaginationPrevious><</ng-template>
+                          <ng-template ngbPaginationNext>></ng-template>
+                      </ngb-pagination>
+                  </div>
+              </nav>
+              <div #collapse6="ngbCollapse" [(ngbCollapse)]="isCollapsed6">
+                  <div class="panel panel-primary tabs-style-1 my-3">
+                    <ul ngbNav #nav6="ngbNav" class="panel-tabs">
+                      <li class="me-2 mb-1" [ngbNavItem]="1">
+                        <a ngbNavLink>HTML</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{html6}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                      <li class="me-2 mb-1" [ngbNavItem]="2">
+                        <a ngbNavLink>TS</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{ts1}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                    </ul>
+
+                    <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                      <div [ngbNavOutlet]="nav6" class="tab-pane"></div>
+                      <div class="tab-content"></div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+
+      </div>
+  </div>
+</div>
+<!-- End  Row -->

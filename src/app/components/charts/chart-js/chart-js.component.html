@@ -1,0 +1,153 @@
+<app-page-header title="Charts"  active_item="Chart Js"></app-page-header>
+
+<div class="row row-sm">
+  <div class="col-sm-12 col-md-6">
+      <div class="card overflow-hidden">
+          <div class="card-body">
+              <div class="main-content-label mg-b-5">
+                  Line Chart
+              </div>
+              <div class="chartjs-wrapper-demo">
+                  <canvas baseChart [data]="lineChartData" [options]="lineChartOptions"
+                      [legend]="lineChartLegend" [type]="lineChartType">
+                  </canvas>
+              </div>
+          </div>
+      </div>
+  </div><!-- col-6 -->
+  <div class="col-sm-12 col-md-6">
+      <div class="card overflow-hidden">
+          <div class="card-body">
+              <div class="main-content-label mg-b-5">
+                  Area Chart
+              </div>
+
+              <div class="chartjs-wrapper-demo">
+
+                  <canvas #myCanvas></canvas>
+              </div>
+          </div>
+      </div>
+  </div><!-- col-6 -->
+</div>
+<!-- /row -->
+
+
+
+<!-- row -->
+<div class="row row-sm">
+  <div class="col-md-12">
+      <div class="card overflow-hidden">
+          <div class="card-body">
+              <div class="row row-sm">
+                  <div class="col-sm-12 col-md-6 col-xl-4">
+                      <div class="main-content-label tx-12 mg-b-15">
+                          Solid Color
+                      </div>
+                      <div class="ht-200 ht-lg-250">
+                         <canvas baseChart [data]="solidColorData" [options]="solidColorOptions"
+                           [legend]="solidColorLegend" [type]="solidColorType">
+                          </canvas>
+                      </div>
+                  </div><!-- col-6 -->
+                  <div class="col-sm-12 col-md-6 col-xl-4 mg-t-20 mg-md-t-0">
+                      <div class="main-content-label tx-12 mg-b-15">
+                          With Transparency
+                      </div>
+                      <div class="ht-200 ht-lg-250">
+                          <canvas baseChart [data]="solidColorData" [options]="solidColorOptions"
+                            [type]="solidColorType">
+                          </canvas>
+                      </div>
+                  </div><!-- col-6 -->
+                  <div class="col-sm-12 col-md-6 col-xl-4 mg-t-20 mg-xl-t-0">
+                      <div class="main-content-label tx-12 mg-b-15">
+                          Using Gradient Color
+                      </div>
+                      <div class="ht-200 ht-lg-250">
+                          <canvas id=Canvas #Canvas></canvas>
+                      </div>
+                  </div><!-- col-6 -->
+              </div>
+          </div><!-- col-12 -->
+      </div><!-- col-12 -->
+  </div><!-- col-12 -->
+</div>
+<!-- /row -->
+
+<!-- row -->
+<div class="row row-sm">
+  <div class="col-sm-12 col-md-6">
+      <div class="card overflow-hidden">
+          <div class="card-body">
+              <div class="main-content-label mg-b-5">
+                  Stacked Bar Chart
+              </div>
+
+              <div class="chartjs-wrapper-demo">
+
+                  <canvas baseChart [data]="barChart2Data" [options]="barChart2Options"
+                      [legend]="barChart2Legend" [type]="barChart2Type">
+                  </canvas>
+              </div>
+          </div>
+      </div>
+  </div><!-- col-6 -->
+  <div class="col-sm-12 col-md-6">
+      <div class="card overflow-hidden">
+          <div class="card-body  polar-charts">
+              <div class="main-content-label mg-b-5">
+                  Polar charts
+              </div>
+
+              <div class="chartjs-wrapper-demo">
+                  <canvas baseChart
+                  [data]="polarAreaChartData"
+                  [legend]="polarAreaLegend"
+                  [options]="polarChartOptions"
+                  [type]="polarAreaChartType">
+                </canvas>
+              </div>
+          </div>
+      </div>
+  </div><!-- col-6 -->
+</div>
+<!-- /row -->
+
+<!-- row -->
+<div class="row row-sm">
+  <div class="col-sm-12 col-md-6">
+      <div class="card mg-b-md-20 overflow-hidden">
+          <div class="card-body">
+              <div class="main-content-label mg-b-5">
+                  Pie Chart
+              </div>
+
+              <div class="chartjs-wrapper-demo">
+
+                  <canvas baseChart [data]="PieChartData" [options]="PieChartOptions"
+                  [type]="DoughnutChartType">
+                  </canvas>
+
+              </div>
+          </div>
+      </div>
+  </div><!-- col-6 -->
+  <div class="col-sm-12 col-md-6">
+      <div class="card overflow-hidden">
+          <div class="card-body">
+              <div class="main-content-label mg-b-5">
+                  Donut Chart
+              </div>
+
+              <div class="chartjs-wrapper-demo">
+
+
+                  <canvas baseChart [data]="PieChartData" [options]="PieChartOptions"
+                      [type]="PieChartType">
+                  </canvas>
+              </div>
+          </div>
+      </div>
+  </div><!-- col-6 -->
+</div>

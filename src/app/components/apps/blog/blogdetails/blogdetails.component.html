@@ -1,0 +1,249 @@
+<app-page-header title="Apps" active_item="Blog Details"></app-page-header>
+
+<!-- row -->
+<div class="row">
+  <div class="col-xl-9 col-lg-12 col-md-12">
+    <div class="card overflow-hidden">
+      <div class="item7-card-img px-4 pt-4">
+        <a href="javascript:void(0);"></a>
+        <img [src]="blog?.imageBlog" alt="img" class="cover-image rounded-3 w-100">
+      </div>
+      <div class="card-body">
+        <a href="javascript:void(0);" class="mt-4">
+          <h2 class="font-weight-semibold text-dark">{{ blog?.title }}</h2>
+        </a>
+        <div [innerHTML]="blog?.post" class="mb-0"></div> <!-- Pour afficher le HTML de post -->
+
+      </div>
+      <div class="card-footer pb-2 pt-2">
+        <div class="item7-card-desc d-md-flex">
+          <div class="d-flex align-items-center mt-0">
+            <img [src]="pathToProfileImage || userProfilePictureUrl " class="avatar brround avatar-md me-3" alt="avatar-img">
+            <div>
+              <a routerLink="/pages/profile" class="text-dark font-weight-bold">{{firstName}} {{lastName}}</a>
+           
+
+
+
+
+
+            </div>
+          </div>
+          <div class="ms-auto mb-2 d-flex mt-3">
+            <a href="javascript:void(0);" class="me-3 mb-2 d-flex"><span
+                class="fe fe-calendar text-muted me-2 fs-17"></span>
+                <div class="mt-0 text-dark">{{ convertedCreationDate | date: 'longDate' }}</div>
+              </a>
+            <a class="me-0 d-flex" href="javascript:void(0);"><span
+                class="fe fe-message-square text-muted me-2 fs-17"></span>
+              <div class="mt-0 mt-0 text-dark">12 Comments</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Comments</h3>
+        </div>
+        <div class="card-body">
+          <div class="d-sm-flex mt-0 p-3 sub-review-section border">
+            <div class="d-flex me-3">
+              <a href="javascript:void(0);"><img class="media-object brround avatar-md" alt="64x64"
+                  src="./assets/images/users/female/1.jpg"> </a>
+            </div>
+            <div class="media-body">
+              <h5 class="mt-0 mb-1 font-weight-semibold">Joanne Scott
+                <span class="fs-14 ms-0" data-bs-toggle="tooltip" data-bs-placement="top" title=""
+                  data-original-title="verified"><i class="fe fe-check-circle text-success fs-12"></i></span>
+                <span class="fs-14 ms-2"> 4.5 <i class="fa fa-star text-warning"></i></span>
+              </h5>
+              <p class="font-13  mb-2 mt-2">
+                Lorem ipsum dolor sit amet, quis Neque porro quisquam est, nostrud exercitation ullamco laboris commodo
+                consequat.
+              </p>
+              <a href="javascript:void(0);" class="me-2 mt-1"><span class="badge bg-primary"><span
+                    class="me-1 fe fe-thumbs-up fs-11"></span>Helpful</span></a>
+              <a href="javascript:void(0);" class="me-2 mt-1"><span class="badge bg-success "><span
+                    class="me-1 fe fe-edit-2 fs-11"></span>Comment</span></a>
+              <a href="javascript:void(0);" class="me-2 mt-1"><span class="badge bg-warning"><span
+                    class="me-1 fe fe-alert-triangle fs-11"></span>Report</span></a>
+              <div class="btn-group btn-group-sm mb-1 ms-auto float-sm-end mt-1">
+                <button class="btn btn-light"><span class="fe fe-thumbs-up fs-16"></span></button>
+                <button class="btn btn-light"><span class="fe fe-thumbs-down fs-16"></span></button>
+              </div>
+            </div>
+          </div>
+          <div class="d-sm-flex p-3 mt-4 sub-review-section border subsection-color">
+            <div class="d-flex me-3">
+              <a href="javascript:void(0);"><img class="media-object brround avatar-md" alt="64x64"
+                  src="./assets/images/users/female/2.jpg"> </a>
+            </div>
+            <div class="media-body">
+              <h5 class="mt-0 mb-1 font-weight-semibold">Rose Slater <span class="fs-14 ms-0" data-bs-toggle="tooltip"
+                  data-bs-placement="top" title="" data-original-title="verified"><i
+                    class="fe fe-check-circle text-success fs-12"></i></span></h5>
+              <p class="font-13  mb-2 mt-2">
+                Lorem ipsum dolor sit amet nostrud exercitation ullamco laboris commodo consequat.
+              </p>
+              <a href="javascript:void(0);" class="me-2 mt-1"><span class="badge bg-primary"><span
+                    class="me-1 fe fe-thumbs-up fs-11"></span>Helpful</span></a>
+              <a href="javascript:void(0);" class="me-2 mt-1"><span class="badge bg-success "><span
+                    class="me-1 fe fe-edit-2 fs-11"></span>Comment</span></a>
+              <a href="javascript:void(0);" class="me-2 mt-1"><span class="badge bg-warning"><span
+                    class="me-1 fe fe-alert-triangle fs-11"></span>Report</span></a>
+              <div class="btn-group btn-group-sm mb-1 ms-auto float-sm-end mt-1">
+                <button class="btn btn-light"><span class="fe fe-thumbs-up fs-16"></span></button>
+                <button class="btn btn-light"><span class="fe fe-thumbs-down fs-16"></span></button>
+              </div>
+            </div>
+          </div>
+          <div class="d-sm-flex p-3  mt-4 sub-review-section border subsection-color">
+            <div class="d-flex me-3">
+              <a href="javascript:void(0);"><img class="media-object brround avatar-md" alt="64x64"
+                  src="./assets/images/users/female/6.jpg"> </a>
+            </div>
+            <div class="media-body">
+              <h5 class="mt-0 mb-1 font-weight-semibold">Camila cabello <span class="fs-14 ms-0"
+                  data-bs-toggle="tooltip" data-bs-placement="top" title="" data-original-title="verified"><i
+                    class="fe fe-check-circle text-success fs-12"></i></span></h5>
+              <p class="font-13  mb-2 mt-2">
+                Lorem ipsum dolor sit amet nostrud exercitation ullamco laboris commodo consequat.
+              </p>
+              <a href="javascript:void(0);" class="me-2 mt-1"><span class="badge bg-primary"><span
+                    class="me-1 fe fe-thumbs-up fs-11"></span>Helpful</span></a>
+              <a href="javascript:void(0);" class="me-2 mt-1"><span class="badge bg-success "><span
+                    class="me-1 fe fe-edit-2 fs-11"></span>Comment</span></a>
+              <a href="javascript:void(0);" class="me-2 mt-1"><span class="badge bg-warning"><span
+                    class="me-1 fe fe-alert-triangle fs-11"></span>Report</span></a>
+              <div class="btn-group btn-group-sm mb-1 ms-auto float-sm-end mt-1">
+                <button class="btn btn-light"><span class="fe fe-thumbs-up fs-16"></span></button>
+                <button class="btn btn-light"><span class="fe fe-thumbs-down fs-16"></span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+  <div class="col-xl-3 col-lg-12 col-md-12">
+    <div class="card custom-card overflow-hidden">
+
+      <div class="card-header">
+        <h3 class="card-title">Search</h3>
+      </div>
+      <div class="card-body">
+        <div class="input-group">
+          <input class="form-control" placeholder="Enter email..." type="email">
+          <button class="btn btn-primary" type="button">Sign in</button>
+        </div>
+      </div>
+    </div>
+    <div class="card custom-card overflow-hidden">
+      <div class="card-header">
+        <h3 class="card-title">{{ blog?.title }}</h3>
+
+      </div>
+      
+
+      <div class="card-body">
+        <div class="text-center">
+          <a routerLink="blog/blogdetails"><img class="card-img-top w-100 w-100 rounded-3"
+            [src]="blog?.imageBlog" alt=""></a>
+          <div class="rounded-3 pt-3 px-0 text-justify">
+            <p class="card-text" [innerHTML]="safePost(blog?.post) | stripHtml | slice:0:200"></p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card custom-card overflow-hidden">
+      <div class="card-header">
+        <h3 class="card-title mb-1">Popular posts</h3>
+      </div>
+      <div class="card-body">
+        <ul class="list-group mb-0">
+          <li class="list-group-item d-flex border-0 pt-3 px-0">
+            <img src="./assets/images/photos/1.jpg" class="avatar rounded-3 avatar-lg me-3 my-auto" alt="avatar-img">
+            <div class="">
+              <span class="d-block">Tourism</span>
+              <a class="text-default fs-12 font-weight-semibold white-space-nowrap">Explore tourism by visitinig
+                places.</a>
+              <small class="d-block text-muted">February 2,2021</small>
+            </div>
+          </li>
+          <li class="list-group-item d-flex border-0 px-0">
+            <img src="./assets/images/photos/2.jpg" class="avatar rounded-3 avatar-lg me-3 my-auto" alt="avatar-img">
+            <div class="">
+              <span class="d-block">Beautician</span>
+              <a class="text-default  fs-12 font-weight-semibold white-space-nowrap">Beautification courses are
+                available.</a>
+              <small class="d-block text-muted">August 14,2021</small>
+            </div>
+          </li>
+          <li class="list-group-item d-flex pb-3 border-0 px-0">
+            <img src="./assets/images/photos/5.jpg" class="avatar rounded-3 avatar-lg me-3 my-auto" alt="avatar-img">
+            <div class="">
+              <span class="d-block">Music</span>
+              <a class="text-default fs-12 font-weight-semibold white-space-nowrap">Music in a peaceful way </a>
+              <small class="d-block text-muted">November 30,2021</small>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="card custom-card overflow-hidden">
+      <div class="card-header">
+        <h3 class="card-title mb-1">Categories</h3>
+      </div>
+      <div class="card-body">
+        <div>
+          <div class="tags">
+            <a href="javascript:void(0);" class="tag">Life style</a>
+            <a href="javascript:void(0);" class="tag">Health</a>
+            <a href="javascript:void(0);" class="tag">Tourism</a>
+            <a href="javascript:void(0);" class="tag">Web designing</a>
+            <a href="javascript:void(0);" class="tag">Medical</a>
+            <a href="javascript:void(0);" class="tag">Hotels</a>
+            <a href="javascript:void(0);" class="tag">Real estate</a>
+            <a href="javascript:void(0);" class="tag">Business</a>
+            <a href="javascript:void(0);" class="tag">Shopping</a>
+            <a href="javascript:void(0);" class="tag">Marketing</a>
+            <a href="javascript:void(0);" class="tag">Housing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="badge bg-danger mt-2 mx-1 d-block "(click)="confirmDelete()" >
+      <i class='bx bx-trash'></i>
+
+    </button><br>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Add a Comment</h3>
+      </div>
+      <div class="card-body">
+        <div class="mt-2">
+          <div class="form-group">
+            <input type="text" class="form-control" id="name1" placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" id="email" placeholder="Email Address">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" name="example-textarea-input" rows="6" placeholder="Write Review"></textarea>
+          </div>
+          <a href="javascript:void(0);" class="btn btn-primary">Send Reply</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+<!--End Row-->

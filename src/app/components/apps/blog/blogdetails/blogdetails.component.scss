@@ -1,0 +1,10 @@
+.delete-blog {
+    color: #ff0000; /* Rouge */
+    font-size: 0.7rem; /* Petite taille de police */
+    text-decoration: none; /* Enlève le soulignement par défaut des liens */
+    cursor: pointer; /* Change le curseur au survol */
+  }
+  
+  .delete-blog:hover {
+    text-decoration: underline; /* Ajoute un soulignement au survol pour indiquer que c'est cliquable */
+  }

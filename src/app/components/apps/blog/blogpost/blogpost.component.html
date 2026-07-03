@@ -1,0 +1,110 @@
+<app-page-header title="Apps" active_item="Blog Post"></app-page-header>
+<!-- Row -->
+<div class="row">
+
+  <div class="col-lg-12 col-md-12 col-md-12">
+    <div class="card blog-edit">
+      <div class="card-body">
+      <form   #form="ngForm" (ngSubmit)="publishBlog()"  novalidate>
+
+        <div class="form-group">
+          <label class="form-label text-dark"> Title</label>
+          <input [(ngModel)]="newBlog.title" type="text" class="form-control" id="title" name="title">
+        </div>
+
+        <div class="form-group category">
+          <label class="form-label text-dark">process</label>
+          <ng-select class="form-control select2 form-select p-0"   id="process" [(ngModel)]="newBlog.process" name="process">
+
+            <ng-option value="TROIS_PRINTING">TROIS PRINTING</ng-option>
+            <ng-option value="CNC_MACHINING">CNC MACHINING</ng-option>
+            <ng-option value="LASER_CUTTING">LASER CUTTING</ng-option>
+         
+          </ng-select>
+        </div>
+        
+       
+
+           
+             <!-- <textarea class="form-control form-control-lg"  [(ngModel)]="newBlog.post" (ngModelChange)="onContentChanged($event)" name="post" id="post" required rows="4"></textarea>-->
+          <div class="editor-container">
+
+             <div class="editor" >
+              <label class="form-label text-dark">post</label>
+                <ngx-editor-menu class="border-1" [editor]="editor" [toolbar]="toolbar"  >
+                </ngx-editor-menu>
+                
+                <ngx-editor [editor]="editor" [(ngModel)]="newBlog.post" (ngModelChange)="onContentChanged($event)" name="post" id="post"></ngx-editor>
+                  
+            </div>
+          </div>
+
+
+
+          <div class="form-group">
+            <label class="form-label text-dark">Image  </label>
+          </div>
+
+          
+          <div class="dropzone">
+<!-- blogpost.component.html -->
+<div *ngIf="isLoading" class="loading-indicator">
+  Chargement en cours...
+</div>
+<img *ngIf="!isLoading" [src]="newBlog.imageBlog" (load)="onImageLoad()" (error)="onImageError()" alt="Image du blog" />
+
+            <ngx-dropzone (change)="onSelect($event)" *ngIf="!newBlog.imageBlog">
+              <ngx-dropzone-label>Drag and drop a file Here!</ngx-dropzone-label>
+            
+            </ngx-dropzone>
+          </div>
+
+
+
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary float-end mt-2">Publish Now</button>
+        </div>
+      </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+  <!-- End Row -->
+
+         <!--- <div class="form-group">
+            <label class="form-label">Upload Video URL</label>
+            <input type="text" class="form-control" placeholder="https://videos.com"
+              value="https://www.youtube.com/embed/tMWkeBIohBs">
+          </div>
+          <div class="control-group form-group  mb-0">
+            <label class="form-label text-dark">Course Post Package</label>
+            <div class=" border p-3 rounded-3">
+              <div class="d-md-flex ad-post-details">
+                <label class="custom-control custom-radio mb-0 me-5">
+                  <input type="radio" class="custom-control-input" name="radios1" value="option7">
+                  <span class="custom-control-label">30 Days Free</span>
+                </label>
+                <label class="custom-control custom-radio  mb-0 me-4">
+                  <input type="radio" class="custom-control-input" name="radios1" value="option8" checked="">
+                  <span class="custom-control-label">60 days / <span class="font-weight-bold">$20</span></span>
+                </label>
+                <label class="custom-control custom-radio  mb-0 me-4">
+                  <input type="radio" class="custom-control-input" name="radios1" value="option9">
+                  <span class="custom-control-label">6months /<span class="font-weight-bold">$50</span></span>
+                </label>
+                <label class="custom-control custom-radio  mb-0">
+                  <input type="radio" class="custom-control-input" name="radios1" value="option10">
+                  <span class="custom-control-label">1 year / <span class="font-weight-bold">$80</span></span>
+                </label>
+              </div>
+            </div>
+          </div>-->

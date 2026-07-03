@@ -1,0 +1,37 @@
+<app-page-header title="Forms"  active_item="Form Editor"></app-page-header>
+<!-- ROW-1 OPEN -->
+<div class="row">
+  <div class="col-md-12">
+      <div class="card">
+          <div class="card-header border-bottom">
+              <h3 class="card-title">Angular Editor</h3>
+          </div>
+          <div class="card-body">
+            <angular-editor
+            [config]="config"
+          ></angular-editor>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-12">
+      <div class="card">
+          <div class="card-header">
+              <h3 class="card-title">Ngx Editor</h3>
+          </div>
+          <div class="card-body">
+              <form [formGroup]="form">
+                  <div class="editor" >
+                      <ngx-editor-menu class="border-1" [editor]="editor" [toolbar]="toolbar">
+                      </ngx-editor-menu>
+                      <ngx-editor [editor]="editor" formControlName="editorContent" >
+                      </ngx-editor>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>

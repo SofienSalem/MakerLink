@@ -1,0 +1,320 @@
+<app-page-header title="Elements"  active_item="Breadcrumbs"></app-page-header>
+
+<!-- ROW-1 OPEN -->
+<div class="row">
+  <div class="col-md-12 col-xl-6">
+      <div class="card">
+          <!-- <div class="card-header">
+              <h3 class="card-title">Simple Breadcrumbs</h3>
+          </div> -->
+          <app-element-card-header [title]="'Simple Breadcrumbs'" [item]="collapse" [item1]='isCollapsed' ></app-element-card-header>
+
+          <div class="card-body">
+              <div>
+                  <ol class="breadcrumb1">
+                      <li class="breadcrumb-item1 active">Home</li>
+                      <li class="breadcrumb-item1 active">About</li>
+                  </ol>
+                  <ol class="breadcrumb1">
+                      <li class="breadcrumb-item1"><a href="javascript:void(0)">Home</a></li>
+                      <li class="breadcrumb-item1 active">Library</li>
+                  </ol>
+                  <ol class="breadcrumb1">
+                      <li class="breadcrumb-item1"><a href="javascript:void(0)">Home</a></li>
+                      <li class="breadcrumb-item1"><a href="javascript:void(0)">Library</a></li>
+                      <li class="breadcrumb-item1 active">Data</li>
+                  </ol>
+              </div>
+              <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                  <div class="panel panel-primary tabs-style-1 my-3">
+                    <ul ngbNav #nav1="ngbNav" class="panel-tabs">
+                      <li class="me-2 mb-1" [ngbNavItem]="1">
+                        <a ngbNavLink>HTML</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{html1}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                      <li class="me-2 mb-1" [ngbNavItem]="2">
+                        <a ngbNavLink>TS</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{ts1}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                    </ul>
+
+                    <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                      <div [ngbNavOutlet]="nav1" class="tab-pane"></div>
+                      <div class="tab-content"></div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+  </div>
+  <!-- COL-END -->
+  <div class="col-md-12 col-xl-6">
+      <div class="card">
+          <app-element-card-header [title]="'Breadcrumbs Example2'" [item]="collapse2" [item1]='isCollapsed2' ></app-element-card-header>
+
+          <div class="card-body">
+              <div class="breadcrumb-style2">
+                  <ol class="breadcrumb1">
+                      <li class="breadcrumb-item1 active">Home</li>
+                      <li class="breadcrumb-item1 active">About</li>
+                  </ol>
+                  <ol class="breadcrumb1">
+                      <li class="breadcrumb-item1"><a href="javascript:void(0)">Home</a></li>
+                      <li class="breadcrumb-item1 active">Library</li>
+                  </ol>
+                  <ol class="breadcrumb1">
+                      <li class="breadcrumb-item1"><a href="javascript:void(0)">Home</a></li>
+                      <li class="breadcrumb-item1"><a href="javascript:void(0)">Library</a></li>
+                      <li class="breadcrumb-item1 active">Data</li>
+                  </ol>
+              </div>
+              <div #collapse2="ngbCollapse" [(ngbCollapse)]="isCollapsed2">
+                  <div class="panel panel-primary tabs-style-1 my-3">
+                    <ul ngbNav #nav2="ngbNav" class="panel-tabs">
+                      <li class="me-2 mb-1" [ngbNavItem]="1">
+                        <a ngbNavLink>HTML</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{html2}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                      <li class="me-2 mb-1" [ngbNavItem]="2">
+                        <a ngbNavLink>TS</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{ts2}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                    </ul>
+
+                    <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                      <div [ngbNavOutlet]="nav2" class="tab-pane"></div>
+                      <div class="tab-content"></div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+  </div>
+  <!-- COL-END -->
+  <div class="col-md-12 col-xl-6">
+      <div class="card">
+          <app-element-card-header [title]="'Breadcrumbs Example3'" [item]="collapse3" [item1]='isCollapsed3' ></app-element-card-header>
+
+          <div class="card-body">
+              <div class="breadcrumb-style3">
+                  <ol class="breadcrumb1">
+                      <li class="breadcrumb-item1 active">Home</li>
+                      <li class="breadcrumb-item1 active">About</li>
+                  </ol>
+                  <ol class="breadcrumb1">
+                      <li class="breadcrumb-item1"><a href="javascript:void(0)">Home</a></li>
+                      <li class="breadcrumb-item1 active">Library</li>
+                  </ol>
+                  <ol class="breadcrumb1">
+                      <li class="breadcrumb-item1"><a href="javascript:void(0)">Home</a></li>
+                      <li class="breadcrumb-item1"><a href="javascript:void(0)">Library</a></li>
+                      <li class="breadcrumb-item1 active">Data</li>
+                  </ol>
+              </div>
+              <div #collapse3="ngbCollapse" [(ngbCollapse)]="isCollapsed3">
+                  <div class="panel panel-primary tabs-style-1 my-3">
+                    <ul ngbNav #nav3="ngbNav" class="panel-tabs">
+                      <li class="me-2 mb-1" [ngbNavItem]="1">
+                        <a ngbNavLink>HTML</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{html3}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                      <li class="me-2 mb-1" [ngbNavItem]="2">
+                        <a ngbNavLink>TS</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{ts3}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                    </ul>
+
+                    <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                      <div [ngbNavOutlet]="nav3" class="tab-pane"></div>
+                      <div class="tab-content"></div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+
+      </div>
+  </div>
+  <!-- COL-END -->
+  <div class="col-xl-6 col-md-12">
+      <div class="card">
+
+          <app-element-card-header [title]="'Breadcrumbs-Center align'" [item]="collapse4" [item1]='isCollapsed4' ></app-element-card-header>
+
+          <div class="card-body">
+              <div>
+                  <div class="breadcrumb-3">
+                      <ol class="breadcrumb1">
+                          <li class="breadcrumb-item1"><a href="javascript:void(0)">Home</a></li>
+                          <li class="breadcrumb-item1 active">about</li>
+                      </ol>
+                  </div>
+                  <div class="breadcrumb-4">
+                      <ol class="breadcrumb1">
+                          <li class="breadcrumb-item1"><a href="javascript:void(0)">Home</a></li>
+                          <li class="breadcrumb-item1 active">Library</li>
+                      </ol>
+                  </div>
+                  <div class="breadcrumb-5">
+                      <ol class="breadcrumb1 mb-0">
+                          <li class="breadcrumb-item1"><a href="javascript:void(0)">Home</a></li>
+                          <li class="breadcrumb-item1"><a href="javascript:void(0)">Library</a></li>
+                          <li class="breadcrumb-item1 active">Data</li>
+                      </ol>
+                  </div>
+              </div>
+              <div #collapse4="ngbCollapse" [(ngbCollapse)]="isCollapsed4">
+                  <div class="panel panel-primary tabs-style-1 my-3">
+                    <ul ngbNav #nav4="ngbNav" class="panel-tabs">
+                      <li class="me-2 mb-1" [ngbNavItem]="1">
+                        <a ngbNavLink>HTML</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{html4}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                      <li class="me-2 mb-1" [ngbNavItem]="2">
+                        <a ngbNavLink>TS</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{ts1}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                    </ul>
+
+                    <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                      <div [ngbNavOutlet]="nav4" class="tab-pane"></div>
+                      <div class="tab-content"></div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+  </div>
+  <!-- COL-END -->
+  <div class="col-xl-6 col-md-12">
+      <div class="card">
+          <!-- <div class="card-header">
+              <h3 class="card-title">Breadcrumbs-Right align</h3>
+          </div> -->
+          <app-element-card-header [title]="'Breadcrumbs-Right align'" [item]="collapse5" [item1]='isCollapsed5' ></app-element-card-header>
+
+          <div class="card-body">
+              <div>
+                  <div class="breadcrumb-1">
+                      <ol class="breadcrumb1">
+                          <li class="breadcrumb-item1"><a href="javascript:void(0)">Home</a></li>
+                          <li class="breadcrumb-item1 active">about</li>
+                      </ol>
+                  </div>
+                  <div class="breadcrumb-2">
+                      <ol class="breadcrumb1">
+                          <li class="breadcrumb-item1"><a href="javascript:void(0)">Home</a></li>
+                          <li class="breadcrumb-item1"><a href="javascript:void(0)">Library</a></li>
+                      </ol>
+                  </div>
+                  <div class="breadcrumb-6">
+                      <ol class="breadcrumb1 mb-0">
+                          <li class="breadcrumb-item1"><a href="javascript:void(0)">Home</a></li>
+                          <li class="breadcrumb-item1"><a href="javascript:void(0)">Library</a></li>
+                          <li class="breadcrumb-item1 active">Data</li>
+                      </ol>
+                  </div>
+              </div>
+              <div #collapse5="ngbCollapse" [(ngbCollapse)]="isCollapsed5">
+                  <div class="panel panel-primary tabs-style-1 my-3">
+                    <ul ngbNav #nav5="ngbNav" class="panel-tabs">
+                      <li class="me-2 mb-1" [ngbNavItem]="1">
+                        <a ngbNavLink>HTML</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{html5}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                      <li class="me-2 mb-1" [ngbNavItem]="2">
+                        <a ngbNavLink>TS</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{ts1}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                    </ul>
+
+                    <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                      <div [ngbNavOutlet]="nav5" class="tab-pane"></div>
+                      <div class="tab-content"></div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+  </div>
+  <!-- COL-END -->
+  <div class="col-xl-6 col-md-12">
+      <div class="card">
+
+          <app-element-card-header [title]="'Color Breadcrumbs'" [item]="collapse6" [item1]='isCollapsed6' ></app-element-card-header>
+
+          <div class="card-body">
+              <div>
+                  <ol class="breadcrumb1 bg-info">
+                      <li class="breadcrumb-item active"><i class="fa fa-star-o me-2 text-transparant" aria-hidden="true"></i>Home</li>
+                  </ol>
+                  <ol class="breadcrumb1 bg-success">
+                      <li class="breadcrumb-item1"><i class="fa fa-star-o me-2 text-white" aria-hidden="true"></i><a class="text-white" href="javascript:void(0)">Home</a></li>
+                      <li class="breadcrumb-item active"><i class="fa fa-star-o mx-2 text-transparant" aria-hidden="true"></i>Library</li>
+                  </ol>
+                  <ol class="breadcrumb1 bg-secondary">
+                      <li class="breadcrumb-item"><i class="fa fa-star-o me-2 text-white" aria-hidden="true"></i><a class="text-white" href="javascript:void(0)">Home</a></li>
+                      <li class="breadcrumb-item"><i class="fa fa-star-o mx-2 text-white" aria-hidden="true"></i><a class="text-white" href="javascript:void(0)">Library</a></li>
+                      <li class="breadcrumb-item active"><i class="fa fa-star-o mx-2 text-transparant" aria-hidden="true"></i>Data</li>
+                  </ol>
+              </div>
+              <div #collapse6="ngbCollapse" [(ngbCollapse)]="isCollapsed6">
+                  <div class="panel panel-primary tabs-style-1 my-3">
+                    <ul ngbNav #nav6="ngbNav" class="panel-tabs">
+                      <li class="me-2 mb-1" [ngbNavItem]="1">
+                        <a ngbNavLink>HTML</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{html6}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                      <li class="me-2 mb-1" [ngbNavItem]="2">
+                        <a ngbNavLink>TS</a>
+                        <ng-template ngbNavContent>
+                          <pre><code >{{ts1}}</code></pre>
+
+                        </ng-template>
+                      </li>
+                    </ul>
+
+                    <div class="panel-body tabs-menu-body main-content-body-right border-top-0 border">
+                      <div [ngbNavOutlet]="nav6" class="tab-pane"></div>
+                      <div class="tab-content"></div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+  </div>
+  <!-- COL-END -->
+</div>
+<!-- ROW-1 CLOSED -->

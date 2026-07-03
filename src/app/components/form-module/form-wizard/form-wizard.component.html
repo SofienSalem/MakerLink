@@ -1,0 +1,125 @@
+<app-page-header title="Forms"  active_item="Form Wizard"></app-page-header>
+
+<!--Row open-->
+<div class="row">
+  <div class="col-12">
+      <div class="card">
+          <div class="card-header border-bottom-0">
+              <h3 class="card-title">Form Wizard</h3>
+          </div>
+          <div class="card-body">
+              <div id="wizard1">
+
+  <mat-stepper
+  class="example-stepper"
+  [orientation]="(stepperOrientation | async)!">
+  <mat-step [stepControl]="firstFormGroup" label="Login">
+    <form #firstStep="ngForm" novalidate>
+      <section>
+
+
+          <div class="control-group form-group">
+            <label class="form-control-label" for="name">Email address</label>
+            <input class="form-control" ngModel #name="ngModel" required id="name" name="name"
+              type="text" placeholder="Enter email address">
+
+          </div>
+
+        <div class="control-group form-group">
+          <label class="form-control-label" for="email">Password</label>
+          <input class="form-control input-md" ngModel #email="ngModel" required email
+            id="email2" name="email" type="email" placeholder="Password">
+        </div>
+
+
+    </section>
+      <div>
+        <button  class="btn btn-primary mt-2"  matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="New User">
+    <form [formGroup]="secondFormGroup">
+      <section>
+          <div class="control-group form-group">
+            <label class="form-control-label" for="name">User Name</label>
+            <input class="form-control" [ngModelOptions]="{standalone: true}" ngModel #name="ngModel" required id="name1" name="name"
+              type="text" placeholder="User Name">
+
+          </div>
+
+          <div class="control-group form-group">
+            <label class="form-control-label" for="email">Email address</label>
+            <input class="form-control input-md" [ngModelOptions]="{standalone: true}" ngModel #email="ngModel" required email
+              id="email" name="email" type="email" placeholder="Email address">
+          </div>
+
+                          <div class="control-group form-group">
+            <label class="form-control-label" for="email">Password</label>
+            <input class="form-control input-md" [ngModelOptions]="{standalone: true}" ngModel #email="ngModel" required email
+              id="password" name="password" type="password" placeholder="Password">
+          </div>
+        <!-- </div> -->
+    </section>
+      <div>
+        <button class="btn btn-danger me-2" matStepperPrevious>Back</button>
+        <button class="btn btn-primary me-2" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup" label="End">
+    <form [formGroup]="thirdFormGroup">
+      <section>
+
+        <div class="table-responsive mg-t-20">
+          <p>I agree terms and Conditions</p>
+      </div>
+    </section>
+
+    <button class="btn btn-danger me-2"  matStepperPrevious>Back</button>
+    </form>
+    </mat-step>
+    </mat-stepper>
+      </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!--row closed-->
+
+<!--row open-->
+<div class="row">
+  <div class="col-lg-12">
+      <div class="card">
+          <div class="card-header border-bottom-0">
+              <h3 class="card-title">Accordion-Wizard-Form</h3>
+          </div>
+          <div class="card-body">
+              <app-accordion-wizard></app-accordion-wizard>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+<!--row open-->
+
+<!--row closed-->
+<!-- Row -->
+<div class="row ">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header border-bottom-0">
+                <div class="card-title">
+                    Basic Content Wizard
+                </div>
+            </div>
+            <div class="card-body">
+                <app-basic-content></app-basic-content>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/Row -->
+

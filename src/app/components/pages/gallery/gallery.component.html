@@ -1,0 +1,25 @@
+<app-page-header title="Pages"  active_item="Gallery"></app-page-header>
+<!-- GALLERY DEMO OPEN -->
+<div class="demo-gallery card">
+    <div class="card-header">
+        <div class="card-title">Light Gallery</div>
+    </div>
+    <div class="card-body">
+      <ul id="lightgallery" class="list-unstyled row" >
+        <li *ngFor="let img of imagesRect" class="col-xs-6 col-sm-4 col-md-4 col-xl-3 mb-5 border-bottom-0" data-responsive="./assets/images/photos/1.jpg" data-src="./assets/images/photos/1.jpg" data-sub-html="<h4>Gallery Image 1</h4><p> Many desktop publishing packages and web page editors now use Lorem Ipsum</p>">
+          <a href="javascript:void(0)">
+            <img class="img-responsive rounded-3" [src]="img.modal.img" alt="Thumb-1" (click)="openImageModalRowDescription(2, img)">
+          </a>
+        </li>
+      </ul>
+</div>
+</div>
+
+    <div class="row mb-5">
+      <div class="col-md-6 mt-1 d-none d-md-block">1 - 10 of 234 photos</div>
+      <div class="col-md-6">
+          <div class="float-end">
+              <ngb-pagination [collectionSize]="50" [page]="5" aria-label="Default pagination"></ngb-pagination>
+          </div>
+      </div><!-- COL-END -->
+  </div>

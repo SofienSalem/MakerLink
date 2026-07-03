@@ -1,0 +1,437 @@
+<app-page-header title="Ecommerce"  active_item="Product Details"></app-page-header>
+<!-- ROW-1 OPEN -->
+<div class="row">
+    <div class="col-lg-8 col-md-12">
+        <div class="card productdesc">
+            <div class="card-body" >
+                <div class="productdec text-center">
+                    <div class="p-6 text-center">
+                      <div >
+                        <swiper [slidesPerView]="1" [spaceBetween]="50" [navigation]="true" [pagination]="{ clickable: true }"
+                          [thumbs]="{ swiper: thumbsSwiper }" >
+                          <ng-template swiperSlide *ngFor= "let item of data[0].children; let i = index" ><img src="{{item.img}}" alt="img"></ng-template>
+
+                       </swiper>
+                        <swiper [slidesPerView]="3" [spaceBetween]="50" (swiper)="setThumbsSwiper($event)" [navigation]="{}"
+                          [pagination]="{ clickable: true }" [scrollbar]="{ draggable: true }" [watchSlidesProgress]="true">
+                          <ng-template swiperSlide *ngFor="let item of data[0].children; let i = index"><img src="{{item.img}}" alt="img"></ng-template>
+
+                          </swiper>
+                      </div>
+
+
+                    </div>
+                  </div>
+                <div class="text-center mt-5 pb-5 btn-list">
+                    <a routerLink="/ecommerce/shoppingcart" class="btn btn-primary"><i class="ti-shopping-cart"> </i> Add to cart</a>
+                    <a routerLink="/ecommerce/checkout" class="btn btn-secondary"><i class="ti-shopping-cart"> </i> Buy Now</a>
+                </div>
+                <div class="details col-xl-7 col-lg-12 col-md-12 mt-4 mt-xl-0">
+                  <div class="mt-2 mb-4">
+                    <h3 class="mb-3 fw-semibold">
+                      {{ data[0].name }}
+                    </h3>
+                <!-- <div class="mt-4 mb-4"> -->
+                  <p class="text-muted mb-4">( 40 Customers Reviews)</p>
+                  <h4 class="mt-4"><b> Description</b></h4>
+                  <p>
+                    At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                    blanditiis praesentium voluptatum deleniti atque corrupti quos
+                    dolores et quas molestias excepturi sint occaecati cupiditate
+                    non provident, similique sunt in culpa qui officia deserunt
+                    mollitia animi, id est laborum et dolorum fuga.
+                  </p>
+                  <p>
+                    On the other hand, we denounce with righteous indignation and
+                    dislike men who are so beguiled and demoralized .
+                  </p>
+                  <h3 class="mb-4">
+                    <span class="me-2 fw-bold fs-25"
+                      >{{ data[0].offer_price  }} USD/</span
+                    ><span
+                      ><del class="fs-18 text-muted">{{
+                        data[0].price
+                      }}</del></span
+                    >
+                  </h3>
+                  <div class="mt-4 mb-5">
+                    <span class="fw-bold me-2">Offer :</span
+                    ><span class="fw-bold text-primary">15% Cashback </span>by using
+                    icici bank credit card.<small class="text-muted"
+                      >Terms and Conditions Applies!</small
+                    >
+                  </div>
+                  <div class="mt-4 mb-5">
+                    <span class="fw-bold me-2">Availability :</span
+                    ><span class="fw-bold text-success">In-stock</span>
+                  </div>
+                  <div class="colors d-flex me-3 mt-4 mb-5">
+                    <span class="mt-2 fw-bold">Colors:</span>
+                    <div class="row gutters-xs ms-4">
+                      <div class="col-3">
+                        <label class="colorinput">
+                          <input
+                            name="color"
+                            type="radio"
+                            value="azure"
+                            class="colorinput-input"
+                            checked=""
+                          />
+                          <span
+                            class="colorinput-color bg-danger rounded-10"
+                          ></span>
+                        </label>
+                      </div>
+                      <div class="col-3">
+                        <label class="colorinput">
+                          <input
+                            name="color"
+                            type="radio"
+                            value="indigo"
+                            class="colorinput-input"
+                          />
+                          <span class="colorinput-color bg-primary rounded-10"></span>
+                        </label>
+                      </div>
+                      <div class="col-3">
+                        <label class="colorinput">
+                          <input
+                            name="color"
+                            type="radio"
+                            value="purple"
+                            class="colorinput-input"
+                          />
+                          <span class="colorinput-color bg-info rounded-10"></span>
+                        </label>
+                      </div>
+                      <div class="col-3">
+                        <label class="colorinput">
+                          <input
+                            name="color"
+                            type="radio"
+                            value="pink"
+                            class="colorinput-input"
+                          />
+                          <span
+                            class="colorinput-color bg-success rounded-10"
+                          ></span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row row-sm">
+                    <div class="col">
+                      <div class="mb-2 me-2 sizes">
+                        <span class="fw-bold me-4">Quantity:</span>
+                        <div
+                          class="input-group input-indec input-indec1 w-30 mt-3"
+                        >
+                          <span class="input-group-btn">
+                            <button
+                              type="button"
+                              class="minus btn btn-white btn-number btn-icon br-0"
+                              (click)="plus()"
+                            >
+                              <i class="fa fa-minus text-muted"></i>
+                            </button>
+                          </span>
+                          <input
+                            type="text"
+                            name="quantity"
+                            class="form-control text-center qty"
+                            value="{{ input }}"
+                          />
+                          <span class="input-group-btn">
+                            <button
+                              type="button"
+                              class="quantity-right-plus btn btn-white btn-number btn-icon br-0 add"
+                              (click)="minus()"
+                            >
+                              <i class="fa fa-plus text-muted"></i>
+                            </button>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="btn-list mt-4">
+                    <a routerLink="/ecommerce/shoppingcart"
+                      routerLink="/ecommerce/shoppingcart"
+                      class="btn ripple btn-primary me-2"
+                      ><i class="fe fe-shopping-cart"> </i> Add to cart</a
+                    >
+                    <a
+                      routerLink="/ecommerce/checkout"
+                      class="btn ripple btn-secondary"
+                      ><i class="fe fe-credit-card"> </i> Buy Now</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+                    <div class="col-xl-12 col-md-12">
+                      <div class="productdesc">
+                        <div class="card-body">
+                          <div class="panel panel-primary">
+                            <div class="tab-menu-heading">
+                              <div class="tabs-menu1">
+                                <!-- Tabs -->
+                                <ul ngbNav #nav="ngbNav" [activeId]="1" class="panel-tabs">
+                                  <li [ngbNavItem]="1">
+                                    <a ngbNavLink>Specifications</a>
+                                    <ng-template ngbNavContent>
+                                      <div class="tab-pane active" id="tab5">
+
+                                       <h4 class="mb-5 mt-3 fw-bold">General :</h4>
+                                        <div class="table-responsive">
+                                        <ul class="list-unstyled mb-0">
+															<li class="row">
+																<div class="col-sm-3 text-muted">Brand</div>
+																<div class="col-sm-3">CASAMOTION</div>
+															</li>
+															<li class=" row">
+																<div class="col-sm-3 text-muted">Model Number</div>
+																<div class="col-sm-3">AHLF016</div>
+															</li>
+															<li class="p-b-20 row">
+																<div class="col-sm-3 text-muted">Model Name</div>
+																<div class="col-sm-3">casamotion</div>
+															</li>
+															<li class="p-b-20 row">
+																<div class="col-sm-3 text-muted">Suitable For</div>
+																<div class="col-sm-3">Table, Floor</div>
+															</li>
+															<li class="p-b-20 row">
+																<div class="col-sm-3 text-muted">Material</div>
+																<div class="col-sm-3">Wood</div>
+															</li>
+															<li class="p-b-20 row mb-0">
+																<div class="col-sm-3 text-muted">Color</div>
+																<div class="col-sm-3">Brown</div>
+															</li>
+														</ul>
+                                        </div>
+                                      </div>
+                                    </ng-template>
+                                  </li>
+                                  <li [ngbNavItem]="2">
+                                    <a ngbNavLink>Dimensions</a>
+                                    <ng-template ngbNavContent>
+                                      <div class="tab-pane pt-5" id="tab6">
+                                        <div class="table-responsive">
+                                          <ul class="list-unstyled mb-0">
+                                            <li class="row">
+                                              <div class="col-sm-3 text-muted">Width</div>
+                                              <div class="col-sm-3">6.1 inch</div>
+                                            </li>
+                                            <li class=" row">
+                                              <div class="col-sm-3 text-muted">Height</div>
+                                              <div class="col-sm-3">24 inch</div>
+                                            </li>
+                                            <li class="p-b-20 row">
+                                              <div class="col-sm-3 text-muted">Depth</div>
+                                              <div class="col-sm-3">6.1 inch</div>
+                                            </li>
+                                            <li class="p-b-20 row mb-0">
+                                              <div class="col-sm-3 text-muted">Other Dimensions</div>
+                                              <div class="col-sm-3">15.5*15.5*24CM</div>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </ng-template>
+                                  </li>
+                                  <li [ngbNavItem]="3">
+                                    <a ngbNavLink>Reviews</a>
+                                    <ng-template ngbNavContent>
+                                      <div class="tab-pane" id="tab7">
+                                        <div class="d-flex mb-5">
+                                          <div class=" me-3">
+                                            <a href="javascript:void(0)"> <img class="media-object rounded-circle avatar avatar-md" alt="img" src="./assets/images/users/female/5.jpg"> </a>
+                                          </div>
+                                          <div class="">
+                                            <h5 class="mt-0 mb-0">Gavin Murray</h5>
+                                            <div class="text-warning mb-0">
+                                              <i class="fa fa-star"></i>
+                                              <i class="fa fa-star"></i>
+                                              <i class="fa fa-star"></i>
+                                              <i class="fa fa-star"></i>
+                                              <i class="fa fa-star-o"></i>
+                                            </div>
+                                            <p class="font-13 text-muted mb-0">Good Looking.........</p>
+                                            <a href="javascript:void(0)"><span class="badge btn-custom rounded-pill">Reply</span></a>
+                                          </div>
+                                        </div>
+                                        <div class="d-flex mb-5">
+                                          <div class=" me-3">
+                                            <a href="javascript:void(0)"> <img class="media-object rounded-circle avatar avatar-md" alt="img" src="./assets/images/users/male/5.jpg"> </a>
+                                          </div>
+                                          <div class="">
+                                            <h5 class="mt-0 mb-0">Paul Smith</h5>
+                                            <div class="text-warning mb-0">
+                                              <i class="fa fa-star"></i>
+                                              <i class="fa fa-star"></i>
+                                              <i class="fa fa-star"></i>
+                                              <i class="fa fa-star-o"></i>
+                                              <i class="fa fa-star-o"></i>
+                                            </div>
+                                            <p class="font-13 text-muted mb-0">Very nice !!!!!!</p>
+                                            <a href="javascript:void(0)"><span class="badge btn-custom rounded-pill">Reply</span></a>
+                                          </div>
+                                        </div>
+                                        <h5 class="mb-3">Add Review</h5>
+                                        <form class="form-horizontal  m-t-20" action="index.html">
+                                          <div class="form-group">
+                                            <div class="col-xs-12">
+                                              <input class="form-control" type="text" required="" placeholder="Username*">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <div class="col-xs-12">
+                                              <input class="form-control" type="email" required="" placeholder="Email*">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <div class="col-xs-12">
+                                              <textarea class="form-control" rows="5">Your Review*</textarea>
+                                            </div>
+                                          </div>
+                                          <div class="">
+                                            <a href="javascript:void(0)" class="btn btn-primary btn-rounded  waves-effect waves-light">Submit</a>
+                                          </div>
+                                        </form>
+                                      </div>
+                                    </ng-template>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="panel-body tabs-menu-body">
+                              <div [ngbNavOutlet]="nav"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+</div>
+
+                      </div><!-- COL-END -->
+                      <div class="col-lg-4 col-md-12">
+                        <div class="card shop-category">
+                          <div class="card-header">
+                            <div class="card-title"> Categories &amp; Fliters</div>
+                          </div>
+                          <div class="card-body">
+                            <div class="custom-checkbox custom-control">
+                              <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1" checked="">
+                              <label for="checkbox-1" class="custom-control-label">Mens</label>
+                            </div>
+                            <div class="custom-checkbox custom-control">
+                              <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-2">
+                              <label for="checkbox-2" class="custom-control-label">Womens</label>
+                            </div>
+                            <div class="custom-checkbox custom-control">
+                              <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-3">
+                              <label for="checkbox-3" class="custom-control-label">Kids</label>
+                            </div>
+                            <div class="custom-checkbox custom-control">
+                              <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-4">
+                              <label for="checkbox-4" class="custom-control-label">Others</label>
+                            </div>
+                            <div class="form-group mt-3">
+                              <label class="form-label">Category</label>
+                              <ng-select name="beast" id="select-beast">
+                                <ng-option value="0">--Select--</ng-option>
+                                <ng-option value="1">Dress</ng-option>
+                                <ng-option value="2">Bags &amp; Purses</ng-option>
+                                <ng-option value="3">Coat &amp; Jacket</ng-option>
+                                <ng-option value="4">Beauty</ng-option>
+                                <ng-option value="5">Jeans</ng-option>
+                                <ng-option value="5">Jewellery</ng-option>
+                                <ng-option value="5">Electronics</ng-option>
+                                <ng-option value="5">Sports</ng-option>
+                                <ng-option value="5">Technology</ng-option>
+                                <ng-option value="5">Watches</ng-option>
+                                <ng-option value="5">Accessories</ng-option>
+                              </ng-select>
+                            </div>
+                            <div class="form-group">
+                              <label class="form-label">Brand</label>
+                              <ng-select name="beast" id="select-beast1">
+                                <ng-option value="0">--Select--</ng-option>
+                                <ng-option value="1">White</ng-option>
+                                <ng-option value="2">Black</ng-option>
+                                <ng-option value="3">Red</ng-option>
+                                <ng-option value="4">Green</ng-option>
+                                <ng-option value="5">Blue</ng-option>
+                                <ng-option value="6">Yellow</ng-option>
+                              </ng-select>
+                            </div>
+                            <div class="form-group">
+                              <label class="form-label">Type</label>
+                              <ng-select name="beast" id="select-beast2" >
+                                <ng-option value="0">--Select--</ng-option>
+                                <ng-option value="1">Extra Small</ng-option>
+                                <ng-option value="2">Small</ng-option>
+                                <ng-option value="3">Medium</ng-option>
+                                <ng-option value="4">Large</ng-option>
+                                <ng-option value="5">Extra Large</ng-option>
+                              </ng-select>
+                            </div>
+                            <div class="form-group">
+                              <label class="form-label">Color</label>
+                              <ng-select name="beast" id="select-beast3">
+                                <ng-option value="0">--Select--</ng-option>
+                                <ng-option value="1">White</ng-option>
+                                <ng-option value="2">Black</ng-option>
+                                <ng-option value="3">Red</ng-option>
+                                <ng-option value="4">Green</ng-option>
+                                <ng-option value="5">Blue</ng-option>
+                                <ng-option value="6">Yellow</ng-option>
+                              </ng-select>
+                            </div>
+                            <div class="btn-list">
+                              <a class="btn btn-primary " href="javascript:void(0)">Apply Filter</a>
+                              <a class="btn btn-danger" href="javascript:void(0)">Search Now</a>
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="card productdesc-1">
+                          <div class="card-body">
+                            <div class="carousel slide " data-bs-ride="carousel">
+                              <ngb-carousel *ngIf="images">
+                                <ng-template ngbSlide *ngFor="let item of imageData">
+                                  <div class="wrapper">
+
+                                    <img class="pro_img " alt="Product" [src]="item.photo">
+                                  </div>
+                                  <div class="carouselproduct text-center">
+                                    <h5 class="text-primary"><a routerLink="/ecommerce/productdetails/{{item.id}}">{{item.name}}</a></h5>
+                                    <ul class="product_price list-unstyled">
+                                      <li class="old_price">{{item.oldPrice}}</li>
+                                      <li class="new_price">{{item.newPrice}}</li>
+
+                                    </ul>
+                                    <div class="mb-3 mt-3 text-warning">
+                                      <i class=" fa fa-star"></i>
+                                      <i class="fa fa-star"></i>
+                                      <i class="fa fa-star"></i>
+                                      <i class="fa fa-star-o"></i>
+                                      <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <a routerLink="/ecommerce/shoppingcart" class="btn btn-primary"><i class="ti-shopping-cart"></i> Buy Now</a>
+                                  </div>
+
+
+                              </ng-template>
+                              </ngb-carousel>
+
+                          </div>
+                        </div>
+                      </div><!-- COL-END -->
+                    </div>
+<!-- ROW-1 CLOSED -->
+
